@@ -34,8 +34,9 @@ public class BuildInfoHealthCheck implements HealthIndicator {
         if (buildProps.isEmpty()) {
             try {
                 buildProps.load(getClass().getClassLoader().getResourceAsStream("build-info.properties"));
-            } catch (IOException e) {
+            } catch (Exception e) {
                 LOG.warn("unable to read build-info.properties", e);
+                buildProps = new Properties();
             }
         }
         return buildProps;
