@@ -1,0 +1,18 @@
+debug: false
+
+spring:
+  application:
+    name: profile-service
+
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL:http://127.0.0.1:8761}
+      fail-fast: true
+
+---
+spring:
+  profiles: test
+
+  cloud:
+    config:
+      fail-fast: false

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.fictional.nfs2</groupId>
-  <artifactId>parent</artifactId>
+  <artifactId>nfs2-parent</artifactId>
   <version>2.0.0</version>
   <packaging>pom</packaging>
 
@@ -13,8 +13,7 @@
   <modules>
     <module>infra</module>
     <module>foundation</module>
-<!--     <module>pocapp</module>
- -->
+    <module>ibank</module>
   </modules>
 
   <distributionManagement>

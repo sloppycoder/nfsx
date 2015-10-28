@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.fictional.nfs2</groupId>
+    <artifactId>foundation-parent</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <relativePath>../foundation</relativePath>
+  </parent>
+
+  <groupId>com.fictional.ibank</groupId>
+  <artifactId>ibank-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <description>convenient POM for grouping directories to make it easier to import into IDE.</description>
+
+  <repositories>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>http://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>http://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-releases</id>
+      <name>Spring Releases</name>
+      <url>http://repo.spring.io/release</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <distributionManagement>
+    <repository>
+      <id>csl.lib-release</id>
+      <name>internal releases</name>
+      <url>http://internal.repo/artifactory/libs-release-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>csl.lib-snapshot</id>
+      <name>internal snapshots</name>
+      <url>http://internal.repo/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <modules>
+    <module>domain</module>
+    <module>apps</module>
+  </modules>
+
+  <properties>
+    <!-- maven settings -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <nfs2.version>2.0.0-SNAPSHOT</nfs2.version>
+
+  </properties>
+
+
+  <build>
+    <defaultGoal>clean install</defaultGoal>
+  </build>
+
+</project>
