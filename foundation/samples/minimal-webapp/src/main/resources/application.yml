@@ -7,6 +7,8 @@ logging:
     org.apache.http: WARN
     org.springframework.security: INFO
 
+domains.access.control.allow.origin: "*"
+
 security:
   require-ssl: false
   oauth2:
@@ -32,3 +34,12 @@ security:
 spring:
   application:
     name: minima-webapp
+
+flyway:
+  enabled: false
+  locations: . # having an invalid path will cause flyway to fail
+
+management:
+  security:
+    enabled: false
+

@@ -47,4 +47,6 @@ flyway:
   enabled: true
   locations: db/migration/h2
 
-
+management:
+  security:
+    enabled: false
