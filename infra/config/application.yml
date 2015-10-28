@@ -25,6 +25,9 @@ security:
     - "/mappings"
     - "/trace"
 
+management:
+  security:
+    enabled: false
 
 # settings used by Spring
 spring:
