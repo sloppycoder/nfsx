@@ -1,0 +1,83 @@
+server:
+  tomcat:
+    access-log-enabled: true
+    access-log-pattern: "%h %l %u %t \"%r\" %s %b %D"
+    basedir: ${HOME:/Users/lee}/tmp/csl/${spring.application.name}
+
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: WARN
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://127.0.0.1:8761/eureka/}
+  instance:
+    leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+security:
+  require-ssl: false
+  ignored:
+    - "/env"
+    - "/mappings"
+    - "/trace"
+
+
+# settings used by Spring
+spring:
+  # default to h2 database
+  profiles:
+    include: h2
+
+  main:
+    show-banner: false
+
+---
+spring:
+  profiles: oracle
+
+  datasource:
+    url: jdbc:oracle:thin:@192.168.99.100:32769:XE
+    username: spring
+    password: spring
+
+  jpa:
+    database: oracle
+    show-sql: true
+    hibernate:
+      ddl-auto: ""
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+
+flyway:
+  enabled: true
+  locations: db/migration/oracle
+  initOnMigrate: true
+
+---
+# use H2 database
+spring:
+  profiles: h2
+
+  datasource:
+    url: jdbc:h2:mem:tempdb;MODE=oracle;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+
+  jpa:
+    database: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: ""
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+flyway:
+  enabled: true
+  locations: db/migration/h2

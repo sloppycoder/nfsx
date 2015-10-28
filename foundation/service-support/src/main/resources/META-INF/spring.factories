@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.fictional.nfs2.service.config.CommonHealthIndicatorAutoConfiguration,\
+com.fictional.nfs2.service.config.CORSFilterAutoConfiguration
+

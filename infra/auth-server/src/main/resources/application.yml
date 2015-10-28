@@ -1,0 +1,23 @@
+server:
+  port: 19999
+  context-path: "/uaa"
+
+security:
+  user:
+    password: password
+  require-ssl: false
+  ignored:
+    - "/css/**"
+    - "/js/**"
+    - "/favicon.ico"
+    - "/webjars/**"
+    - "/trace"
+    - "/health"
+    - "/mappings"
+
+logging:
+  level:
+    root: WARN
+    org.springframework.security: DEBUG
+
+

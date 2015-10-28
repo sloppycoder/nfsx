@@ -1,0 +1,26 @@
+server:
+  port: 8761 # this is the well known port for Eureka
+
+logging:
+  level:
+    root: WARN
+
+spring:
+  profiles:
+    active: native
+
+  config:
+    name: configserver
+
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: ../config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://127.0.0.1:8761/eureka/}
+  instance:
+    leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
