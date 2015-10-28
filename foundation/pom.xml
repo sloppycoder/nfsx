@@ -90,7 +90,7 @@
   </dependencyManagement>
 
   <build>
-    <defaultGoal>package</defaultGoal>
+    <defaultGoal>clean install</defaultGoal>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
