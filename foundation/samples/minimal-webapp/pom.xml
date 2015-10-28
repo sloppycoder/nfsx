@@ -4,38 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.fictional.nfs2</groupId>
-    <artifactId>webapp-base</artifactId>
+    <groupId>com.fictional.nfs2.samples</groupId>
+    <artifactId>sample-parent</artifactId>
     <version>2.0.0-SNAPSHOT</version>
-    <relativePath>../../webapp-base</relativePath>
   </parent>
 
   <artifactId>minimal-webapp</artifactId>
-  <packaging>jar</packaging>
-
   <description>Sample minimal web application built on nfs2 foundations</description>
-
-  <!-- uncomment the following to enable netflix OSS capabilites
-
-<dependencies>
-  <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-feign</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-eureka</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-ribbon</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-hystrix</artifactId>
-  </dependency>
-</dependencies>
-
--->
 
 </project>
