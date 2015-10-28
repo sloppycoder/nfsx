@@ -32,5 +32,5 @@ spring:
 
   oauth2:
     resource:
-      userInfoUri: http://localhost:19999/user
+      userInfoUri: http://localhost:19999/uaa/user
       preferTokenInfo: false

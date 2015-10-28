@@ -6,7 +6,7 @@ logging:
     root: INFO
     org.apache.http: WARN
     com.netflix: WARN
-    com.fictional.csl.web.service.profile.CustomerClient: FULL
+    CustomerClient: FULL
     org.springframework.security: INFO
 
 security:
@@ -30,6 +30,8 @@ security:
           -----END PUBLIC KEY-----
       id: openid
       serviceId: ${PREFIX:}resource
+
+domains.access.control.allow.origin: "*"
 
 spring:
   application:
