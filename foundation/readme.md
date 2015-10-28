@@ -1,6 +1,6 @@
 ## Cloud native fictional internet banking application based on Spring.io platform and Netflix OSS
 
-This is a minimal application skeleton that illustrates how an internet banking application can be structured around 
+Building block and demo minimal application skeletons that illustrates how an internet banking application can be structured around 
 multiple microservices built on top of Spring.io platform and Netflix OSS libraries.
 
 ### Design principles
@@ -15,11 +15,6 @@ multiple microservices built on top of Spring.io platform and Netflix OSS librar
 * Centrally managed application configuration. Each module will download configuration from the configuration server during startup.
 
 ### Modules
-#### auth-server
-a minimal oauth2 server. should be replaced with a full featured security server, e.g. [JBoss Keycloak](http://keycloak.jboss.org) for production implemenation.
-
-#### cloud-server
-a minimal cloud infrastructure server that servers as config server, Eureka server and Turbine dashboard server.
 
 #### domain
 Domain data models and APIs for RESTful micro services. They should be referenced in individual micro service implementation and service consumers. 
@@ -29,20 +24,19 @@ Domain data models and APIs for RESTful micro services. They should be reference
 #### service-support
 Common building blocks and support features, e.g. health check. Other functionality to include: audit 
 
-#### services
+#### samples/minimal-service
 Micro services for the serves RESTful APIs for various functionalities. 
 * base-service is a template micro service.
 * profile-service manages the customer profile.
 * casa-service is APIs for CASA services.
 
 Each of the services will use the following 
- * modelmapper based intelligent data mapping
- * jacoco agent
- * git info maven plugin to store git status in properties file and expose as healthcheck end point.
+ * [modelmapper](http://modelmapper.org) based intelligent data mapping
+ * jacoco agent coverage report support
+ * git info maven plugin to store git status in properties file and expose as health check end point.
+ * test cases for ensure application can start and custom health indicator is functional.
  
-#### main-app
-main web application. contains UI components for end-users. 
+#### samples/minimal-webapp
+main web application. same as services and adds freemarker based UI components for end-users. 
 
-### To run this demo
-   ... to be continued ...
    

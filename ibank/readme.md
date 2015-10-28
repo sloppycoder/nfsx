@@ -1,48 +1,47 @@
 ## Cloud native fictional internet banking application based on Spring.io platform and Netflix OSS
 
 This is a minimal application skeleton that illustrates how an internet banking application can be structured around 
-multiple microservices built on top of Spring.io platform and Netflix OSS libraries.
-
-### Design principles
-* Adopt industry best practices for building cloud native application. __Do NOT re-invent the wheel__.
-* Adopt effective 3rd party libraries to enable developers to accomplish maximum functionality without a lot of coding. 
-   
-### Architecture highlights   
-* Use multiple coarsely coupled [microservices](http://microservices.io/patterns/microservices.html) built with [spring-boot](http://projects.spring.io/spring-boot/) instead of one monolithic application to achieve agility in deployment.
-* Pure software based service registration and discovery based on [Eureka](https://github.com/Netflix/eureka) to achieve auto-scaling and failover. No dependencies on external proxy or load balancer. 
-* Authentication and authorization is centrally managed and is enforced throughout the entire application.
-* Builtin performance monitoring using [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) and [Netflix Turbine](https://github.com/Netflix/Turbine/wiki)
-* Centrally managed application configuration. Each module will download configuration from the configuration server during startup.
+(nfs2 foundation)[../foundation] components using built on top of Spring.io platform and Netflix OSS libraries.
 
 ### Modules
-#### auth-server
-a minimal oauth2 server. should be replaced with a full featured security server, e.g. [JBoss Keycloak](http://keycloak.jboss.org) for production implemenation.
+#### domain/profile-api
+Domain data model and API definition that servers as contract for both consumer and implementor of micro services. 
+This module does not contain any implementation details.
 
-#### cloud-server
-a minimal cloud infrastructure server that servers as config server, Eureka server and Turbine dashboard server.
+Highlights:
+ * [Jackson @JSON annotation](https://github.com/FasterXML/jackson-annotations) in models in controller JSON serialization and deserialization behaviors
+ * Standard based [Java bean validation](http://beanvalidation.org) annotation for data type validation. 
 
-#### domain
-Domain data models and APIs for RESTful micro services. They should be referenced in individual micro service implementation and service consumers. 
- * Jackson @JSON annotation in models in controller JSON serialization and deserialization behaviors
- * Java validation annotation for data type validation. 
-
-#### service-support
-Common building blocks and support features, e.g. health check. Other functionality to include: audit 
-
-#### services
-Micro services for the serves RESTful APIs for various functionalities. 
-* base-service is a template micro service.
-* profile-service manages the customer profile.
-* casa-service is APIs for CASA services.
-
-Each of the services will use the following 
- * modelmapper based intelligent data mapping
- * jacoco agent
- * git info maven plugin to store git status in properties file and expose as healthcheck end point.
+#### apps/profile-service
+Micro server that provide API to access customer profile data. 
+ 
+Highlights:
+ * application configuration is dynamically downloaded from cloud config server upon start.
+ * service automatically registers with [Eureka](https://github.com/Netflix/eureka/wiki) server up on start.
+ * [modelmapper](http://modelmapper.org) based intelligent Java object mapping between JPA physical data model and domain model.
+ * spring-data-jpa based DAO repository.
+ * spring-mvc @RestController that implements the REST API secured by spring-security, integrated OAuth2 authorization server.
+ * custom health indicator endpoint that display git repository info, available at http://server:port/health
+ * [Rest Assured](https://github.com/jayway/rest-assured/wiki) fluent API for testing REST APIs.
+ 
+#### apps/webapp
+Main application UI server. 
+ 
+Highlights:
+ * application configuration is dynamically downloaded from cloud config server upon start.
+ * SSO integration with Oauth2 authentication server
+ * Annotation driven automatic REST server discovery and consumption based on [Feign](https://github.com/Netflix/feign)
+ * custom health indicator endpoint that display git repository info, available at http://server:port/health
  
 #### main-app
 main web application. contains UI components for end-users. 
 
 ### To run this demo
-   ... to be continued ...
-   
+1. start authentication server by ``` cd nfs2/infra/auth-server; mvn ```
+2. start cloud config and Eureka server by ``` cd nfs2/infra/cloud-server; mvn ```
+3. start profile service by ``` cd nfs2/ibank/apps/profile-server; mvn spring-boot:run ```
+4. start main UI application by ``` cd nfs2/ibank/apps/webapp; mvn spring-boot:run ```
+
+After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
+
+
