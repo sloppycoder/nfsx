@@ -44,4 +44,10 @@ main web application. contains UI components for end-users.
 
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 
+### To check Eureka and Hystrix Dashboard
+* Eureka dashboard is available at [http://localhost:8761](http://localhost:8761)
+* Hystrix dashboard for webapp is available at [http://localhost:8761/hystrix](http://localhost:8761/hystrix)
+
+Use [this link](http://localhost:8761/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8000%2Fhystrix.stream) to view circuit break statuses for web app module.
+
 
