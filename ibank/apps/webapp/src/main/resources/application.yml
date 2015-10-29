@@ -15,8 +15,9 @@ security:
     client:
       accessTokenUri: http://localhost:19999/uaa/oauth/token
       userAuthorizationUri: http://localhost:19999/uaa/oauth/authorize
-      # currently the auth-server uses user/password (instead of client_id, client_secret) to
-      # authentication /oauth/token end point (which is incorrect?)
+      # ssoLogoutUrl below is custom property, not part of Spring
+      ssoLogoutUrl: http://localhost:19999/uaa/logout
+      # the credential below must be configured in authorization server.
       clientId: acme
       clientSecret: acmesecret
       # auth server uses header schema. use form for github.

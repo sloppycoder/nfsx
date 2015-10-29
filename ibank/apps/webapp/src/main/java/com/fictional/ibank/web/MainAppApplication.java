@@ -1,22 +1,18 @@
 package com.fictional.ibank.web;
 
-import com.fictional.ibank.profile.model.Customer;
-import com.fictional.ibank.web.service.profile.CustomerClient;
 import com.fictional.ibank.web.service.profile.CustomerServiceProxy;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Controller;
@@ -32,18 +28,27 @@ import java.util.Map;
 //@EnableZuulProxy
 @Controller
 @ComponentScan
-//@EnableOAuth2Sso
-//@EnableEurekaClient
+@EnableOAuth2Sso
+@EnableEurekaClient
 @EnableFeignClients
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class MainAppApplication extends WebMvcConfigurerAdapter {
+
+    @Value("${security.oauth2.client.ssoLogoutUrl}")
+    String ssoLogoutUrl;
 
     @Autowired
     CustomerServiceProxy customerServiceProxy;
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/autologout").setViewName("autologout");
+    }
+
     @RequestMapping(value = {"/dashboard"})
-    public String showIndex(Map<String, Object> model) throws Exception {
-        model.put("customer", customerServiceProxy.anonymousCustomer());
+    public String showDashboard(Map<String, Object> model) throws Exception {
+        model.put("customer", customerServiceProxy.getCustomerFromBackend());
+        model.put("sso_logout_url", ssoLogoutUrl);
         return "dashboard";
     }
 
@@ -51,11 +56,6 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
     @ResponseBody
     public Principal user(Principal user) {
         return user;
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
     }
 
     @RequestMapping("/")
@@ -79,7 +79,7 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
             // @formatter:off
             http
             .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/autologout").permitAll()
                 .anyRequest().fullyAuthenticated()
             .and()
                 .formLogin()
@@ -87,18 +87,6 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
                 .permitAll()
             .and()
                 .logout().permitAll();
-            // @formatter:on
-        }
-
-        @Override
-        public void configure(AuthenticationManagerBuilder auth) throws Exception {
-            // @formatter:off
-            auth.inMemoryAuthentication()
-                .withUser("admin").password("admin")
-                    .roles("ADMIN", "USER")
-            .and()
-                .withUser("user").password("user")
-                    .roles("USER");
             // @formatter:on
         }
 
