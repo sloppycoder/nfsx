@@ -3,7 +3,7 @@ spring:
     name: web-app
   cloud:
     config:
-      uri: ${CONFIG_SERVER_URL:http://127.0.0.1:8761}
+      uri: ${CONFIG_SERVER_URL:http://127.0.0.1:8761}/cloudconfig
       fail-fast: true
 
 ---

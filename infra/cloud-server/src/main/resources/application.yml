@@ -5,6 +5,13 @@ logging:
   level:
     root: WARN
 
+security:
+  require-ssl: false
+  ignored:
+    - "/**"
+    - "/mappings"
+    - "/trace"
+
 spring:
   profiles:
     active: native
@@ -15,12 +22,20 @@ spring:
   cloud:
     config:
       server:
+        prefix: /cloudconfig
         native:
           searchLocations: ../config
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://127.0.0.1:8761/eureka/}
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
   instance:
     leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
+
+turbine:
+  aggregator:
+    clusterConfig: WEBAPP
+  appConfig: webapp
