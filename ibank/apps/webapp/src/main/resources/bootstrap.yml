@@ -11,4 +11,4 @@ spring:
   profiles: test
   cloud:
     config:
-      fail-fast: false
+      enabled: false

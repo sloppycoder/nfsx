@@ -15,4 +15,4 @@ spring:
 
   cloud:
     config:
-      fail-fast: false
+      enabled: false
