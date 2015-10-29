@@ -74,6 +74,13 @@
         <scope>import</scope>
       </dependency>
 
+      <!-- Java standards -->
+      <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
+      </dependency>
+
       <!-- jdbc drivers -->
       <dependency>
         <groupId>com.oracle</groupId>
