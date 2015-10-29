@@ -18,7 +18,7 @@ public class CustomerServiceProxy {
 
     public Customer anonymousCustomer(){
         Customer anonymouse = new Customer();
-        anonymouse.setName("Anonymouse");
+        anonymouse.setName("Anonymous User");
         return anonymouse;
     }
 
