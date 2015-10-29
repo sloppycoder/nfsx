@@ -11,6 +11,9 @@ logging:
 
 security:
   require-ssl: false
+  ignored:
+    - "/home"
+
   oauth2:
     client:
       accessTokenUri: http://localhost:19999/uaa/oauth/token
