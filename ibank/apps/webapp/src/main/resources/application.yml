@@ -17,8 +17,8 @@ security:
       userAuthorizationUri: http://localhost:19999/uaa/oauth/authorize
       # currently the auth-server uses user/password (instead of client_id, client_secret) to
       # authentication /oauth/token end point (which is incorrect?)
-      clientId: user
-      clientSecret: password
+      clientId: acme
+      clientSecret: acmesecret
       # auth server uses header schema. use form for github.
       clientAuthenticationScheme: header
 

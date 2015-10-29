@@ -1,10 +1,11 @@
 package com.fictional.infra;
 
-import java.security.KeyPair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.ManagementServerProperties;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,16 +22,26 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.security.KeyPair;
+
+@SpringBootApplication
 @Configuration
-@ComponentScan
 @EnableAutoConfiguration
 @Controller
-@SessionAttributes("authorizationRequest")
+@ComponentScan
 public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
@@ -47,26 +58,37 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
     @Order(ManagementServerProperties.ACCESS_OVERRIDE_ORDER)
     protected static class LoginConfig extends WebSecurityConfigurerAdapter {
 
-        @Autowired
-        private AuthenticationManager authenticationManager;
-
         @Override
         protected void configure(HttpSecurity http) throws Exception {
+            // http://stackoverflow.com/questions/22886186/how-to-setup-access-control-allow-origin-filter-problematically-in-spring-securi
+
+            // @formatter:off
             http
-            .formLogin()
-            .loginPage("/login")
-            .permitAll()
+                .addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class)
+                .csrf().ignoringAntMatchers("/logout")
             .and()
-            .authorizeRequests()
-            .antMatchers("/oauth/token")
-            .permitAll()
-            .anyRequest()
-            .authenticated();
+                .formLogin().loginPage("/login").permitAll()
+            .and()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+            .and()
+                .logout().invalidateHttpSession(true).permitAll();
+            // @formatter:on
         }
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.parentAuthenticationManager(authenticationManager);
+            // @formatter:off
+            auth.inMemoryAuthentication()
+                .withUser("admin").password("admin")
+                    .roles("ADMIN", "USER")
+            .and()
+                .withUser("user").password("user")
+                    .roles("USER")
+            .and()
+                .withUser("acme").password("acmesecret")
+                    .roles("TOKEN");
+            // @formatter:on
         }
     }
 
@@ -89,26 +111,53 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+            // @formatter:on
             clients.inMemory()
-            .withClient("user")
-            .secret("password")
-            .authorizedGrantTypes("authorization_code", "refresh_token","implicit", "password")
+                .withClient("acme")
+                .secret("acmesecret")
+                .authorizedGrantTypes(
+                "authorization_code",
+                "refresh_token",
+                "implicit",
+                "password")
             .scopes("openid");
+            // @formatter:on
         }
 
         @Override
         public void configure(AuthorizationServerEndpointsConfigurer endpoints)
         throws Exception {
-            endpoints.authenticationManager(authenticationManager).accessTokenConverter(
-            jwtAccessTokenConverter());
+            endpoints.authenticationManager(authenticationManager)
+                .accessTokenConverter(jwtAccessTokenConverter());
         }
 
         @Override
         public void configure(AuthorizationServerSecurityConfigurer oauthServer)
         throws Exception {
-            oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess(
-            "isAuthenticated()");
+            oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
         }
 
     }
+
+    protected static class CORSFilter implements Filter {
+
+        @Override
+        public void init(FilterConfig filterConfig) throws ServletException {
+        }
+
+        @Override
+        public void doFilter(ServletRequest request, ServletResponse res, FilterChain chain)
+        throws IOException, ServletException {
+            HttpServletResponse response = (HttpServletResponse) res;
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+            response.setHeader("Access-Control-Max-Age", "3600");
+            response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+            chain.doFilter(request, response);
+        }
+
+        public void destroy() {}
+    }
+
+
 }

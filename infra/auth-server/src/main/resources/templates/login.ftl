@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="css/wro.css"/>
 </head>
 <body>
-  <div class="form-control"> if nothing else works, try user/password </div>
+  <div class="form-control"> user/user for USER role, admin/admin for ADMIN and USER roles </div>
 	<div class="container">
 		<form role="form" action="login" method="post">
   		  <div class="form-group">
