@@ -246,6 +246,7 @@
             </execution>
           </executions>
           <configuration>
+            <failOnNoGitDirectory>false</failOnNoGitDirectory>
             <dateFormat>yyyy-MM-dd'T'HH:mm:ss.SSSZ</dateFormat>
           </configuration>
         </plugin>
