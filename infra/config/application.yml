@@ -16,7 +16,7 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
     metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}}
 
 security:
   require-ssl: false
