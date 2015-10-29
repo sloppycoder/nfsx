@@ -6,7 +6,7 @@ multiple microservices built on top of Spring.io platform and Netflix OSS librar
 The project name is derived from racing game [Need for Speed](http://www.needforspeed.com). Here is implies the objective of the project is enable developer to create application quickly.
 
 ### Modules
-* [infra](infra) - infrastructure support including oauth2 server, config config server, Eureka server and Turbine console.
+* [infra](infra) - infrastructure support including oauth2 server, config config server, Eureka server and Hystrix console.
 * [foundation](foundation) - foundation building blocks that enables 
 * [ibank](ibank) - proof of concept sample application built with above foundation components.
 

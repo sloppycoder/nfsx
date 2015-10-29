@@ -11,7 +11,7 @@ multiple microservices built on top of Spring.io platform and Netflix OSS librar
 * Use multiple coarsely coupled [microservices](http://microservices.io/patterns/microservices.html) built with [spring-boot](http://projects.spring.io/spring-boot/) instead of one monolithic application to achieve agility in deployment.
 * Pure software based service registration and discovery based on [Eureka](https://github.com/Netflix/eureka) to achieve auto-scaling and failover. No dependencies on external proxy or load balancer. 
 * Authentication and authorization is centrally managed and is enforced throughout the entire application.
-* Builtin performance monitoring using [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) and [Netflix Turbine](https://github.com/Netflix/Turbine/wiki)
+* Builtin performance monitoring using [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) and [Netflix Hystrix Dashboard](https://github.com/Netflix/Hystrix/tree/master/hystrix-dashboard).
 * Centrally managed application configuration. Each module will download configuration from the configuration server during startup.
 
 ### Modules
