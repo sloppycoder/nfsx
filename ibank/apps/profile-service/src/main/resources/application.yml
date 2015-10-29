@@ -10,6 +10,14 @@ security:
 
 domains.access.control.allow.origin: "*"
 
+logging:
+  level:
+    root: INFO
+    org.apache.http: WARN
+    com.netflix: WARN
+    org.springframework.security: INFO
+    com.netflix.discovery.DiscoveryClient: OFF
+
 # default to h2 database
 spring:
   profiles:
