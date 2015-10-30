@@ -15,7 +15,7 @@
   <dependencies>
     <dependency>
       <groupId>com.fictional.ibank</groupId>
-      <artifactId>profile-api</artifactId>
+      <artifactId>profile-dao</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
