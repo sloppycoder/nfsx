@@ -23,6 +23,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -60,8 +61,11 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            // http://stackoverflow.com/questions/22886186/how-to-setup-access-control-allow-origin-filter-problematically-in-spring-securi
 
+            SimpleUrlLogoutSuccessHandler redirectHandler = new SimpleUrlLogoutSuccessHandler();
+            redirectHandler.setTargetUrlParameter("redirect");
+
+            // http://stackoverflow.com/questions/22886186/how-to-setup-access-control-allow-origin-filter-problematically-in-spring-securi
             // @formatter:off
             http
                 .addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class)
@@ -73,7 +77,7 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
                 .anyRequest().authenticated()
             .and()
                 .logout()
-                    .logoutSuccessUrl("http://localhost:8000/autologout")
+                    .logoutSuccessHandler(redirectHandler)
                 .permitAll();
             // @formatter:on
         }
