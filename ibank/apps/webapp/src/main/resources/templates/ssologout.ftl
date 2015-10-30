@@ -4,7 +4,6 @@
     <script type="text/javascript">
 
         window.onload = function()  {
-            console.log("trying to logout...");
             $('#logoutForm').submit();
         };
 

@@ -42,7 +42,7 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/autologout").setViewName("autologout");
+        registry.addViewController("/ssologout").setViewName("ssologout");
     }
 
     @RequestMapping(value = {"/dashboard"})
@@ -79,7 +79,7 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
             // @formatter:off
             http
             .authorizeRequests()
-                .antMatchers("/", "/autologout").permitAll()
+                .antMatchers("/", "/ssologout").permitAll()
                 .anyRequest().fullyAuthenticated()
             .and()
                 .formLogin()
