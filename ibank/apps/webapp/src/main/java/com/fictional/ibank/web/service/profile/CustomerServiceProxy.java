@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 public class CustomerServiceProxy {
 
     @Autowired
-    CustomerClient customerClient;
+    CustomerResourceClient customerResourceClient;
 
     @HystrixCommand(fallbackMethod = "anonymousCustomer")
     public Customer getCustomerFromBackend() throws Exception {
-       return customerClient.getCustomer("MY123456");
+       return customerResourceClient.getCustomer("MY123456");
     }
 
     public Customer anonymousCustomer(){

@@ -4,5 +4,5 @@ import com.fictional.ibank.profile.service.CustomerService;
 import org.springframework.cloud.netflix.feign.FeignClient;
 
 @FeignClient("profile-service")
-public interface CustomerClient extends CustomerService {
+public interface CustomerResourceClient extends CustomerService {
 }
