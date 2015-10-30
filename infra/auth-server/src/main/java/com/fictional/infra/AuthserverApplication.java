@@ -72,7 +72,9 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().authenticated()
             .and()
-                .logout().invalidateHttpSession(true).permitAll();
+                .logout()
+                    .logoutSuccessUrl("http://localhost:8000/autologout")
+                .permitAll();
             // @formatter:on
         }
 
