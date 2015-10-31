@@ -11,18 +11,22 @@ security:
     - "/**"
     - "/mappings"
     - "/trace"
+    - "/health"
+    - "/info"
 
 spring:
   profiles:
     active: native
 
   config:
-    name: configserver
+    name: cloud-server
 
   cloud:
     config:
       server:
         prefix: /cloudconfig
+#        git:
+#          uri: .
         native:
           searchLocations: ../config
 
@@ -39,3 +43,14 @@ turbine:
   aggregator:
     clusterConfig: WEBAPP
   appConfig: webapp
+
+---
+spring:
+  profiles: test
+
+  cloud:
+    config:
+      server:
+        prefix: /cloudconfig
+        native:
+          searchLocations: ./src/main/resources
