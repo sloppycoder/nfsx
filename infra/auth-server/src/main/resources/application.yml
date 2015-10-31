@@ -1,5 +1,5 @@
 server:
-  port: 19999
+  port: ${PORT:19999}
   context-path: "/uaa"
 
 security:
