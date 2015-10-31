@@ -1,5 +1,5 @@
 server:
-  port: 8110
+  port: ${PORT:8110}
 
 security:
   require-ssl: false
@@ -7,14 +7,8 @@ security:
     - "/**"
 
   oauth2:
-    client:
-      clientId: user
-      clientSecret: password
-      accessTokenUri: http://localhost:19999/uaa/oauth/token
-      userAuthorizationUri: http://localhost:19999/uaa/oauth/authorize
-      clientAuthenticationScheme: header
     resource:
-      # userInfoUri: http://localhost:19999/uaa/user
+      userInfoUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/user
       preferTokenInfo: true
       jwt:
         keyValue: |
@@ -32,5 +26,5 @@ spring:
 
   oauth2:
     resource:
-      userInfoUri: http://localhost:19999/uaa/user
+      userInfoUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/user
       preferTokenInfo: false

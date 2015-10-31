@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: ${PORT:8000}
 
 logging:
   level:
@@ -16,10 +16,10 @@ security:
 
   oauth2:
     client:
-      accessTokenUri: http://localhost:19999/uaa/oauth/token
-      userAuthorizationUri: http://localhost:19999/uaa/oauth/authorize
+      accessTokenUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/token
+      userAuthorizationUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/authorize
       # ssoLogoutUrl below is custom property, not part of Spring
-      ssoLogoutUrl: http://localhost:19999/uaa/logout?redirect=http://localhost:8000/ssologout
+      ssoLogoutUrl: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect=${LOGOUT_REDIRECT_URL:http://localhost:8000/ssologout}
       # the credential below must be configured in authorization server.
       clientId: acme
       clientSecret: acmesecret
