@@ -28,7 +28,7 @@ spring:
 #        git:
 #          uri: .
         native:
-          searchLocations: ../config
+          searchLocations: ${CLOUD_CONFIG_PATH:../config}
 
 eureka:
   client:
