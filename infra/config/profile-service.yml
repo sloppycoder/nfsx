@@ -3,10 +3,11 @@ server:
 
 security:
   require-ssl: false
-  ignored:
-    - "/**"
 
   oauth2:
+    client:
+      # oauth2 token relay needs clientId
+      clientId: acme
     resource:
       userInfoUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/user
       preferTokenInfo: true
