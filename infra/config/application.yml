@@ -1,8 +1,8 @@
 server:
   tomcat:
     access-log-enabled: true
-    access-log-pattern: "%h %l %u %t \"%r\" %s %b %D"
-    basedir: ${HOME:/Users/lee}/tmp/csl/${spring.application.name}
+    access-log-pattern: "%h %l %u %t \"%r\" %s %b %D %{X-Forwarded-For}i %{X-Forwarded-Proto}i %{Location}o"
+    basedir: ${TOMCAT_BASEDIR_ROOT:/Users/lee/tmp/nfs2}/${spring.application.name}_${server.port}
 
 logging:
   level:

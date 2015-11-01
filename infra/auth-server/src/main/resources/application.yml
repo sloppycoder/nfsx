@@ -1,6 +1,6 @@
 server:
   port: ${PORT:19999}
-  context-path: "/uaa"
+  context-path: /uaa
 
 security:
   require-ssl: false
