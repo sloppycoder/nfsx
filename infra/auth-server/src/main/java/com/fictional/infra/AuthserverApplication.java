@@ -63,7 +63,7 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
 
             SimpleUrlLogoutSuccessHandler redirectHandler = new SimpleUrlLogoutSuccessHandler();
-            redirectHandler.setTargetUrlParameter("redirect");
+            redirectHandler.setTargetUrlParameter("redirect_uri");
 
             // http://stackoverflow.com/questions/22886186/how-to-setup-access-control-allow-origin-filter-problematically-in-spring-securi
             // @formatter:off
