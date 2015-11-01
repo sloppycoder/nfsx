@@ -11,7 +11,7 @@
 
 </head>
 <body>
-  <form id="logoutForm" role="form" action="/logout" method="post">
+  <form id="logoutForm" role="form" action="${context}/logout" method="post">
       <input type="hidden" id="csrf_token" name="${_csrf.parameterName}" value="${_csrf.token}"/>
   </form>
 

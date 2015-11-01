@@ -34,21 +34,31 @@ import java.util.Map;
 @EnableCircuitBreaker
 public class MainAppApplication extends WebMvcConfigurerAdapter {
 
-    @Value("${security.oauth2.client.ssoLogoutUrl}")
-    String ssoLogoutUrl;
+    @Value("${security.oauth2.client.ssoLogoutUri}")
+    String ssoLogoutUri;
 
     @Autowired
     CustomerServiceProxy customerServiceProxy;
 
+    @Value("${server.context-path}")
+    String contextPath;
+
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/ssologout").setViewName("ssologout");
+        registry.addViewController("/autologout").setViewName("autologout");
+    }
+
+    @RequestMapping(value = {"/autologout"})
+    public String autoLogout(Map<String, Object> model) throws Exception {
+        model.put("context", contextPath);
+        return "autologout";
     }
 
     @RequestMapping(value = {"/dashboard"})
     public String showDashboard(Map<String, Object> model) throws Exception {
         model.put("customer", customerServiceProxy.getCustomerFromBackend());
-        model.put("sso_logout_url", ssoLogoutUrl);
+        model.put("sso_logout_url", ssoLogoutUri);
         return "dashboard";
     }
 
@@ -78,9 +88,9 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
             // @formatter:off
             http
-            .authorizeRequests()
-                .antMatchers("/", "/ssologout").permitAll()
-                .anyRequest().fullyAuthenticated()
+                .authorizeRequests()
+                    .antMatchers("/").permitAll()
+                    .anyRequest().fullyAuthenticated()
             .and()
                 .formLogin()
                     .loginPage("/login").failureUrl("/login?error")
