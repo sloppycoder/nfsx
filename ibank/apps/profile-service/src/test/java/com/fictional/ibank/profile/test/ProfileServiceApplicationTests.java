@@ -6,10 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -18,8 +18,8 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ProfileServiceApplication.class)
-@WebAppConfiguration
 @ActiveProfiles("test,h2")
+@WebAppConfiguration
 public class ProfileServiceApplicationTests {
 
     @Autowired
@@ -35,16 +35,19 @@ public class ProfileServiceApplicationTests {
     }
 
 
-    @Test public void
+    @Test
+    public void
     health_check_shows_git_info() {
-        given().
-        when().
-        get("/health").
-        then().
-        statusCode(200).
-        body(containsString("git.commit.id")).
-        log().
-        all();
+        // @formatter:off
+        given()
+        .when()
+            .get("/health")
+        .then()
+            .statusCode(200)
+            .body(containsString("git.commit.id"))
+        .log()
+            .all();
+        // @formatter:on
     }
 
 }

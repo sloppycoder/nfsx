@@ -24,6 +24,9 @@ import static org.junit.Assert.assertTrue;
 @IntegrationTest("server.port:0")
 public class MainAppApplicationTests {
 
+    @Value("${server.context-path}")
+    String contextPath;
+
     @Value("${local.server.port}")
     private int port;
 
@@ -34,21 +37,22 @@ public class MainAppApplicationTests {
 
     @Test
     public void userEndpointProtected() {
-        ResponseEntity<String> response = template.getForEntity("http://localhost:"
-        + port + "/user", String.class);
+        ResponseEntity<String> response = template.getForEntity(fullUrl("/user"), String.class);
         assertEquals(HttpStatus.FOUND, response.getStatusCode());
         String location = response.getHeaders().getFirst("Location");
-        assertTrue("Wrong location: " + location,
-        location.startsWith("http://localhost:" + port + "/login"));
+        assertTrue("Wrong location: " + location, location.startsWith(fullUrl("/login")));
     }
 
     @Test
     public void loginRedirects() {
-        ResponseEntity<String> response = template.getForEntity("http://localhost:"
-        + port + "/login", String.class);
+        ResponseEntity<String> response = template.getForEntity(fullUrl("/login"), String.class);
         assertEquals(HttpStatus.FOUND, response.getStatusCode());
         String location = response.getHeaders().getFirst("Location");
         assertTrue("Wrong location: " + location, location.startsWith(authorizeUri));
+    }
+
+    private String fullUrl(String path) {
+        return String.format("http://localhost:%s%s%s", port, contextPath, path);
     }
 
 }
