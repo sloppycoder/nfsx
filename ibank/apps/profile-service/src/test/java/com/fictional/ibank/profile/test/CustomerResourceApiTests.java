@@ -32,80 +32,99 @@ public class CustomerResourceApiTests {
 
     @Test public void
     get_customer_by_id() {
-        given().
-        when().
-            get("/customer/MY123456").
-        then().
-            statusCode(200).
-        body("name", equalTo("Hayashi San")).
-        log().ifError();
+        // @formatter:off
+        given()
+        .when()
+            .get("/customer/MY123456")
+        .then()
+            .statusCode(200)
+            .body("name", equalTo("Hayashi San"))
+        .log()
+            .ifError();
+        // @formatter:on
     }
 
     @Test public void
     get_customer_but_not_exist() {
-        given().
-        when().
-            get("/customer/MY8888888").  // this customer id does not exist
-        then().
-            statusCode(404).
-        log().ifError();
+        // @formatter:off
+        given()
+        .when()
+            .get("/customer/MY8888888")  // this customer id does not exist
+        .then()
+            .statusCode(404)
+        .log()
+            .ifError();
+        // @formatter:on
     }
 
     @Test public void
     get_customer_by_invalid_id() {
-        given().
-        when().
-        get("/customer/M1").  // invalid customer id
-        then().
-            statusCode(422).
-        log().ifError();
+        // @formatter:off
+        given()
+        .when()
+            .get("/customer/M1")  // invalid customer id
+        .then()
+            .statusCode(422)
+        .log()
+            .ifError();
+        // @formatter:on
     }
 
     @Test public void
     get_customer_by_login() {
-        given().
-        when().
-            get("/customer_by_login/MYmyuser1").
-        then().
-            statusCode(200).
-        body("name", equalTo("Hayashi San")).
-        log().ifError();
+        // @formatter:off
+        given()
+        .when()
+            .get("/customer_by_login/MYmyuser1")
+        .then()
+            .statusCode(200)
+        .body("name", equalTo("Hayashi San"))
+        .log()
+            .ifError();
+        // @formatter:on
     }
 
     @Test public void
     create_customer_fail_validation() {
-        given().
-            contentType("application/json").
-        body(INVALID_CREATE_CUSTOMER_JSON).
-        when().
-            post("/customer").
-        then().
-            statusCode(400).
-        body("exception", containsString("MethodArgumentNotValidException")).
-        log().ifError();
+        // @formatter:off
+        given()
+            .contentType("application/json")
+            .body(INVALID_CREATE_CUSTOMER_JSON)
+        .when()
+            .post("/customer")
+        .then()
+            .statusCode(400)
+            .body("exception", containsString("MethodArgumentNotValidException"))
+        .log()
+            .ifError();
+        // @formatter:on
 
     }
 
     @Test public void
     create_customer_success() {
-        given().
-            contentType("application/json").
-            body(VALID_CREATE_CUSTOMER_JSON).
-        when().
-            post("/customer").
-        then().
-            statusCode(200).
-        log().ifError();
+        // @formatter:off
+        given()
+            .contentType("application/json")
+            .body(VALID_CREATE_CUSTOMER_JSON)
+        .when()
+            .post("/customer")
+        .then()
+            .statusCode(200)
+        .log()
+            .ifError();
 
-        given().
-        when().
-            get("/customer/MY654322").
-        then().
-            statusCode(200).
-            body("name", equalTo("Shinzo Abe")).
-            body("id", notNullValue()).
-            body("lastUpdate", notNullValue()).
-        log().ifError();
+        given()
+        .when()
+            .get("/customer/MY654322")
+        .then()
+            .statusCode(200)
+            .body("name", equalTo("Shinzo Abe"))
+            .body("id", notNullValue())
+            .body("lastUpdate", notNullValue())
+        .log()
+            .ifError();
+        // @formatter:on
     }
 
     private static final String  VALID_CREATE_CUSTOMER_JSON =

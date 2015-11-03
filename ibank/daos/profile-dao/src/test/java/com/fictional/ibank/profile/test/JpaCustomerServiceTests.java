@@ -1,8 +1,9 @@
 package com.fictional.ibank.profile.test;
 
-import com.fictional.ibank.profile.ProfileServiceApplication;
-import com.fictional.ibank.profile.persistence.dao.CustomerEntityRepository;
+import com.fictional.ibank.profile.model.Customer;
 import com.fictional.ibank.profile.persistence.entity.CustomerEntity;
+import com.fictional.ibank.profile.service.CustomerService;
+import com.fictional.nfs2.domain.exception.NoDataFoundException;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 import org.flywaydb.core.api.MigrationInfoService;
@@ -16,7 +17,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
@@ -25,27 +25,21 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-/*
-this test class serves as example for using FlywayTest support.
-https://github.com/flyway/flyway-test-extensions/wiki/Usage-flyway-spring-test
- */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = ProfileServiceApplication.class)
-@ActiveProfiles("test,h2")
+@SpringApplicationConfiguration(classes = ProfileDaoTestApplication.class)
 @TestExecutionListeners({
 DependencyInjectionTestExecutionListener.class,
 FlywayTestExecutionListener.class
 })
-@WebAppConfiguration
 @FlywayTest
-public class CustomerEntityRepositoryTests {
+public class JpaCustomerServiceTests {
 
     @Autowired
     protected ApplicationContext context;
 
     @Autowired
-    CustomerEntityRepository customerEntityRepository;
+    protected CustomerService customerService;
 
     @Rule
     public TestName testName = new TestName();
@@ -55,7 +49,7 @@ public class CustomerEntityRepositoryTests {
         Flyway flyway = context.getBean(Flyway.class);
         System.out.println(String.format("***** AFTER %s **********", testName.getMethodName()));
 
-        MigrationInfoService  info = flyway.info();
+        MigrationInfoService info = flyway.info();
         System.out.println(info);
         for ( MigrationInfo mi : info.all() ) {
             System.out.println(String.format("\t%s\t%s\t%s", mi.getVersion(), mi.getScript(), mi.getType()));
@@ -65,12 +59,17 @@ public class CustomerEntityRepositoryTests {
 
     @Test
     @FlywayTest
-    public void testGetCustomer() throws Exception {
-        CustomerEntity mario = customerEntityRepository.getCustomer("MY", "123456");
-        assertTrue(mario.getName().equalsIgnoreCase("Hayashi San"));
+    public void
+    get_valid_customer() throws Exception {
+        Customer customer = customerService.getCustomer("MY123456");
+        assertTrue(customer.getName().equalsIgnoreCase("Hayashi San"));
+    }
 
-        CustomerEntity nobody = customerEntityRepository.getCustomer("SG", "1000"); // does not exist
-        assertNull(nobody);
+    @Test(expected = NoDataFoundException.class)
+    @FlywayTest
+    public void
+    get_customer_not_found() throws Exception {
+        customerService.getCustomer("SG1000"); // does not exist
     }
 
 }
