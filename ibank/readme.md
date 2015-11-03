@@ -1,7 +1,7 @@
 ## Cloud native fictional internet banking application based on Spring.io platform and Netflix OSS
 
 This is a minimal application skeleton that illustrates how an internet banking application can be structured around 
-(nfs2 foundation)[../foundation] components using built on top of Spring.io platform and Netflix OSS libraries.
+[nfs2 foundation](../foundation) components using built on top of Spring.io platform and Netflix OSS libraries.
 
 ### Modules
 #### domain/profile-api
