@@ -29,7 +29,6 @@
 
     <!--jdbc drivers -->
     <h2.version>1.4.181</h2.version>
-    <oracle.jdbc.version>11.2.0.4</oracle.jdbc.version>
 
     <!-- test related dependencies -->
     <rest.assured.version>2.4.1</rest.assured.version>
@@ -82,11 +81,6 @@
       </dependency>
 
       <!-- jdbc drivers -->
-      <dependency>
-        <groupId>com.oracle</groupId>
-        <artifactId>ojdbc6</artifactId>
-        <version>${oracle.jdbc.version}</version>
-      </dependency>
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
