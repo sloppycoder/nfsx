@@ -2,6 +2,14 @@ server:
   port: ${PORT:8000}
   context-path: /app
 
+  tomcat:
+    basedir: ${TOMCAT_BASEDIR_ROOT:${HOME}/tmp/nfs2}/${spring.application.name}_${server.port}
+    access-log-pattern: "%l %u %t %r %s %b %{User-Agent}i %{Referer}i %{X-Forwarded-For}i %{X-Forwarded-Proto}i %{Location}o"
+    access-log-enabled: true
+    #protocol-header: X-Forwarded-Proto
+    #protocol-header-https-value: https
+    #remote-ip-header:   X-Forwarded-For
+    #port-header: 443
 
 logging:
   level:
@@ -21,7 +29,7 @@ security:
       accessTokenUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/token
       userAuthorizationUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/authorize
       # ssoLogoutUrl below is custom property, not part of Spring
-      ssoLogoutUrl: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect=${LOGOUT_REDIRECT_URL:http://localhost:8000/autologout}
+      ssoLogoutUrl: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect_uri=${LOGOUT_REDIRECT_URL:http://localhost:8000/autologout}
       # the credential below must be configured in authorization server.
       clientId: acme
       clientSecret: acmesecret
@@ -43,19 +51,3 @@ spring:
   application:
     name: web-app
 
----
-# profile for running everything behind a reverse proxy server
-spring:
-  profiles: proxied
-
-  tomcat:
-    protocol-header: X-Forwarded-Proto
-    protocol-header-https-value: https
-    remote-ip-header:   X-Forwarded-For
-    basedir: ${TOMCAT_BASEDIR_ROOT:/Users/lee/tmp/nfs2}/${spring.application.name}_${server.port}
-    access-log-pattern: "%l %u %t %r %s %b %{User-Agent}i %{Referer}i %{X-Forwarded-For}i %{X-Forwarded-Proto}i %{Location}o"
-    access-log-enabled: true
-    #port-header: 443
-
-security:
-  require-ssl: true
