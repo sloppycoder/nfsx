@@ -1,0 +1,18 @@
+debug: false
+
+spring:
+  application:
+    name: card-service
+
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL:http://127.0.0.1:8761}/cloudconfig
+      fail-fast: true
+
+---
+spring:
+  profiles: test
+
+  cloud:
+    config:
+      enabled: false

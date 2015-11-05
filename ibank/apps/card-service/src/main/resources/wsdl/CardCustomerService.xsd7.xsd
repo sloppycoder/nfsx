@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="http://entity.cards.common.scb"
+            xmlns:comobj="http://entity.service.common.scb" targetNamespace="http://entity.cards.common.scb"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xsd:import namespace="http://entity.service.common.scb" schemaLocation="CardCustomerService.xsd6.xsd"/>
+
+  <!-- CEMS HK Get Card Forecast Details-->
+
+  <xsd:complexType name="Forecast">
+
+    <xsd:sequence>
+
+      <xsd:element name="promotionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="coupon" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailSpendAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashSpendAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="spendLevel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="penaltyChgFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expSpendAmtLevel1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expStmtAmtLevel1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expSpendAmtLevel2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expStmtAmtLevel2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expSpendAmtLevel3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expStmtAmtLevel3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevSpendLevel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextRenewalDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintainedBy" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CardInsurance">
+
+    <xsd:sequence>
+
+      <xsd:element name="productCode" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cancelled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cancelledCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="premium" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="claim" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reinstatedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Service">
+
+    <xsd:sequence>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="idType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fullName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addValueAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rejectReason" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusUpdateDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestPCard" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardDispatchDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="collectionPoint" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistedBlockCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="openDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="updateDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="debtorRefNo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PenaltyWaiver">
+
+    <xsd:sequence>
+
+      <xsd:element name="waiverType" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="RewardTransactionDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="tranType" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currQuarterCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currQuarterPoint" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousQuarterCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousQuarterPoint" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="RewardHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="period" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="adjustments" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actualRewardPoint" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CardRPC">
+
+    <xsd:sequence>
+
+      <xsd:element name="postingDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rpcID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rpcCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accumulatedBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accruedInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="IntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="EarlyRepaySavings">
+
+    <xsd:sequence>
+
+      <xsd:element name="program" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prod" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextBillingDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="principalAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="appFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intAmtUnbilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instUnbilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainingInst" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earlyRepayCharge" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earlyRepaySavings" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextBillAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addtnlHandlingFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userHandlingFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="seqNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instPeriod" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earlyRedemptionDue" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="LineBurn">
+
+    <xsd:sequence>
+
+      <xsd:element name="seqNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="campaignCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantOrg" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="channel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="companyName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="promotionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="subChannel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="OrderDetails" type="tns3:Order" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Order">
+
+    <xsd:sequence>
+
+      <xsd:element name="acctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="appliedAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acctType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CampaignDet">
+
+    <xsd:sequence>
+
+      <xsd:element name="gatingId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="campaign" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="startDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="endDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="benefictEndDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastChangeDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="priority" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intAmtBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cat" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ref" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="stmtIntAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPymtAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ThirteenMonth">
+
+    <xsd:sequence>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pymtAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agingCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minPymt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="feeAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="provInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="negativeAnticipatedInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="revolverFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="begBal" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="TaxDet">
+
+    <xsd:sequence>
+
+      <xsd:element name="seqNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="startDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="program" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prod" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loanAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="period" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="appFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="companyName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="officePhoneNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="drawDown" type="tns3:DrawDown" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="DrawDownDetails" type="tns3:DrawDown" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CustomerDetails" type="tns3:CustDet" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="DrawDown">
+
+    <xsd:sequence>
+
+      <xsd:element name="drawDownAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="drawDownAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CustDet">
+
+    <xsd:sequence>
+
+      <xsd:element name="custName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="compName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="officePhNo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Gift">
+
+    <xsd:sequence>
+
+      <xsd:element name="seqNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="gift" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="giftdesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Tier">
+
+    <xsd:sequence>
+
+      <xsd:element name="cashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInt" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Virtue on 16-Apr-2012 starts -->
+
+  <xsd:complexType name="ExpiryPointDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="pointsBalSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashDollarBalSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashDollarBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expCashDollarDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="TransactionDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryShadowAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="panbankInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postingDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ccyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranAmtSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPointsSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="debitCreditInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dailyCyclePointsTotalsSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dailyCyclePointsTotals" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for MEPA : Start-->
+
+      <xsd:element name="transSrcCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for MEPA : End -->
+
+      <xsd:element name="ProductDetails" type="tns3:ProductDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ProductDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="prodCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prodSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prodPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Virtue on 16-Apr-2012 ends -->
+
+  <!-- Added fields for Card Reform project on 04/07/2012  Start~sunil -->
+
+  <xsd:complexType name="BalanceBucketsHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashIntUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashServiceChargeUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailIntUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailServiceChargeUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInsUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailMemshipUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInstallUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInstallUnpaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="RPCBlock" type="tns3:RPCBlock" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="RPCBlock">
+
+    <xsd:sequence>
+
+      <xsd:element name="rpcCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rpccategory" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rpcOutstandBal" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Card Reform project on 04/07/2012  End  ~sunil -->
+</xsd:schema>

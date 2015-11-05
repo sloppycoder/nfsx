@@ -17,6 +17,7 @@
 
   <modules>
     <module>profile-api</module>
+    <module>card-api</module>
   </modules>
 
   <dependencies>

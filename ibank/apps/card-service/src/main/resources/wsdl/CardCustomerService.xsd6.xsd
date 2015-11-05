@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:comobj="http://entity.service.common.scb"
+            targetNamespace="http://entity.service.common.scb" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+  <xsd:element name="SegmentType" type="comobj:SegmentType"/>
+
+  <xsd:element name="ArmType" type="comobj:ArmType"/>
+
+  <xsd:complexType name="SegmentType">
+
+    <xsd:sequence>
+
+      <xsd:element name="segmentCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="segmentDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ArmType">
+
+    <xsd:sequence>
+
+      <xsd:element name="armCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="armDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Amount type with currency code and description -->
+
+  <xsd:complexType name="CurrAmount">
+
+    <xsd:sequence>
+
+      <xsd:element name="amt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ccyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ccyDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Type to hold code and description -->
+
+  <xsd:complexType name="CodeDesc">
+
+    <xsd:sequence>
+
+      <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="desc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="TypeDesc">
+
+    <xsd:sequence>
+
+      <xsd:element name="type" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="desc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Type to create elements with maintenance details eg: createdBy and createdDate -->
+
+  <xsd:complexType name="MaintInfo">
+
+    <xsd:sequence>
+
+      <xsd:element name="by" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Address type -->
+
+  <xsd:complexType name="Address">
+
+    <xsd:sequence>
+
+      <xsd:element name="wauFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressType" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mailingTitle1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mailingTitle2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="attentionPartyName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine4" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="city" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="state" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postalCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="poBox" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nearestLandmark" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="country" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Contact type -->
+
+  <xsd:complexType name="Contact">
+
+    <xsd:sequence>
+
+      <xsd:element name="eMail1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="eMail2" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="homePhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mobile" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="office" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="officeExtn" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ServiceResponse">
+
+    <xsd:sequence>
+
+      <xsd:element name="responseCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="responseDescription" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="hostSystem" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -17,6 +17,7 @@
   <modules>
     <module>webapp</module>
     <module>profile-service</module>
+    <module>card-service</module>
   </modules>
 
   <properties>

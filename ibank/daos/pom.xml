@@ -16,6 +16,7 @@
 
   <modules>
     <module>profile-dao</module>
+    <module>card-dao</module>
   </modules>
 
   <properties>

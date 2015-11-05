@@ -1,0 +1,4207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="http://entity.cards.common.scb"
+            xmlns:resp="http://entity.service.common.scb" xmlns:comobj="http://entity.service.common.scb"
+            targetNamespace="http://entity.cards.common.scb" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+  <xsd:import namespace="http://entity.service.common.scb" schemaLocation="CardCustomerService.xsd6.xsd"/>
+
+  <xsd:include schemaLocation="CardCustomerService.xsd7.xsd"/>
+
+  <xsd:element name="TransactionHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="AuthorisedTransaction" type="tns3:CreditCard"/>
+
+  <xsd:element name="OAAATransaction" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireEarlySettlement" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireCardDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="MerchandiseDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireRewardPoints" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireDelinquencyHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireCreditHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="CreateCardNotes" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireCardNotes" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireCashOneDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCustomerRewardPointsSummary" type="tns3:CardCustomer"/>
+
+  <xsd:element name="GetCardRewardPointsSummary" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetRewardPointsTransaction" type="tns3:CreditCard"/>
+
+  <xsd:element name="EnquireCardCustomer" type="tns3:CardCustomer"/>
+
+  <xsd:element name="EnquireLinkedCards" type="tns3:CardCustomer"/>
+
+  <xsd:element name="GetRewardRedemptionDetails" type="tns3:CardCustomer"/>
+
+  <!-- added for Taiwan ODS : Starts -->
+
+  <xsd:element name="GetMerchantDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardDisputeResolutionDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardReturnDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardRewardRedemptionDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardStatementHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetPriorityPassDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCreditCardPurgeDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetPastCardTransactions" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardBlockCodeDescription" type="tns3:CreditCard"/>
+
+  <!-- added for Taiwan Online -->
+
+  <xsd:element name="GetCardCallInCashDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardPaymentActivityList" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardSpecialTxnHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardSMSAlerts" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardCashLimit" type="tns3:CreditCard"/>
+
+  <!-- CEMS HK -->
+
+  <xsd:element name="GetCardForecastDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardInsuranceDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardSpecialServicesDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardWaiverHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardRPCTransactionHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardMultipleBonusEnquiry" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetEarlyRepaymentSavingsDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardLineBurnDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardMPSOrderEnquiry" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetOctopusCardDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetRelPricingCampaignDetail" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardLineBurnTaxDetails" type="tns3:CreditCard"/>
+
+  <!-- CEMS SG ODS -->
+
+  <xsd:element name="GetCardPricingHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetCardTopUpHistory" type="tns3:CreditCard"/>
+
+  <!-- 1583 CCMS HK  Get Card Summary-->
+
+  <xsd:element name="GetCardSummary" type="tns3:CreditCard"/>
+
+  <!-- 1583 CCMS HK  Get Card Summary Ends-->
+
+  <!-- Added for CEMS SG by TCS on 25 Nov 2011: Start-->
+
+  <xsd:element name="GetCardSpendDetails" type="tns3:CreditCard"/>
+
+  <!-- Added for CEMS SG by TCS on 25 Nov 2011: End-->
+
+  <!-- Added for CEMS SG by Avishek on 30 Mar 2012:Start  -->
+
+  <xsd:element name="EnquireCardStatus" type="tns3:CreditCard"/>
+
+  <!-- Added for CEMS SG by Avishek on 30 Mar 2012:Start  -->
+
+  <!-- Added for Virtue on 16 Apr 2012: Start-->
+
+  <xsd:element name="GetCustomerSummary" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetStatementSummary" type="tns3:CreditCard"/>
+
+  <xsd:element name="RedeemBonusPoints" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetTransactionHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetPointTransfer" type="tns3:CreditCard"/>
+
+  <!-- Added for Virtue on 16 Apr 2012: End-->
+
+  <!-- Added fields for Card Reform project on 04/07/2012  Start~sunil -->
+
+  <xsd:element name="GetBalanceBucketsHistory" type="tns3:CreditCard"/>
+
+  <!-- Added for Card Reform project on 04/07/2012  End  ~sunil -->
+
+  <!-- Added for SG MAS Ace Starts -->
+
+  <xsd:element name="GetTokenCardDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="UpdateTokenStatus" type="tns3:CreditCard"/>
+
+  <xsd:element name="SynchronizeToken" type="tns3:CreditCard"/>
+
+  <!-- Added for SG MAS Ace Ends -->
+
+  <!-- Added for IVR SG -->
+
+  <xsd:element name="GetCardActivationStatus" type="tns3:CreditCard"/>
+
+  <xsd:element name="RequestCreditLimitIncrease" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetAffinityDetails" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetInstallmentPrgm" type="tns3:CreditCard"/>
+
+  <!-- Added for MEPA : Start-->
+
+  <xsd:element name="GetPaymentHistory" type="tns3:CreditCard"/>
+
+  <xsd:element name="GetInstallmentplan" type="tns3:CreditCard"/>
+
+  <!-- Added for MEPA : End-->
+
+  <xsd:element name="GetOverlimitOptOutFlag" type="tns3:CreditCard"/>
+
+  <xsd:complexType name="CreditCard">
+
+    <xsd:sequence>
+
+      <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardTypeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="product" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderStatusDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryBlockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alternateBlockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="accountNo" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="relationshipNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Get Card Transaction History request fields -->
+
+      <xsd:element name="stmtType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Get Card Transaction History response fields -->
+
+      <xsd:element name="stmtBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pastDueAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Removed as per latest spec(19-04-2010)-->
+
+      <!--<xsd:element name="totalDueAmount" type="xsd:string" nillable="true" minOccurs="0"/>-->
+
+      <xsd:element name="previousBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentCredt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="purchaseDebit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAdvance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="financialCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="stmtDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cycleDays" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dueDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minAmountDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Get Authorised Transaction request fields -->
+
+      <!-- Get Authorised Transaction response fields -->
+
+      <xsd:element name="lastActivity" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfTotalAuthorization" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAuthorizationAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfTodayAuthorization" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="todayAuthorizationAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Get OAAA Transactions response fields  -->
+
+      <xsd:element name="noOfOutstandAuthorization" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandAuthorizationAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandAuthorizationAmtDec" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Enquire Early Settlement request fields -->
+
+      <xsd:element name="earlySettlementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Enquire Early Settlement response fields -->
+
+      <xsd:element name="payoffAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestPerDiem" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accrualDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accruedThroughDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Enquire Card details response fields -->
+
+      <xsd:element name="billingCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfReturnedCheques" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastReturnedChequeDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPurchaseDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastAdvancedAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastCashAdvanceDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPurchaseAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPaymentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPaymentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfAuthorisedTransaction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authorisedAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authorisedCashAdvance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastCreditLimitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tmpLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tmpLimitExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="highBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="highBalanceDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastStatement" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ccmsCustomerID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardUsageStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currYearCashAdvIntPaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastYearCashAdvIntPaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currYearIntPaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastYearIntPaid" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productTiedToCard" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastTransactionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastActiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pinReIssueDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currentDueAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS IN 30-Jun-2010 -->
+
+      <xsd:element name="totalDueAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="xdays" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingName1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingName2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingName3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingName4" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="autoDebit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="existingCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="purgeDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="region" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="singleDualCard" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastReplacementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="membershipNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="behaviourScore" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerRiskScore" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="exposureAtRisk" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="corporateCustomer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentTypeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentMethodDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastCardRequestDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPinRequestDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPinMaintenanceDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="newTransferCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transferEffectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailBaseRatePA" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBaseRatePA" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lateNotices" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="serviceCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="annualFees" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prePay" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lateCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overlimitCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalDisputedAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailDisputeAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashDisputedAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardFeeDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardFeeAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ctdFees0" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ctdFees1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ctdFees2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ctdFees3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userCode1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userCode2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userCode3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userCode4" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Enquire Linked Cards -->
+
+      <xsd:element name="permanentCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="totalAvailablePoint" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="totalStmtBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="totalCurrentBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="totalMinAmountDue" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="permanentCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="gstRegistrationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="availableCash" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <!-- Enquire reward points for ODS -->
+
+      <xsd:element name="availableRewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPointsErndInCurrCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPointsRedeemedInCurrCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousStmtPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Enquire Delinquency History for ODS   -->
+
+      <xsd:element name="lastDelinquencyDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="priorDelinquencyDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance30Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance60Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance90Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance120Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance150Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance180Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance210Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pastDueBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="xDayBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Get Merchandise Details   -->
+
+      <!-- <xsd:element name="interestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="principleAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="interestSaved" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <!-- ODS Enquire cards -->
+
+      <xsd:element name="embossedName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="joiningFees" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="month" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="profileCode" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="accountName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="productGuideInfo" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="segmentCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="segmentCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- enquire Credit History -->
+
+      <xsd:element name="curBlockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="curBlockDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block1Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block2Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block3Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block4" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block4Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block5" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block5Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block6" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block6Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block7" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block7Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block8" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block8Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block9" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block9Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block10" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block10Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block11" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block11Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block12" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block12Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block13" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block13Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block14" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block14Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block15" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block15Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block16" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block16Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block17" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block17Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block18" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block18Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block19" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block19Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block20" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block20Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block21" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block21Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block22" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block22Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block23" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block23Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block24" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block24Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- field added for Enquire Card Details Online -->
+
+      <xsd:element name="block25" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block25Date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--  Common Fields for request -->
+
+      <xsd:element name="nextPageKey" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pageRequest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Common Fields for response-->
+
+      <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCredit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="advanceCash" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currentBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailAccruedInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAccruedInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="referenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="openedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="closedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastUpdate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="additionalAddress" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="corporateID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="projectedAccruedInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Consolidate STP - GetInstallmentPrgm by Archana : Start-->
+
+      <xsd:element name="statementBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Consolidate STP - GetInstallmentPrgm by Archana : End-->
+
+      <xsd:element name="minimumDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postingFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="SCOD" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="relationshipType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="inCollectionIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="stmtInJulianFmt" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <!-- <xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <!-- <xsd:element name="paymentdueDateInJulianFmt" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="paymentDueDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="directDebitRoutingNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="directDebitAccountNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardCategory" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="permCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="PROBEPermCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandingAuthAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfTotalTrans" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfBilledTrans" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfUnbilledTrans" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields for Memo -->
+
+      <xsd:element name="entityID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="entityType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="hostID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="functionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="subFunctionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="entityId" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="pageTotal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="organisationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastSyncDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardProfile" type="tns3:CardProfile" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for CEMS Singapore Starts  -->
+
+      <!-- Fields added for CCMS Enquire Card Details  -->
+
+      <xsd:element name="temporaryCreditLimitEffDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="permanentThershold" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="temporaryThershold" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="timeXDays" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time30Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time60Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time90Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time120Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time150Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time180Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="time210Days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for ODS Enquire Card Details  -->
+
+      <xsd:element name="accountNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="corporateCustDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custRiskGrade" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custRiskGradeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dateRiskChange" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ddaAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ddaBank" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS CENTRAL SG -->
+
+      <xsd:element name="DDASwiftBIC" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS CENTRAL SG -->
+
+      <xsd:element name="ddaBankDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="collateral" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for CEMS SG Get Card Reward Points Summary -->
+
+      <xsd:element name="systemID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="functionID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevStmtBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalpointsForteited" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointEarnedToday" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextCashBackDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarnedYTD" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="panBankInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for CEMS SP - IN -->
+
+      <xsd:element name="limitFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashPymntAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailPymntAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for CEMS SP - IN End -->
+
+      <!-- Fields added for Taiwan ODS Enquire Card Details  -->
+
+      <xsd:element name="lastStatementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="affinityGroupNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pmntApportionment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pmntApportionmentExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accountType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="issuedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sendDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="OLCLetterDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="warningReportDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remarks" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="deliveryDemo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="deliveryMemo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acknowledgementStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acknowledgementStatusDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="registerNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="zipCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mailingDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="processDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="createdDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="numberOfTxnsYTD" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="txnAmountYTD" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="barcodeNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan ODS Get Merchant Details : Starts -->
+
+      <xsd:element name="NCCCMerchantCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for TW  Get Card Return Details ODS:Starts -->
+
+      <xsd:element name="itemNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="numberOfCards" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="returnReason" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="returnReasonDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="altCustID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Address" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionTaken" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionTakenDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pickupDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressChanged" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="returnDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for TW  Get Card Reward Redemption Details ODS:Starts -->
+
+      <xsd:element name="orderNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="deliveryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="receivedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="processDays" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="vendor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="vendorDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productTypeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redeemDollars" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashPayment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan ODS Get Priority Pass Details : STarts-->
+
+      <xsd:element name="customerNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan ODS Get Merchandise Details: STarts-->
+
+      <xsd:element name="applicationNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="applicationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transmissionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="batchNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amountApplied" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remitAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenure" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="feeCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan ODS Enquire Credit History: STarts-->
+
+      <xsd:element name="currentBlockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currentBlockDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan Online GetCardCallInCashDetails: STarts-->
+
+      <xsd:element name="paymentIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableFundTransferLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAdvOKFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fundXferOKFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan Online Get Card Special Txn History : Starts-->
+
+      <xsd:element name="noOfVisitThisYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfVisitLastYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalFeeChargedCurrentYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalFeeChargedLastYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfFreeVisitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan Online Get Card Cash Limit: Starts-->
+
+      <xsd:element name="activationFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="PermanentCashLimitPercent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashLimitMatrixPercent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="CashLimitPercent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tmpCashLimitPercent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="offeringCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="SIDebitAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="repaymentScore" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan Online Get Card Special Txn History :Additional Fields-->
+
+      <xsd:element name="noOfParkingThisYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfParkinLastYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalParkingFeeChargedCurrentYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalParkingFeeChargedLastYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfFreeParkingUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for SOM STP MY Enquire Card Details -->
+
+      <xsd:element name="reversalFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--CEMS HK-->
+
+      <!--  added for HK Get Merchandise Details    -->
+
+      <xsd:element name="mpsLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mpsAvailLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mpsExpiryDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps1LimitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps1AcctLimitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps1LastReqDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps1LastReqOnTempLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps2LimitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps2AcctLimitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mps3AcctLimitUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="firstIntWaiverDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="waivePenaltyIntCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastResetDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCreditLimit2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCashLimit2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="revolverFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prefMerchant" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="capReachDtOverall" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="capReachDtatPrefMerchant" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfTotalRPCTrans" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="octopusCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rejectReasonCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- CEMS SG ODS-->
+
+      <!-- <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="interestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flatRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="topupAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="topupDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="topupFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewriteFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusUpdate" type="comobj:MaintInfo" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blackList" type="comobj:MaintInfo" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="activeCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- fields added for CEMS HK Online service-GetCardMultipleBonusEnquiry -->
+
+      <xsd:element name="openingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarnedBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsRedeemedBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarnedUnbilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsRedeemedUnbilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for SIMCO IBNK EnquireCardDetails Service -->
+
+      <xsd:element name="lastMinPymtDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custAvailableCash" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custAvailableCredit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postDueFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bonusRewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="consolidatedCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CMES HK GetCardMPSOrderEnquiry by TCS on May-03-11-->
+
+      <xsd:element name="linkedAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- End of for CMES HKGetCardMPSOrderEnquiry by TCS May-03-11-->
+
+      <!-- Fields added for CEMS HK on May 3 2011 for GetOctopusCardDetails: Start -->
+
+      <xsd:element name="debtorRefNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusUpdatedate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistReason" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blacklistDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="openDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reloadAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="autoPayAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="futureExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ackUserId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ackDtSurfMail" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ackDtRegMail" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="perpetuityPin" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flexiPay" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="srcCode" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="atmLang" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="insureCode" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for CEMS HK on May 3 2011 for GetOctopusCardDetails: End -->
+
+      <!-- Added for CEMS HK : ODS - EnquireCardDetails : Begins -->
+
+      <xsd:element name="currExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lateNoticesDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="serviceChargesDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alternateBlockCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK : ODS - EnquireCardDetails : Start by Sushma Sharma on 4.07.2011 -->
+
+      <xsd:element name="organisation" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="action" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardsRequested" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="supplementaryCards" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="supplementaryCardsDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardsIssued" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardsReturned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevAction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevActionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardFeatures" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK : ODS - EnquireCardDetails : End by Sushma Sharma on 4.07.2011 -->
+
+      <!-- Added for CEMS HK : ODS - EnquireCardDetails : Ends -->
+
+      <!-- Added for CEMS HK : online - EnquireCardDetails : Start by TCS on 08-JUL-2011 -->
+
+      <xsd:element name="lastExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK : online - EnquireCardDetails : End by TCS on 08-JUL-2011 -->
+
+      <!-- Added for GetCardSpendDetails CEMS SG by TCS on Oct 28 2011 : start-->
+
+      <!--<xsd:element name="highYieldCAAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>-->
+
+      <!--<xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/>-->
+
+      <!-- Added for CEMS MY : Enquire Card details on July 28 2011 by TCS - start -->
+
+      <xsd:element name="profile01To06" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="profile07To12" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="profile13To18" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="profile19To24" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="CurrentTierRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousTierRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="profileLastEffDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="profileLastMaintDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryBlockCodeDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="CVI" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="principalCardFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="supplementaryCardFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextStatementDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pymtApportionmentFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fullPymt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="directDebitBank" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY : Enquire Card details on July 28 2011 by TCS - end -->
+
+      <!-- Added for CEMS MY : Enquire Card details on Oct 07 2011 by TCS - start -->
+
+      <xsd:element name="lastActivityDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY : Enquire Card details on Oct 07 2011 by TCS - end -->
+
+      <!-- Added for CEMS MY : Enquire Card Customer on July 28 2011 by Sushma Sharma - Start -->
+
+      <xsd:element name="overLimitOption" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY : Enquire Card Customer on July 28 2011 by Sushma Sharma - End -->
+
+      <!-- Added for CEMS MY : Enquire Early Settlement on Sep 28 2011 by Sushma Sharma - Start -->
+
+      <xsd:element name="tierEffectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY : Enquire Early Settlement on Sep 28 2011 by Sushma Sharma - End -->
+
+      <!-- Added for CEMS MY : ODS - Get Card Top Up History : Start by Sushma Sharma on 4.07.2011 -->
+
+      <xsd:element name="newAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY : ODS - Get Card Top Up History : End by Sushma Sharma on 4.07.2011 -->
+
+      <xsd:element name="stmtCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--1583 SIMCO-SP CTracker Ends-->
+
+      <!-- 1583 CCMS HK  Get Card Summary-->
+
+      <xsd:element name="hoganCustIDInclusiveIDType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- 1583 CCMS HK  Get Card Summary Ends-->
+
+      <!-- Added for GetCardSpendDetails CEMS SG by TCS on Oct 28 2011 : start-->
+
+      <xsd:element name="highYieldCAAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Enquire Card Status for CEMS SG on 30/03/2012 and 8 April 2012 by Avishek: Starts -->
+
+      <xsd:element name="requestType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardOrganization" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embosserName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusDateChange" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusTimeChange" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="phoneNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardActivationChannel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardActivationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardActivationTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardDeActivationChannel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardDeActivationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardDeActivationTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Enquire Card Status for CEMS SG on 30/03/2012 and 8 April 2012 by Avishek: End -->
+
+      <!-- Added for Virtue on 16/04/2012  Starts -->
+
+      <xsd:element name="sourceFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="serviceRequestor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custIDType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custIDNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pageNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="returnCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="returnDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="moreRecordInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="poBox" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dateofBirth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCurrTotalPointsSIGN" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCurrTotalPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCurrTotalCashDollarBalSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCurrTotalCashDollarBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redemFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redemType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpMonth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redemPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashRedem" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="topUpAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBackAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranAuthCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="processingFeeAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="topUpStmtDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="feeStmtDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custPointsBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custCashDollarBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardNoAuth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryShadowAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transferCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="senderCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="receiverCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsToBeTransferred" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transferFeeAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="senderPrimaryShadowAcct" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="receiverPrimaryShadowAcct" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minpointsReqTransfer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="maxpointsallowtransfer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for GetInstallmentPrgm CEMS TH by Tarun on Aug 30 2013 : end-->
+
+      <xsd:element name="inputFunction" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="installmentProgram" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="specialInstallmentProduct" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="overseasInstallmentProduct" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="normalInstallmentProduct" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="inputDate" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="inputBy" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="cancelIndicator" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="productAmount" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="numberOfInstlmnt" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="availableTransactionCounter" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="availableTransactionAmount" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="neAvailableTransactionCounter" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="neAvailableTransactionAmount" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="specialTransactionCounter" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="neSpecialTransactionAmount" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="overseaTransactionCounter" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="neOverseaTransactionAmount" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="normalTransactionCounter" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="neNormalTransactionAmount" type="xsd:string" minOccurs="0"/>
+
+      <!-- Added for Virtue on 16/04/2012  End -->
+
+      <!-- Added for Get Card Insurance Details CCMS HK on 28-OCT-2011 starts -->
+
+      <xsd:element name="operatorID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Get Card Insurance Details CCMS HK on 28-OCT-2011 ends -->
+
+      <xsd:element name="availaCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availaCashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpyDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMinAmountDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="consolidateCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pastDueFlg" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS CV DeCoupling Start -->
+
+      <xsd:element name="crmODRowId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="subProduct" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="branch" type="comobj:CodeDesc" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="referralId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sourcingId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="closingId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS CV DeCoupling End -->
+
+      <!-- Added for CEMS SME Phase 2 Start -->
+
+      <xsd:element name="lastStmtDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPointPrintedCurrentQuarter" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS SME Phase 2 End -->
+
+      <!-- Added for SG MAS Ace Starts -->
+
+      <xsd:element name="clientId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tokenId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="firstOTP" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="secondOTP" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for SG MAS Ace Ends -->
+
+      <!-- Added for SG MAS ACE enquirecardsdetails and enquirelinkedcards by Amrita -->
+
+      <xsd:element name="tokenCardInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tokenStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Ended -->
+
+      <!-- Added fields for Card Reform project on 04/07/2012  Start~sunil -->
+
+      <xsd:element name="ddaPercentage" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ddaAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Card Reform project on 04/07/2012  End  ~sunil -->
+
+      <!-- Added IVR~CCMS  SG-->
+
+      <xsd:element name="totalStmtBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nickName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="coOwner" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="coOwnerOfficePhoneNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoLine" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardEmbossName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nricNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tempBranch" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agentId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tempLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tempLimitExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reasonOfRequest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="approveOrDecline" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="approvalAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="declineReason" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardForecastDetails" type="tns3:Forecast" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="lastPaymentAmtFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pastDueAmountFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minPaymentFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balanceFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minPaymentLCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balanceLCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+
+      <!-- Added for ATMCHIPCARD Phase-3 by Amrita -->
+
+      <xsd:element name="chipType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- ended -->
+
+      <!-- Added for Consolidated STP : Start by Ramki-->
+
+      <xsd:element name="dtCreditBalOccur" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="existingFeeDt" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="affinityFlag" type="xsd:string" minOccurs="0"/>
+
+      <!-- Added for Consolidated STP : End-->
+
+      <!-- Added for SG MAS : Start -->
+
+      <xsd:element name="startDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="endDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for SG MAS : End -->
+
+      <!-- Added for IBNK MY MEPS Project -->
+
+      <xsd:element name="custOrgNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionOrgNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outOfBalanceFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dualMailingFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="summaryInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="secondaryCustOrg" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="secondaryCustNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousBlockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earnedCycleDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="usedCycleDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalBilledTransaction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Ends-->
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="tranType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bankNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="srcName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="branchNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="operandNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pinFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pin" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandBalFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimitFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCreditLimitFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashLimitFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableCashLimitFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balCcyCodeFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="limitCcyCodeFCY" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="checkFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="points" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="startDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="endDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rtnInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranMonth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postingDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranYr" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="option" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="enquiryFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="idType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="notesDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paidAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="adjustmentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="newBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastUpdatedTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryCreditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="stmtDay" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+
+      <!-- Added for MEPA : Start-->
+
+      <xsd:element name="custCategory" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="groupAccNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="friendName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="favoriteCity" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="favoriteColor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="suppCardInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="appOrigin" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="firstYrFeeAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="stmtMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="eMail" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="housing" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="housingExt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : End-->
+
+      <!-- Added for Baojian : Start-->
+
+      <xsd:element name="reserve" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="keyType" type="xsd:string" minOccurs="0"/>
+
+      <!-- Added for Baojian : End-->
+
+      <!-- Added for MEPA : Start-->
+
+      <xsd:element name="groupAccBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="groupAccAuthBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="groupAccOutstandBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="groupAccCashOutstandBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="groupAccLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranGroup" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="period" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earlySettlementDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="arrearsFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overLimitFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="governTaxes" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="preClosurePenalty" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instPlanBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : End-->
+
+      <!-- Added for MEPA : C400 : Start -->
+
+      <xsd:element name="acctCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fixedInstAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : C400 : End -->
+
+      <!--Added for CEMS BOW by Vipin Starts-->
+
+      <xsd:element name="emvChipEnabled" type="xsd:string" minOccurs="0"/>
+
+      <!--Added for CEMS BOW by Vipin Ends-->
+
+      <!--Added for MEPA by Rama :Start -->
+
+      <xsd:element name="relshipNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryCust" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="notesStored" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for MEPA by Rama :End -->
+
+      <!--Added for HK Credit Card Reform Start by Ramki -->
+
+      <xsd:element name="functionRequest" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="pendingSCB" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="optSCBRequest" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="pendingManhattan" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="optManhattanRequest" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="pendingPrime" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="optPrimeRequest" type="xsd:string" minOccurs="0"/>
+
+      <!--Added for HK Credit Card Reform Start by End Ramki -->
+
+      <!-- Added for HK Chip Card Phase 6.2 : Start -->
+
+      <xsd:element name="checkingAccount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="savingsAccount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userAccount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for HK Chip Card Phase 6.2 : End -->
+
+      <!-- Added for Con STP Phase 2 : Start by Archana-->
+
+      <xsd:element name="paymentFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="PDDMAmountDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ownershipFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Con STP Phase 2: End by Archana-->
+
+      <!-- Added for Con STP Phase 2 - GetInstallmentPrgm : Start by Archana-->
+
+      <xsd:element name="maximumSpecialAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="maximumOverseasAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="maximumNormAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyInstallmentAmountSpecial" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeePercentageSpecial" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeeAmountSpecial" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyInstallmentAmountOversea" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeePercentageOversea" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeeAmountOversea" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyInstallmentAmountNormal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeePercentageNormal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="handlingFeeAmountNormal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="specialProductAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overseasProductAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="contactlessIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Con STP Phase 2 - GetInstallmentPrgm : End by Archana-->
+
+      <xsd:element name="authTransaction" type="tns3:AuthTransaction" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="OAAATransaction" type="tns3:OAAATransaction" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="RewardSummary" type="tns3:RewardSummary" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="MerchandiseDetail" type="tns3:MerchandiseDetail" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- <xsd:element name="LinkedAccountDetail" type="tns3:LinkedAccountDetail" nillable="true" minOccurs="0" maxOccurs="unbounded"/> -->
+
+      <xsd:element name="CreditHistory" type="tns3:CreditHistory" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="Transaction" type="tns3:Transaction" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="UnbilledTransaction" type="tns3:Transaction" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="Memo" type="tns3:Memo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- <xsd:element name="pendingPOTCode" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="pendingPOTExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="pendingPOTEffectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="pendingPOTProduct" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="pendingPOTSequence" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="currentPOTCode" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="currentPOTExpiryCode" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="CurrentPot" type="tns3:Pot" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="PendingPot" type="tns3:Pot" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CurrentSubPot" type="tns3:Pot" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="PendingSubPot" type="tns3:Pot" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="SupplimentCard" type="tns3:SupplimentCard" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="CardDetails" type="tns3:CardDetails" nillable="true" minOccurs="0" maxOccurs="15"/>
+
+      <xsd:element name="cardAccessDet" type="tns3:CardAccessDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!--Commented as per latest specs(13-05-2010) -->
+
+      <!--<xsd:element name="cardPlasticDet" type="tns3:CardPlasticDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>-->
+
+      <xsd:element name="cashOneDet" type="tns3:CashOneDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="EarningDetails" type="tns3:EarningDetails" nillable="true" minOccurs="0" maxOccurs="7"/>
+
+      <xsd:element name="BalanceHistory" type="tns3:BalanceHistory" nillable="true" minOccurs="0" maxOccurs="14"/>
+
+      <xsd:element name="PanBankInfo" type="tns3:PanBankInfo" nillable="true" minOccurs="0" maxOccurs="30"/>
+
+      <xsd:element name="ACCELProgramInfo" type="tns3:ACCELProgramInfo" nillable="true" minOccurs="0" maxOccurs="4"/>
+
+      <!-- added for Taiwan ODS Get Merchant Details : Starts -->
+
+      <xsd:element name="MerchantDetails" type="tns3:MerchantDetail" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Card Reward Redemption Details -->
+
+      <xsd:element name="StatusHistory" type="tns3:StatusHistory" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Card Statement History -->
+
+      <xsd:element name="StatementHistory" type="tns3:StatementHistory" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Priority Pass Details -->
+
+      <xsd:element name="PriorityPassDetails" type="tns3:PriorityPassDetail" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Credit Card Purge Details and Get Card Block Code Description -->
+
+      <xsd:element name="PurgeDetails" type="tns3:PurgeDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="BlockDetails" type="tns3:BlockDetail" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Past Card Transactions -->
+
+      <xsd:element name="PastTransactions" type="tns3:PastTransactions" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Enquire CardDetails-->
+
+      <xsd:element name="SupplementaryCardholderDetails" type="tns3:SupplementaryCardholderDetails" nillable="true"
+                   minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Enquire Card Details  -->
+
+      <xsd:element name="AirlineMembership" type="tns3:AirlineMembership" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan ODS Get Merchandise Details -->
+
+      <xsd:element name="PLCCardDetails" type="tns3:PLCCardDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan Online GetCardCallInCashDetails -->
+
+      <xsd:element name="CallInTransactions" type="tns3:CallInTxns" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan Online Get Card Special Txn History -->
+
+      <xsd:element name="VIPUsageTransactions" type="tns3:VIPUsageTransactions" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="AirportParking" type="tns3:AirportParking" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- added for Taiwan Online Get Card SMS Alerts-->
+
+      <xsd:element name="SMSAlerts" type="tns3:SMSAlerts" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="IDRPDetails" type="tns3:IDRPDtls" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!--CEMS HK -->
+
+      <xsd:element name="CardInsurance" type="tns3:CardInsurance" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CardService" type="tns3:Service" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="PenaltyWaiver" type="tns3:PenaltyWaiver" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="RewardTransactionDetails" type="tns3:RewardTransactionDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="RewardHistory" type="tns3:RewardHistory" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CardRPCTransactionHistory" type="tns3:CardRPC" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="CardMultipleBonusEnquiry" type="tns3:Reward" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="EarlyRepaymentSavingsDetails" type="tns3:EarlyRepaySavings" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="LineBurnDetails" type="tns3:LineBurn" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CampaignDetails" type="tns3:CampaignDet" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="ThirteenMonthHistory" type="tns3:ThirteenMonth" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="TaxDetails" type="tns3:TaxDet" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="DrawDownDetails" type="tns3:DrawDown" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="CustomerDetails" type="tns3:CustDet" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- CEMS SG ODS-->
+
+      <xsd:element name="PricingHistory" type="tns3:PricingHistory" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="TopupHistory" type="tns3:TopupHistory" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="Forecast" type="tns3:Forecast" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="Tier" type="tns3:Tier" nillable="true" minOccurs="0" maxOccurs="3"/>
+
+      <xsd:element name="Gift" type="tns3:Gift" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!--Service Response  -->
+
+      <!-- Added for CEMS HK CR -->
+
+      <xsd:element name="EarnDetails" type="tns3:EarnDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- 1583 CCMS HK  Get Card Summary-->
+
+      <xsd:element name="CardSummaryDtl" type="tns3:CardSummaryDtl" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- 1583 CCMS HK  Get Card Summary Ends-->
+
+      <!-- Added for Virtue on 17-Apr-2012 starts -->
+
+      <xsd:element name="TransactionDetails" type="tns3:TransactionDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for Virtue on 17-Apr-2012 ends -->
+
+      <!-- Added fields for Card Reform project on 04/07/2012  Start~sunil -->
+
+      <xsd:element name="BalanceBucketsHistory" type="tns3:BalanceBucketsHistory" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for Card Reform project on 04/07/2012  End  ~sunil -->
+
+      <!-- Added for SG MAS Ace Starts -->
+
+      <xsd:element name="TokenCardList" type="tns3:TokenCardList" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- Added for SG MAS Ace Ends -->
+
+      <!-- Added for Consolidated STP : Start-->
+
+      <xsd:element name="EmbossingDetails" type="tns3:EmbossingDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for Consolidated STP : End-->
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="LinkedCards" type="tns3:LinkedCards" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- Added for China BaoJian : End-->
+
+      <!-- Added for MEPA : Start-->
+
+      <xsd:element name="PaymentHistory" type="tns3:PaymentHistory" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="InstallmentPlan" type="tns3:InstallmentPlan" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="SubAcctDtl" type="tns3:SubAcctDtl" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="PrimaryCard" type="tns3:PrimaryCard" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="NotesData" type="tns3:NotesData" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- Added for MEPA : End-->
+
+      <!-- Added for HK CARD REFORM : Start-->
+
+      <xsd:element name="SCBOverlimit" type="tns3:SCBOverlimit" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <xsd:element name="ManhattanOverlimit" type="tns3:ManhattanOverlimit" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="PrimeOverlimit" type="tns3:PrimeOverlimit" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for HK CARD REFORM : END-->
+
+      <!-- Added for Consolidated STP by Archana : Start-->
+
+      <xsd:element name="MonthtoDateDetails" type="tns3:MonthtoDateDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for Consolidated STP by Archana : End-->
+
+      <!-- Added for Consolidated STP - GetInstallmentPrgm by Archana : Start-->
+
+      <xsd:element name="MonthlyInstallmentDetails" type="tns3:MonthlyInstallmentDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <!-- Added for Consolidated STP - GetInstallmentPrgm by Archana : End-->
+
+      <xsd:element name="Response" type="resp:ServiceResponse" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CreditHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="monthNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalFinanceCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="otherFeeCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="MerchandiseDetail">
+
+    <xsd:sequence>
+
+      <xsd:element name="sequenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfInstalments" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedInstalments" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextBillDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productInst" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="principleAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestSaved" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="functionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="linkedAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBillAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Transaction">
+
+    <xsd:sequence>
+
+      <xsd:element name="postingDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="FCYAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="debit" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="credit" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="referenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sourceCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="arnNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for CEMS SG Get Reward Points Transactions -->
+
+      <xsd:element name="merchantID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="offeringKey" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dtotRewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="membershipNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="chargeFees" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reversalFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Rate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Fees" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Term" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Count" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redemptionOption" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBackAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="promotionPeriodStartDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="promotionPeriodEndDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAmtSpent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestTransFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="categoryCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="panbankProductCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="multiplierOption" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="multiplierRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="forAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCity" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- added for Taiwan Online service Get Card Payment Activity List  :Starts -->
+
+      <xsd:element name="transactionTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="channel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionResponseCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditCardNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS HK ODS Service EnquireCardDetails : Begins -->
+
+      <xsd:element name="currExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS HK ODS Service EnquireCardDetails : Ends -->
+
+      <!-- Added for GetCardSpendDetails CEMS SG by TCS on Oct 28 2011 : start-->
+
+      <xsd:element name="transactionSequence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for GetCardSpendDetails CEMS SG by TCS on Oct 28 2011 : end-->
+
+      <!-- Added for GetRewardPointsTransaction CEMS SG by TCS on Nov 28 2011 : Start-->
+
+      <xsd:element name="debitCardSpends" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditCardSpends" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalSpends" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="avgDailyBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MaxAvgDailyBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bonusIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyEffIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bonusIntAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="calendarDays" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="calendarYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for GetRewardPointsTransaction CEMS SG by TCS on Nov 28 2011 : End -->
+
+      <!-- Added for Get Reward Points Transactions CEMS SG on 22-DEC-2011 starts -->
+
+      <xsd:element name="totalInterestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Get Reward Points Transactions CEMS SG on 22-DEC-2011 ends -->
+
+      <!-- Added for CEMS IN STP(SOM Enhancements) starts -->
+
+      <xsd:element name="merchantCategory" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS IN STP(SOM Enhancements) ends -->
+
+      <!--Added for IBNK MY MEPS-->
+
+      <xsd:element name="merchantState" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="internationalFeeInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantCategoryCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authorizationCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reimbAttribute" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="originalCcyDecimalpt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="onUSCcyConv" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alphanumericCcyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="posEntryMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transSourceCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Ends-->
+
+      <!-- Added for MEPA : Start-->
+
+      <xsd:element name="transSrcCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="period" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : End-->
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="debitAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionMonth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="AuthTransaction">
+
+    <xsd:sequence>
+
+      <xsd:element name="sequenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="days" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="referenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authorizationAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sourceCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : Start-->
+
+      <xsd:element name="tranSrcCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amtBillCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="processingDtTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : End-->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="OAAATransaction">
+
+    <xsd:sequence>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="response" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billingAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billingCurrencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="BINCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for CEMS Singapore Starts  -->
+
+      <xsd:element name="MCCCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="countryCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reverseCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Fields added for TW OAAA transaction enquiry Starts  -->
+
+      <xsd:element name="NCCC" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="POSMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="additionalInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CardProfile">
+
+    <xsd:sequence>
+
+      <!-- <xsd:element name="month" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="profile" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="code1To6Month" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="code7To12Month" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="code13To18Month" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="code19To24Month" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Pot">
+
+    <xsd:sequence>
+
+      <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="desc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="product" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="group" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- <xsd:complexType name="LinkedAccountDetail">
+          <xsd:sequence>
+              <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="availableRewardPoint" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="statementBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="currentBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="minimumDue" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="postingFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="statementFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="billingCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="SCOD" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="relationshipType" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="inCollectionIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="availableCredit" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="availableCash" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="stmtInJulianFmt" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="paymentdueDateInJulianFmt" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="directDebitRoutingNo" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="directDebitAccountNo" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="lastPaymentAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="lastPaymentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardCategory" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="permCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="PROBEPermCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="outstandingAuthorizationAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="totalNoOfUnbilledTrans" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardCurrencyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType> -->
+
+  <xsd:complexType name="RewardSummary">
+
+    <xsd:sequence>
+
+      <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="available" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earnedInCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redeemedInCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousStmtPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarnedBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsRedeemedBilled" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Reward" type="tns3:Reward" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Reward">
+
+    <xsd:sequence>
+
+      <xsd:element name="cycleDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="beginingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redeemed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="endingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevStmtBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Memo">
+
+    <xsd:sequence>
+
+      <xsd:element name="memoDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoCategory" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardholderName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agentName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agentID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="createdUserID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="updatedUserID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoContent" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memoExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="actionCompleteIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="deleteFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="recordType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="owner" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CardCustomer">
+
+    <xsd:sequence>
+
+      <xsd:element name="customerID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="employerName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="title" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="designation" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerLevelBlock" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK ODS - EnquireCardCustomer - Begins -->
+
+      <xsd:element name="customerLevelBlockDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK ODS - EnquireCardCustomer - Ends -->
+
+      <xsd:element name="PANNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="KYC" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dateofBirth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerSince" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availCashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="companyName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MPSLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MPSAvailLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MPSExpiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="MPSLimitAccamt" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="MPSAvailLimitAccamt" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="currentBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="detailsOfLEZCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nickName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Duplicate fields - Found in CreditCard -->
+
+      <!-- <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="embossedName" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="cardLevelBlock" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="relationshipType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="relationshipNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="homePhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="workPhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="officePhoneNo" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="mobilePhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="mobilePhoneNo" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="email" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Address" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="OtherAddress" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fullName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryAccountHolder" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryCustomer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerShortName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billingCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="gstRegistrationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAvailablePoint" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalStmtBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalCurrentBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalMinAmountDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPaymentAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPaymentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="permanentCreditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="entityID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="entityType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="organisationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for CEMS SG Get Customer Reward Points Summary -->
+
+      <xsd:element name="systemID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="functionID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAvailableBalPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalexpPointsRedeemable" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalpointsForteited" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextPageKey" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS IN SP -->
+
+      <xsd:element name="gender" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="genderDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="behaviourScore" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalRemainingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintainenceDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS IN SP Ends -->
+
+      <!--Fields Added for TW  Enquire Card Customerfor Online:Starts -->
+
+      <xsd:element name="shadowLimitInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="shadowLimitExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentApportionment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentApportionmentExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for TW  Enquire Card Customerfor Online:Ends -->
+
+      <!--Fields Added for TW  Get Card Dispute Resolution Details ODS:Starts -->
+
+      <!-- the below moved to CardDisputeResolutionDtls -->
+
+      <xsd:element name="leadingBank" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bankName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fileDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="applicationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remarks" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenure" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyRepaymentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agreementSignedRtndDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="approvedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="firstInstallmentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="destroyedConnaughtDay" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="IDRPNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="home" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="homeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agreementReceived" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="office" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields Added for TW  Get Card Dispute Resolution Details ODS:Starts -->
+
+      <!-- added for TW ODS Enquire Card Customer -->
+
+      <!-- the below are of no use : duplicate fileds -->
+
+      <!--
+                  <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="addressLastMaintainedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+                  -->
+
+      <!-- ORR SG GetRewardRedemptionDetails -->
+
+      <xsd:element name="custIDType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="salutation" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS TW-->
+
+      <xsd:element name="directMail" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for SIMCO IBNK EnquireLinkedCards Service -->
+
+      <xsd:element name="cardExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMinAmtDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="consolidatedCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK ODS - EnquireCardCustomer - Begins -->
+
+      <xsd:element name="callingCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="employmentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="employeeFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK ODS - EnquireCardCustomer - Ends -->
+
+      <!--Added for SIMCO MY EnquireLinkedCards - Begins -->
+
+      <xsd:element name="pastDueFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for SIMCO MY - EnquireLinkedCards - Ends -->
+
+      <!-- Added for CEMS HK- Enquire Card Customer by Sushma on 11.08.2011-Start -->
+
+      <xsd:element name="MailingAddress" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availCreditLimit2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availCashLimit2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS HK- Enquire Card Customer by Sushma on 11.08.2011-End -->
+
+      <!-- 1583 CEMS MY  Enquire Card Customer  22 Sep 11 Starts-->
+
+      <xsd:element name="segmentCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overLimitOption" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- 1583 CEMS MY  Enquire Card Customer  22 Sep 11 Ends-->
+
+      <!-- Added for CEMS CV DeCoupling Start -->
+
+      <xsd:element name="crmODRowId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS CV DeCoupling End -->
+
+      <!--Added IVR~CCMS SG -->
+
+      <xsd:element name="linkedCustId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields added for OFP MY start-->
+
+      <xsd:element name="maritalStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="grossAnnualIncome" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Fields added for OFP MY ends -->
+
+      <!--Added for IVR SG -->
+
+      <xsd:element name="coOwnerWorkTelephoneNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="icNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="housing" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="housingExt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for BaoJian Start -->
+
+      <xsd:element name="addressType" type="xsd:string" minOccurs="0"/>
+
+      <xsd:element name="addressTypeDesc" type="xsd:string" minOccurs="0"/>
+
+      <!-- Added for BaoJian End -->
+
+      <xsd:element name="rtnInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="RedemptionProduct" type="tns3:RedemptionProduct" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="CreditCard" type="tns3:CreditCard" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!--Fields Added for CEMS SG Enquire Card Customerfor ODS -->
+
+      <xsd:element name="additionalMailingTitle1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="additionalMailingTitle2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="additionalAddressState" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="additionalAddressCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Included the Additional Address Field to accomadate addtional Address type(18-05-2010) for ODS EnquireCardCustomer -->
+
+      <!-- Added for OFP MY phase 2 starts -->
+
+      <xsd:element name="noOfYearsAtResidence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="residenceType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ownershipStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfYearsInService" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="positionsHeld" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nationality" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for OFP MY phase 2 ends -->
+
+      <!-- Added for Consolidated STP EnquireCardCustomer IN Start -->
+
+      <xsd:element name="memo1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="memo2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Consolidated STP EnquireCardCustomer IN End -->
+
+      <!-- Added for Consolidated STP EnquireCardCustomer ID Start -->
+
+      <xsd:element name="faxNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Consolidated STP EnquireCardCustomer ID End -->
+
+      <!-- Added for IBNK MEPS Project -->
+
+      <xsd:element name="retailInterestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInterestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Ends -->
+
+      <!-- Added for CEMS STP-IN Enquire Card Customer Starts -->
+
+      <xsd:element name="coOwnerDOB" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS STP-IN Enquire Card Customer Ends -->
+
+      <xsd:element name="additionalAddress" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Redemption" type="tns3:Redemption" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Response" type="resp:ServiceResponse" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CCAddress">
+
+    <xsd:sequence>
+
+      <xsd:element name="mailingTitle1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mailingTitle2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="addressLine4" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Virtue on 17 Apr 2012: Start -->
+
+      <xsd:element name="addressLine5" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for Virtue on 17 Apr 2012: End -->
+
+      <xsd:element name="city" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cityDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="state" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- <xsd:element name="pinCode" type="xsd:string" nillable="true" minOccurs="0"/> -->
+
+      <xsd:element name="postalCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="country" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nonMailAddress" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintainDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="attentionParty1" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="attentionParty2" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="countryDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="homePhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="workPhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mobilePhone" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="email" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mailingTitle3" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY Enquire Card Customer ODS  06 Oct 11 Starts-->
+
+      <xsd:element name="mailingTitle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for CEMS MY Enquire Card Customer ODS  06 Oct 11 Ends-->
+
+      <!-- Added for MEPA : Start -->
+
+      <xsd:element name="housing" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="housingExt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="home" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA : End -->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SupplimentCard">
+
+    <xsd:sequence>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardTypeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="block" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="relType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added these fields from CardPlasticDetails -->
+
+      <xsd:element name="cardHolderName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nric" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="action" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added this Field for ODS  -->
+
+      <xsd:element name="actionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequence" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardsRequested" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="supplementaryCards" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS HK ODS Service EnquireCardDetails : Begins -->
+
+      <xsd:element name="supplementaryCardsDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS HK ODS Service EnquireCardDetails : Ends -->
+
+      <xsd:element name="cardsIssued" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardsReturned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardFeatures" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevAction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added this Field for ODS  -->
+
+      <xsd:element name="prevActionDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added for CEMS HK -->
+
+      <xsd:element name="relshipType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="cardHolderIDNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+
+      <!-- Added for ATMCHIPCARD phase3 by Amrita -->
+
+      <xsd:element name="chipType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Ended -->
+
+      <!-- Added for China BaoJian : Start-->
+
+      <xsd:element name="cardCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for China BaoJian : End-->
+
+      <xsd:element name="contactlessIndicator" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Complex types added for CEMS SG -->
+
+  <xsd:complexType name="CardAccessDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="priorityPassNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="oldPriorityPassNo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Commented by balaji as per latest specs(13-05-2010)  and moved this complex type insideSupplimentCard
+      <xsd:complexType name="CardPlasticDetails">
+          <xsd:sequence>
+              <xsd:element name="cardHolderName" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="nric" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="action" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="sequence" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardsRequested" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="supplementaryCards" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardsIssued" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardsReturned" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="cardFeatures" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="prevAction" type="xsd:string" nillable="true" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType>-->
+
+  <xsd:complexType name="CashOneDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="insuranceFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minInsuranceFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="maxInsuranceFee" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="earlyRepayHandCharge" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loanAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="disbursementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="installmentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedPrincipalAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedIntAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedTotalAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainingPrincipal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainingIntBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainingTotalBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentModeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flatIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effectiveIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intCalculationMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="installmentNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="billedInstallment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nextBillDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="redemptionAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--Complex Type Added for CEMS SG Get Customer Reward Points Summary -->
+
+  <xsd:complexType name="CardDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="prevStmtBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsUsed" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="offeringCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added by Ashwin on 22-08-2011 for CEMS HK Starts-->
+
+      <xsd:element name="currentAdjustment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--Added by Ashwin on 22-08-2011 for CEMS HK Ends-->
+
+      <xsd:element name="EarningDetails" type="tns3:EarningDetails" nillable="true" minOccurs="0" maxOccurs="4"/>
+
+      <xsd:element name="PanBankInfo" type="tns3:PanBankInfo" nillable="true" minOccurs="0" maxOccurs="20"/>
+
+      <xsd:element name="ACCELProgramInfo" type="tns3:ACCELProgramInfo" nillable="true" minOccurs="0" maxOccurs="4"/>
+
+      <!--  Added for Virtue on 17-04-2012  Start-->
+
+      <xsd:element name="cardAcct" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primaryShadowAcctNoMiRev" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currREBonusPointsSIGN" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currREBonusPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currRECashDollarSIGN" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currRECashDollar" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpYear" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpMonth" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="shadowAcctStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="offeringKey" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sourceProdID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashBackFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="panBankInd" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardsPrevBalSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rewardsPrevBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalEarnedRewardsSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalEarnedRewards" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsRedeemedTransferredExpSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsRedeemedTransferredExp" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalPointsBalSign" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalPointsBal" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastStmtDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="ExpiryPointDetails" type="tns3:ExpiryPointDetails" nillable="true" minOccurs="0"
+                   maxOccurs="unbounded"/>
+
+      <xsd:element name="ccyCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!--  Added for Virtue on 17-04-2012  End-->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="EarningDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="expiringPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsExpDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PanBankInfo">
+
+    <xsd:sequence>
+
+      <xsd:element name="panBankProductCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="panBankpoints" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ACCELProgramInfo">
+
+    <xsd:sequence>
+
+      <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="promotionStartDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="promotionEndDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="BalanceHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="cycleDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="openingBalance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsEarnedCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointsUsedCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAvailableBalancePoints" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="catrPointsCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashbackPointsCurrentCycle" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="availableRewardPoints" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Redemption">
+
+    <xsd:sequence>
+
+      <xsd:element name="authId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reqId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reqType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="iBankingUserFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="regDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loginDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="resId" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="resType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Accelerator" type="tns3:ACCELProgramInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- <xsd:complexType name="Accelerator">
+          <xsd:sequence>
+              <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0"/>
+              <xsd:element name="desc" type="xsd:string" nillable="true" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType> -->
+
+  <!-- added for Taiwan ODS Get Merchant Details : Starts -->
+
+  <xsd:complexType name="MerchantDetail">
+
+    <xsd:sequence>
+
+      <xsd:element name="NCCCMerchantNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MCCCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="SCBMerchantNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Get Card Reward Redemption Details:Starts -->
+
+  <xsd:complexType name="StatusHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="lastModifiedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statusDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nonDeliveryReason" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="nonDeliveryReasonDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Get Card Statement History :Starts-->
+
+  <xsd:complexType name="StatementHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="accumulatedSTDDollars" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agingCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agingCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashAdvance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cashOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="financeCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="minPayment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="otherFeeCharges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="payment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="purchase" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailInterest" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="retailOnly" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Get Credit Card Purge Details  and Get Card Block Code Description:Starts-->
+
+  <xsd:complexType name="PurgeDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="purgeDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditCardNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="openDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastPaymentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditLimit" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="BlockDetail">
+
+    <xsd:sequence>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Get Past Card Transactions :Starts-->
+
+  <xsd:complexType name="PastTransactions">
+
+    <xsd:sequence>
+
+      <xsd:element name="additionalInformation" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardHolderBillingAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="posMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="date" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="merchantDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="country" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="response" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="responseCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="BINICACode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="NCCC" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="termType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="MCC" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Enquire CArdDetails:Starts -->
+
+  <xsd:complexType name="SupplementaryCardholderDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="customerNumer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dateOfBirth" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="AirlineMembership">
+
+    <xsd:sequence>
+
+      <xsd:element name="membershipNumer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="airlineCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="airlineCodeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="familyName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="givenName" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan ODS Enquire CArdDetails:Ends -->
+
+  <!-- added for Taiwan ODS Get Merchandise Details :Starts-->
+
+  <xsd:complexType name="PLCCardDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="PLCCardNumer" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="authorizationCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="channel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amountApplied" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remittance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="applicationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="applicationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transmissionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="batchNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remittanceAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenure" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remittanceDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="feeCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="paymentMode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- HK Get Merchandise Details   -->
+
+      <xsd:element name="lastBilledNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBilledAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastBilledDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="instPeriod" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan Online GetCardCallInCashDetails:Starts-->
+
+  <xsd:complexType name="CallInTxns">
+
+    <xsd:sequence>
+
+      <xsd:element name="bank" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="branch" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accountNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="accountType" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan Online GetCardCallInCashDetails:Ends-->
+
+  <!-- added for Taiwan Online Get Card Special Txn History :starts-->
+
+  <xsd:complexType name="VIPUsageTransactions">
+
+    <xsd:sequence>
+
+      <xsd:element name="accessNBR" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="VIPLounge" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="country" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="transactionAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="postDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfCharged" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfVisitors" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="reference" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="AirportParking">
+
+    <xsd:sequence>
+
+      <xsd:element name="accountNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="startDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="dueDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="carNBR" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="shopID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="feeAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfDays" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for Taiwan Online Get Card Special Txn History :starts-->
+
+  <!-- added for Taiwan Online Get Card SMS Alerts-->
+
+  <xsd:complexType name="SMSAlerts">
+
+    <xsd:sequence>
+
+      <xsd:element name="mobileNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alertLastUpdatedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alertLastUpdatedTime" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alertFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alertRangeFrom" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="alertRangeTo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PriorityPassDetail">
+
+    <xsd:sequence>
+
+      <xsd:element name="priorityPassHolderName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="priorityPassNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="expiryDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="lastMaintainedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="oldPriorityPassNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noofTimesCardIssued" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="creditCardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loungeVisitOwn" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loungeVisitGuest" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!--Added for TW  Get Card Dispute Resolution Details ODS-->
+
+  <xsd:complexType name="IDRPDtls">
+
+    <xsd:sequence>
+
+      <xsd:element name="leadingBank" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="bankName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fileDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="applicationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remarks" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenure" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="interestRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="monthlyRepaymentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agreementSignedRtndDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="approvedDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="firstInstallmentDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="destroyedConnaughtDay" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="IDRPNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="home" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="homeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agreementReceived" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="agreementReceivedDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="mobile" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="office" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="customerStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="Address" type="tns3:CCAddress" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- added for TW ODS Enquire Card Customer -->
+
+  <xsd:complexType name="RedemptionProduct">
+
+    <xsd:sequence>
+
+      <xsd:element name="orderNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="orderDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productNo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- CEMS SG ODS-->
+
+  <xsd:complexType name="PricingHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="effectiveIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flatIntRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="currentInstallmentAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="newTenor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effectiveDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="criteria" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="TopupHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="MPSAcctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="programDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="productDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="sequenceNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="effectiveRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="flatRate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="remainingInstallment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="outstandingBal" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for CEMS HK CR -->
+
+  <xsd:complexType name="EarnDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="prefMerchant" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="capReachDtOverall" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="capReachDtatPrefMerchant" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pointEarnedToday" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- 1583 CCMS HK  Get Card Summary-->
+
+  <xsd:complexType name="CardSummaryDtl">
+
+    <xsd:sequence>
+
+      <xsd:element name="organisationNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="custType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="blockCode" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for SG MAS Ace -->
+
+  <xsd:complexType name="TokenCardList">
+
+    <xsd:sequence>
+
+      <xsd:element name="serialNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tokenStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Consolidate STP : Start-->
+
+  <xsd:complexType name="EmbossingDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="noOfCards" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossingName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardAction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noRequested" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="supportOption" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardFeature" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfCardsIssued" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="noOfCardsReturned" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="rqstCardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="previousAction" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="pinRecord" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Consolidate STP : End-->
+
+  <!-- Added for Consolidate STP HK: start-->
+
+  <xsd:complexType name="SCBOverlimit">
+
+    <xsd:sequence>
+
+      <xsd:element name="scbOverlimitValue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="scbOverlimitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ManhattanOverlimit">
+
+    <xsd:sequence>
+
+      <xsd:element name="manhattanOverlimitValue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="manhattanOverlimitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PrimeOverlimit">
+
+    <xsd:sequence>
+
+      <xsd:element name="primeOverlimitValue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="primeOverlimitDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Consolidate STP HK : End-->
+
+  <!-- Added for China BaoJian : Start-->
+
+  <xsd:complexType name="LinkedCards">
+
+    <xsd:sequence>
+
+      <xsd:element name="cardNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="embossedName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardTypeDesc" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardExpDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="cardCcy" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for China BaoJian : End-->
+
+  <!-- Added for MEPA : Start-->
+
+  <xsd:complexType name="PaymentHistory">
+
+    <xsd:sequence>
+
+      <xsd:element name="period" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="purchase" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="payment" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="charges" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="amtDue" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="InstallmentPlan">
+
+    <xsd:sequence>
+
+      <xsd:element name="loanStartDt" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="totalAmtLoanTaken" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="intRateLoan" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tenure" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="fixedInst" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="loanOutstandAmt" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SubAcctDtl">
+
+    <xsd:sequence>
+
+      <xsd:element name="acctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="tranGroup" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acctAgreement" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="balance" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="PrimaryCard">
+
+    <xsd:sequence>
+
+      <xsd:element name="acctNo" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="status" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA by Shyama :Start -->
+
+      <xsd:element name="currency" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <!-- Added for MEPA by Shyama : End -->
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Notes">
+
+    <xsd:sequence>
+
+      <xsd:element name="notesStored" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="NotesData">
+
+    <xsd:sequence>
+
+      <xsd:element name="notesDate" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="notesType" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="acctNotes" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="arrearsLevel" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="overrideCode" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="userID" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for MEPA : End-->
+
+  <!-- Added for Consolidate STP by Archana : Start-->
+
+  <xsd:complexType name="MonthtoDateDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="monthlyToDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Consolidate STP by Archana : End-->
+
+  <!-- Added for Consolidate STP - GetInstallmentPrgm by Archana : Start-->
+
+  <xsd:complexType name="MonthlyInstallmentDetails">
+
+    <xsd:sequence>
+
+      <xsd:element name="installmentAmount" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="installmentTenor" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="statementDate" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Added for Consolidate STP - GetInstallmentPrgm by Archana : End-->
+</xsd:schema>

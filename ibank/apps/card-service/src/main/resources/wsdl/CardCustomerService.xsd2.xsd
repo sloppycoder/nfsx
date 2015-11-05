@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://entity.service.common.scb"
+            targetNamespace="http://entity.service.common.scb" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+  <xsd:element name="ServiceHeader" type="tns2:ServiceHeader"/>
+
+  <xsd:complexType name="UserNameToken">
+
+    <xsd:sequence>
+
+      <xsd:element name="userName" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="password" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ServiceHeader">
+
+    <xsd:sequence>
+
+      <xsd:element name="userNameToken" type="tns2:UserNameToken" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="consumerID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="consumerCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="serviceTimeStamp" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="requestID" type="xsd:string" nillable="true" minOccurs="0"/>
+
+      <xsd:element name="targetFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
