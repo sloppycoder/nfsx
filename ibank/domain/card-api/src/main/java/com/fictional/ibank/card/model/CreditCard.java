@@ -11,8 +11,6 @@ import java.util.Date;
 @JsonRootName("card")
 public class CreditCard {
 
-    private BigDecimal id;
-
     @NotNull
     @Size(min=2, max=2)
     private String countryCode;
@@ -44,14 +42,6 @@ public class CreditCard {
         //No error handling here for now..
         countryCode = id.substring(0,2);
         customerId = id.substring(2);
-    }
-
-    public BigDecimal getId() {
-        return id;
-    }
-
-    public void setId(BigDecimal id) {
-        this.id = id;
     }
 
     public String getCountryCode() {
