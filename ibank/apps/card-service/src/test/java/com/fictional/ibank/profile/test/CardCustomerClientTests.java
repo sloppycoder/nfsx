@@ -1,7 +1,6 @@
 package com.fictional.ibank.profile.test;
 
 import com.fictional.ibank.card.CardServiceApplication;
-import com.fictional.ibank.card.ccms.service.CardCustomerBackendClient;
 import com.fictional.ibank.card.ccms.service.CreditCardBackendService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,16 +21,7 @@ import static org.junit.Assert.assertThat;
 public class CardCustomerClientTests {
 
     @Autowired
-    private CardCustomerBackendClient cardCustomerBackendClient;
-
-    @Autowired
     private CreditCardBackendService cardBackendService;
-
-    @Test
-    public void
-    customer_has_cards_from_backend() throws Exception {
-        assertThat(cardCustomerBackendClient.enquireLinkedCards("MY", "123").size(), greaterThan(20)); // should return 50
-    }
 
     @Test
     public void

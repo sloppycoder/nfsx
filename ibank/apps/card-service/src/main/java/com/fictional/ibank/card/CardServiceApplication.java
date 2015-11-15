@@ -10,6 +10,7 @@ import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 @SpringBootApplication
@@ -18,6 +19,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EntityScan(basePackageClasses=CreditCardEntity.class)
 @ComponentScan
 @EnableResourceServer
+@ImportResource("classpath:cxf.xml")
 public class CardServiceApplication {
 
     // for some unknown reason spring-boot is confused to use jetty
