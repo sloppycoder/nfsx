@@ -7,6 +7,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
@@ -29,6 +30,7 @@ public class CardCustomerIT {
     @Autowired
     Environment env;
 
+    @Ignore
     @Test
     public void
     customer_has_active_cards() throws Exception {
