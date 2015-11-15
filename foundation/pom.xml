@@ -231,7 +231,8 @@
             <parallel>none</parallel>
             <threadCount>1</threadCount>
             <includes>
-              <include>**/*ITest*.java</include>
+              <include>**/*IT.java</include>
+              <include>**/*IT.groovy</include>
             </includes>
           </configuration>
         </plugin>
