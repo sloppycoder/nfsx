@@ -38,7 +38,7 @@ spring:
 nfs2:
   ccms:
     card-customer-service:
-      wsdl-url: http://localhost:9092/CardCustomerService?wsdl
+      endpoint-url: http://localhost:9092/CardCustomerService
 
 ---
 # use H2 database
