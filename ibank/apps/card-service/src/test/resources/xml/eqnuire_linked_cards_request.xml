@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ent1="http://entity.cards.common.scb"
+                  xmlns:ent="http://entity.service.common.scb">
+  <soapenv:Header>
+    <ent:ServiceHeader>
+      <ent:userNameToken>
+        <ent:userName>IBNK</ent:userName>
+        <ent:password>IBNK</ent:password>
+      </ent:userNameToken>
+      <ent:consumerID>IBNK</ent:consumerID>
+      <ent:consumerCountry>MY</ent:consumerCountry>
+      <ent:serviceTimeStamp>2015-10-21</ent:serviceTimeStamp>
+      <ent:requestID>87674894-1614-8574-1510-211551348700</ent:requestID>
+      <ent:targetFlag>1</ent:targetFlag>
+    </ent:ServiceHeader>
+  </soapenv:Header>
+  <soapenv:Body>
+    <ent1:EnquireLinkedCards>
+      <ent1:relationshipNo>580521065322</ent1:relationshipNo>
+      <ent1:entityType>25</ent1:entityType>
+      <ent1:organisationNo>001</ent1:organisationNo>
+      <ent1:requestFlag>1020</ent1:requestFlag>
+      <ent1:CreditCard>
+        <ent1:creditCardNo/>
+        <ent1:currencyCode/>
+      </ent1:CreditCard>
+    </ent1:EnquireLinkedCards>
+  </soapenv:Body>
+</soapenv:Envelope>
