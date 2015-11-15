@@ -1,4 +1,4 @@
-package com.fictional.nfs2.sample;
+package com.fictional.nfs2.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,22 +12,10 @@ import java.util.Map;
 
 @SpringBootApplication
 @Controller
-public class MinimalWebAppApplication extends WebMvcConfigurerAdapter {
-
-    @RequestMapping(value={"/dashboard"})
-    public String showIndex(Map<String,Object> model) throws Exception {
-        model.put("customer", "Mr. Bean");
-        return "dashboard";
-    }
-
-    @RequestMapping("/user")
-    @ResponseBody
-    public Principal user(Principal user) {
-        return user;
-    }
+public class TestApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
-            SpringApplication.run(MinimalWebAppApplication.class, args);
+            SpringApplication.run(TestApplication.class, args);
         }
 
 }

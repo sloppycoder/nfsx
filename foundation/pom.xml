@@ -55,7 +55,6 @@
   <modules>
     <module>domain</module>
     <module>service-support</module>
-    <module>samples</module>
   </modules>
 
   <dependencyManagement>
@@ -103,7 +102,7 @@
         <version>${h2.version}</version>
       </dependency>
 
-      <!-- enable model mapper support -->
+      <!-- enable entity mapper support -->
       <dependency>
         <groupId>com.github.jmnarloch</groupId>
         <artifactId>modelmapper-spring-boot-starter</artifactId>

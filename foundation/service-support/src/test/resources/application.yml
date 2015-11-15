@@ -1,12 +1,5 @@
-# the application uses cloud config
-# the values here are only used during testing
-
 server:
-  port: 8888
-security:
-  require-ssl: false
-  ignored:
-    - "/**"
+  port: 8889
 
 logging:
   level:
@@ -16,18 +9,14 @@ logging:
 
 domains.access.control.allow.origin: "*"
 
-# default to h2 database
-spring:
-  profiles:
-    include: h2
+security:
+  require-ssl: false
+  ignored:
+    - "/**"
 
-  main:
-    show-banner: false
-
----
-# use H2 database
 spring:
-  profiles: h2
+  application:
+    name: testapp
 
   datasource:
     url: jdbc:h2:mem:tempdb;MODE=oracle;DB_CLOSE_ON_EXIT=FALSE
@@ -37,16 +26,18 @@ spring:
     database: H2
     show-sql: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
 
 flyway:
-  enabled: true
-  locations: db/migration/h2
+  enabled: false
+  locations: .
 
 management:
   security:
     enabled: false
+
+
