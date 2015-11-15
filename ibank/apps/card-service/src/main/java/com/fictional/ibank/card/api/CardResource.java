@@ -25,7 +25,7 @@ public class CardResource extends ResourceServerConfigurerAdapter implements Cre
     private static final Logger LOG = LoggerFactory.getLogger(CardResource.class);
 
     @Autowired
-    private JpaCreditCardService cardService;
+    private JpaCreditCardService cardJpaService;
 
     @Autowired
     private CreditCardBackendService cardBackendService;
@@ -36,8 +36,8 @@ public class CardResource extends ResourceServerConfigurerAdapter implements Cre
     public Collection<CreditCard> getCardsOverview(@PathVariable("cust_id") @NotNull String id) throws Exception {
         try {
             return getCardOverviewOnline(id);
-        } catch (BackendServiceException e) {
-            LOG.warn("Falling back to getCardOverviewOffline", e);
+        } catch (Exception e) {
+            LOG.info("Falling back to getCardOverviewOffline", e);
             return getCardOverviewOffline(id);
         }
     }
@@ -49,7 +49,7 @@ public class CardResource extends ResourceServerConfigurerAdapter implements Cre
     }
 
     private Collection<CreditCard> getCardOverviewOffline(String id) throws Exception {
-        return cardService.getCardsOverview(id);
+        return cardJpaService.getCardsOverview(id);
     }
 
     @Override

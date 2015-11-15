@@ -31,14 +31,10 @@ spring:
   main:
     show-banner: false
 
-#  jackson:
-#    serialization:
-#      WRAP_ROOT_VALUE: true
-
 nfs2:
   ccms:
     card-customer-service:
-      endpoint-url: http://localhost:9092/CardCustomerService
+      endpoint-url: http://no_host_/CardCustomerService
 
 ---
 # use H2 database
@@ -63,3 +59,12 @@ flyway:
   enabled: true
   locations: db/migration/h2
 
+---
+# use H2 database
+spring:
+  profiles: itest
+
+nfs2:
+  ccms:
+    card-customer-service:
+      endpoint-url: http://127.0.0.1:9092/CardCustomerService

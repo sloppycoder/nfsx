@@ -39,8 +39,7 @@ public class CardResourceApiTests {
             .get("/cards_overview/MY123456")
         .then()
             .statusCode(200)
-            .body("[0].id", equalTo(1))
-            .body("[1].id", equalTo(2))
+            .body("[0].customerId", equalTo("123456"))
         .log()
             .all();
         // @formatter:on
