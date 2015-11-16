@@ -9,9 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplicat
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
-@Component
 @Configuration
 @ConditionalOnWebApplication
 @AutoConfigureAfter({WebMvcAutoConfiguration.class})
