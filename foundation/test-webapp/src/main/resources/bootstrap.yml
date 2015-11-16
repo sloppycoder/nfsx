@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: test-webapp
+  cloud:
+    config:
+      eanbled: false

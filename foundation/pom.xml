@@ -55,6 +55,7 @@
   <modules>
     <module>domain</module>
     <module>service-support</module>
+	<module>test-webapp</module>
   </modules>
 
   <dependencyManagement>

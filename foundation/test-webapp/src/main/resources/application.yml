@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.apache.http: WARN
+    org.springframework.security: INFO
+
+domains.access.control.allow.origin: "*"
+
+security:
+  require-ssl: false
+  ignored:
+    - "/**"
+
+spring:
+  application:
+    name: minima-webapp
+
+flyway:
+  enabled: false
+  locations: . # having an invalid path will cause flyway to fail
+
+management:
+  security:
+    enabled: false
+
+nfs2:
+  corsFilter:
+    enabled: true
