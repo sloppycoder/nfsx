@@ -1,5 +1,6 @@
 package com.fictional.nfs2.audit.entity;
 
+import com.fictional.nfs2.audit.event.AuditTrailEvent;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -25,6 +26,16 @@ public class AuditTrailEntity extends AbstractPersistable<Long> {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_update", columnDefinition = "timestamp default sysdate", nullable = false)
     private Date lastUpdate;
+
+    public AuditTrailEntity() {};
+
+    public AuditTrailEntity(AuditTrailEvent event) {
+        this.username = event.getUsername();
+        this.action = event.getAction();
+        this.param1 = event.getParam1();
+        this.param2 = event.getParam2();
+        this.lastUpdate = event.getEventTimestamp();
+    }
 
     public AuditTrailEntity(String username, String action, String param1, String param2) {
         super();

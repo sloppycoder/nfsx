@@ -1,7 +1,7 @@
 package com.fictional.nfs2.annotation;
 
 public enum AuditActionType {
-    NORMAL("NORMAL"), MASKED("MASKED"), SECURE("SECURE"), TRANSIENT("TRANSIENT");
+    DB("DB"), JMS_QUEUE("JMS_QUEUE"), JMS_TOPIC("JMS_TOPIC"), CUSTOM("CUSTOM");
 
     private String actionType;
 
