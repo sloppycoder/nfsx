@@ -30,7 +30,7 @@ public class CommonHealthIndicatorAutoConfiguration {
     private static final Logger LOG = LoggerFactory.getLogger(CommonHealthIndicatorAutoConfiguration.class);
 
     @Configuration
-    @ConditionalOnExpression("${csl.commonHealthIndicator.enabled:true}")
+    @ConditionalOnExpression("${nfs2.commonHealthIndicator.enabled:true}")
     public static class CslCommonHealthIndicatorConfiguration {
 
         @Autowired
