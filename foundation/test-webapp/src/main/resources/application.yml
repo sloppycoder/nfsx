@@ -16,7 +16,7 @@ security:
 
 spring:
   application:
-    name: minima-webapp
+    name: test-webapp
 
 flyway:
   enabled: false
@@ -25,7 +25,3 @@ flyway:
 management:
   security:
     enabled: false
-
-nfs2:
-  corsFilter:
-    enabled: true
