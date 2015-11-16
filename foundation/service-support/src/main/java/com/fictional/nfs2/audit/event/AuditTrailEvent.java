@@ -24,7 +24,8 @@ public class AuditTrailEvent {
     }
 
     public String toString() {
-        return String.format("AuditTrailEvent - type: %s, username: %s, action: %s, param1: %s, param2: %s ", actionType, username, action, param1, param2);
+        return String.format("AuditTrailEvent - type: %s, username: %s, action: %s, param1: %s, param2: %s ",
+                                actionType, username, action, param1, param2);
     }
 
     public String getUsername() {
