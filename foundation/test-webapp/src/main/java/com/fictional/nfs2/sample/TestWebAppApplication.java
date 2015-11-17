@@ -1,5 +1,6 @@
 package com.fictional.nfs2.sample;
 
+import com.fictional.nfs2.annotation.Audited;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import java.util.Map;
 @Controller
 public class TestWebAppApplication extends WebMvcConfigurerAdapter {
 
+    @Audited
     @RequestMapping(value={"/dashboard"})
     public String showIndex(Map<String,Object> model) throws Exception {
         model.put("customer", "Mr. Bean");
