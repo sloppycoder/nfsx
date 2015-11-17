@@ -28,7 +28,7 @@ spring:
     protocol-header: X-Forwarded-Proto
     protocol-header-https-value: https
     remote-ip-header:   X-Forwarded-For
-    basedir: ${TOMCAT_BASEDIR_ROOT:/Users/lee/tmp/nfs2}/${spring.application.name}_${server.port}
+    basedir: ${TOMCAT_BASEDIR_ROOT:/Users/lee/tmp/nfs}/${spring.application.name}_${server.port}
     access-log-pattern: "%l %u %t %r %s %b %{User-Agent}i %{Referer}i %{X-Forwarded-For}i %{X-Forwarded-Proto}i %{Location}o"
     access-log-enabled: true
     #port-header: 443

@@ -1,8 +1,8 @@
 package com.fictional.ibank.card.persistence.service;
 
 import com.fictional.ibank.card.service.CreditCardService;
-import com.fictional.nfs2.domain.exception.InvalidParameterException;
-import com.fictional.nfs2.domain.exception.NoDataFoundException;
+import com.fictional.nfsx.domain.exception.InvalidParameterException;
+import com.fictional.nfsx.domain.exception.NoDataFoundException;
 import com.fictional.ibank.card.model.CreditCard;
 import com.fictional.ibank.card.persistence.dao.CreditCardEntityRepository;
 import com.fictional.ibank.card.persistence.entity.CreditCardEntity;

@@ -1,9 +1,8 @@
 package com.fictional.ibank.profile.test;
 
 import com.fictional.ibank.profile.model.Customer;
-import com.fictional.ibank.profile.persistence.entity.CustomerEntity;
 import com.fictional.ibank.profile.service.CustomerService;
-import com.fictional.nfs2.domain.exception.NoDataFoundException;
+import com.fictional.nfsx.domain.exception.NoDataFoundException;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 import org.flywaydb.core.api.MigrationInfoService;
@@ -20,7 +19,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;

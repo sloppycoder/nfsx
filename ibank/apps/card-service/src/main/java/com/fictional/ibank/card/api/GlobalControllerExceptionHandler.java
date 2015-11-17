@@ -1,8 +1,8 @@
 package com.fictional.ibank.card.api;
 
 
-import com.fictional.nfs2.domain.exception.InvalidParameterException;
-import com.fictional.nfs2.domain.exception.NoDataFoundException;
+import com.fictional.nfsx.domain.exception.InvalidParameterException;
+import com.fictional.nfsx.domain.exception.NoDataFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

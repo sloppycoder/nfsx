@@ -3,7 +3,7 @@ package com.fictional.ibank.card.ccms.service;
 import com.fictional.ibank.card.ccms.xmlmodel.*;
 import com.fictional.ibank.card.model.CreditCard;
 import com.fictional.ibank.card.service.CreditCardService;
-import com.fictional.nfs2.domain.exception.InvalidParameterException;
+import com.fictional.nfsx.domain.exception.InvalidParameterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class CreditCardBackendService  implements CreditCardService {
     private static final Logger LOG = LoggerFactory.getLogger(CreditCardBackendService.class);
     private ObjectFactory WS_FACTORY = new ObjectFactory();
 
-    @Value("${nfs2.ccms.card-customer-service.endpoint-url}")
+    @Value("${nfs.ccms.card-customer-service.endpoint-url}")
     String endpointUrl;
 
     @Autowired

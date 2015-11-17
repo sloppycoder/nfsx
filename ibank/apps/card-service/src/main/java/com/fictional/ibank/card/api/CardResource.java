@@ -4,7 +4,6 @@ import com.fictional.ibank.card.ccms.service.CreditCardBackendService;
 import com.fictional.ibank.card.model.CreditCard;
 import com.fictional.ibank.card.persistence.service.JpaCreditCardService;
 import com.fictional.ibank.card.service.CreditCardService;
-import com.fictional.nfs2.domain.exception.BackendServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

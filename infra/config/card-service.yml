@@ -35,7 +35,7 @@ spring:
 #    serialization:
 #      WRAP_ROOT_VALUE: true
 
-nfs2:
+nfs:
   ccms:
     card-customer-service:
       endpoint-url: http://localhost:9092/CardCustomerService

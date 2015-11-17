@@ -15,9 +15,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.fictional.nfs2</groupId>
+      <groupId>com.fictional.nfsx</groupId>
       <artifactId>common-api</artifactId>
-      <version>${nfs2.version}</version>
+      <version>${nfsx.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fictional.ibank</groupId>

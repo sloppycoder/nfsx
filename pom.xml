@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.fictional.nfs2</groupId>
-  <artifactId>nfs2-parent</artifactId>
+  <groupId>com.fictional.nfsx</groupId>
+  <artifactId>nfs-parent</artifactId>
   <version>2.0.0</version>
   <packaging>pom</packaging>
 
@@ -18,12 +18,12 @@
 
   <distributionManagement>
     <repository>
-      <id>csl.lib-release</id>
+      <id>lib-release</id>
       <name>internal releases</name>
       <url>http://internal.repo/artifactory/libs-release-local</url>
     </repository>
     <snapshotRepository>
-      <id>csl.lib-snapshot</id>
+      <id>lib-snapshot</id>
       <name>internal snapshots</name>
       <url>http://internal.repo/artifactory/libs-snapshot-local</url>
     </snapshotRepository>

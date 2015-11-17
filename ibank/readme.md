@@ -1,7 +1,7 @@
 ## Cloud native fictional internet banking application based on Spring.io platform and Netflix OSS
 
 This is a minimal application skeleton that illustrates how an internet banking application can be structured around 
-[nfs2 foundation](../foundation) components using built on top of Spring.io platform and Netflix OSS libraries.
+[nfsx foundation](../foundation) components using built on top of Spring.io platform and Netflix OSS libraries.
 
 ### Modules
 #### domain/profile-api
@@ -37,10 +37,10 @@ Highlights:
 main web application. contains UI components for end-users. 
 
 ### To run this demo
-1. start authentication server by ``` cd nfs2/infra/auth-server; mvn ```
-2. start cloud config and Eureka server by ``` cd nfs2/infra/cloud-server; mvn ```
-3. start profile service by ``` cd nfs2/ibank/apps/profile-server; mvn spring-boot:run ```
-4. start main UI application by ``` cd nfs2/ibank/apps/webapp; mvn spring-boot:run ```
+1. start authentication server by ``` cd nfsx/infra/auth-server; mvn ```
+2. start cloud config and Eureka server by ``` cd nfsx/infra/cloud-server; mvn ```
+3. start profile service by ``` cd nfsx/ibank/apps/profile-server; mvn spring-boot:run ```
+4. start main UI application by ``` cd nfsx/ibank/apps/webapp; mvn spring-boot:run ```
 
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 

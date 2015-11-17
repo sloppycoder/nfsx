@@ -1,5 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.fictional.nfs2.service.config.CommonHealthIndicatorAutoConfiguration,\
-com.fictional.nfs2.audit.config.AuditAspectAutoConfiguration
+com.fictional.nfsx.service.config.CommonHealthIndicatorAutoConfiguration,\
+com.fictional.nfsx.audit.config.AuditAspectAutoConfiguration
 
 

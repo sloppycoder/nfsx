@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "csl_customers")
+@Table(name = "nfsx_customers")
 public class CustomerEntity extends AbstractPersistable<Long> {
 
     @Column(name="country_code", length = 3, nullable = false)

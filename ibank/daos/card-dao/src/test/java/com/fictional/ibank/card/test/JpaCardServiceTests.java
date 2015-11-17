@@ -2,7 +2,7 @@ package com.fictional.ibank.card.test;
 
 import com.fictional.ibank.card.model.CreditCard;
 import com.fictional.ibank.card.service.CreditCardService;
-import com.fictional.nfs2.domain.exception.InvalidParameterException;
+import com.fictional.nfsx.domain.exception.InvalidParameterException;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 import org.flywaydb.core.api.MigrationInfoService;

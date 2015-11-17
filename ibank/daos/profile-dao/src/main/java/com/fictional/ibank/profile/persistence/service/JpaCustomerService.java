@@ -1,8 +1,8 @@
 package com.fictional.ibank.profile.persistence.service;
 
 import com.fictional.ibank.profile.service.CustomerService;
-import com.fictional.nfs2.domain.exception.InvalidParameterException;
-import com.fictional.nfs2.domain.exception.NoDataFoundException;
+import com.fictional.nfsx.domain.exception.InvalidParameterException;
+import com.fictional.nfsx.domain.exception.NoDataFoundException;
 import com.fictional.ibank.profile.model.Customer;
 import com.fictional.ibank.profile.persistence.dao.CustomerEntityRepository;
 import com.fictional.ibank.profile.persistence.entity.CustomerEntity;
