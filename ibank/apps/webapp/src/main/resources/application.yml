@@ -21,7 +21,7 @@ security:
       accessTokenUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/token
       userAuthorizationUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/authorize
       # ssoLogoutUrl below is custom property, not part of Spring
-      ssoLogoutUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect_uri=${LOGOUT_REDIRECT_URL:http://localhost:8000/autologout}
+      ssoLogoutUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect_uri=${LOGOUT_REDIRECT_URL:http://localhost:8000/app/autologout}
       # the credential below must be configured in authorization server.
       clientId: acme
       clientSecret: acmesecret
