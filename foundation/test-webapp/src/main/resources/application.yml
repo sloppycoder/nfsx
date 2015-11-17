@@ -7,7 +7,7 @@ logging:
     org.apache.http: WARN
     org.springframework.security: INFO
 
-domains.access.control.allow.origin: "*"
+cors.allow.origin: "http://localhost:9000"
 
 security:
   require-ssl: false
@@ -25,3 +25,5 @@ flyway:
 management:
   security:
     enabled: false
+
+

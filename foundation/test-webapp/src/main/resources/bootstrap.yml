@@ -3,4 +3,4 @@ spring:
     name: test-webapp
   cloud:
     config:
-      eanbled: false
+      enabled: false

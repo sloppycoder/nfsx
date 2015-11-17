@@ -1,53 +1,76 @@
 package com.fictional.nfs2.sample.test;
 
 import com.fictional.nfs2.sample.TestWebAppApplication;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.client.RestTemplate;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestWebAppApplication.class)
 @ActiveProfiles("test")
 @WebAppConfiguration
+@IntegrationTest("server.port:0")
 public class CORSFilterTests {
 
-    @Autowired
-    private WebApplicationContext context;
+    @Value("${cors.allow.origin}")
+    private String originDomain;
 
-    private MockMvc mockMvc;
+    @Value("${local.server.port}")
+    private int port;
 
-    @Before
-    public void setup() { mockMvc = MockMvcBuilders.standaloneSetup(context).build(); }
+    private RestTemplate template = new TestRestTemplate();
 
-    @Ignore
     @Test
-    public void cors_headers_are_present() throws Exception {
+    public void cors_allowed_for_correct_origin() throws Exception {
 
-        // @formatter:off
-        MockHttpServletRequestBuilder request = options("/user");
+        HttpEntity<String> entity = createTestHttpEntityForOrigin(originDomain);
+        ResponseEntity<String> response = template.exchange(getFullUrl("/user"), HttpMethod.OPTIONS, entity, String.class);
 
-        mockMvc.perform(request)
-            .andExpect(status().isOk())
-            .andExpect(header().string("Access-Control-Allow-Origin", "*"))
-            .andExpect(header().string("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE"))
-            .andExpect(header().string("Access-Control-Allow-Headers", "x-requested-with"));
-        // @formatter:on
+        assertEquals(response.getStatusCode(), HttpStatus.OK);
+        assertEquals(response.getHeaders().getAccessControlAllowOrigin(), originDomain);
+        List<HttpMethod> methods = response.getHeaders().getAccessControlAllowMethods();
+        assertTrue(methods.contains(HttpMethod.GET));
     }
 
 
+    @Test
+    public void cors_denied_for_incorrect_origin() throws Exception {
+
+        HttpEntity<String> entity = createTestHttpEntityForOrigin("http://hacked.domain");
+        ResponseEntity<String> response = template.exchange(getFullUrl("/user"), HttpMethod.OPTIONS, entity, String.class);
+
+        assertEquals(response.getStatusCode(), HttpStatus.FORBIDDEN);
+    }
+
+    private HttpEntity<String> createTestHttpEntityForOrigin(String originDomain) {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.add("Origin", originDomain);
+        headers.add("Access-Control-Request-Headers", "Origin");
+        headers.add("Access-Control-Request-Method", "GET");
+
+        HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+
+        return entity;
+    }
+
+    private String getFullUrl(String path) {
+        return "http://localhost:" + port + path;
+    }
 }
 
