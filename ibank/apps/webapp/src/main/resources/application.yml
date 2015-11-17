@@ -37,7 +37,7 @@ security:
       id: openid
       serviceId: ${PREFIX:}resource
 
-domains.access.control.allow.origin: "*"
+cors.allow.origin: "*"
 
 spring:
   application:

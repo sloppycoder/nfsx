@@ -1,6 +1,7 @@
 package com.fictional.nfs2.sample;
 
 import com.fictional.nfs2.annotation.Audited;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -57,6 +58,25 @@ output:
 @EnableWebMvc
 public class TestWebAppApplication extends WebMvcConfigurerAdapter {
 
+    @Value("${cors.allow.origin}")
+    private String originDomain;
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                // @formatter:off
+                registry
+                    .addMapping("/**")
+                        .allowedOrigins(originDomain)
+                        .allowedMethods("GET","POST", "DELETE", "PUT")
+                        .maxAge(3600);
+                // @formatter:on
+            }
+        };
+    }
+
     @Audited
     @RequestMapping(value = {"/dashboard"})
     public String showIndex(Map<String, Object> model) throws Exception {
@@ -70,21 +90,7 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
         return user;
     }
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                // @formatter:off
-                registry
-                    .addMapping("/**")
-                        .allowedOrigins("http://localhost:9000")
-                        .allowedMethods("GET","POST", "DELETE", "PUT")
-                        .maxAge(3600);
-                // @formatter:on
-            }
-        };
-    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(TestWebAppApplication.class, args);
