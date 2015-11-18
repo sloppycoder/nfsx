@@ -30,7 +30,6 @@ public class CardCustomerIT {
     @Autowired
     Environment env;
 
-    @Ignore
     @Test
     public void
     customer_has_active_cards() throws Exception {
