@@ -36,6 +36,8 @@ nfs:
     card-customer-service:
       endpoint-url: http://no_host_/CardCustomerService
 
+nfs.simulatorServlet.enabled: true
+
 ---
 # use H2 database
 spring:

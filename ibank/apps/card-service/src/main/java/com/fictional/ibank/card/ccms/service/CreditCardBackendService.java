@@ -103,4 +103,11 @@ public class CreditCardBackendService  implements CreditCardService {
         return header;
     }
 
+    public String getEndpointUrl() {
+        return endpointUrl;
+    }
+
+    public void setEndpointUrl(String endpointUrl) {
+        this.endpointUrl = endpointUrl;
+    }
 }
