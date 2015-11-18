@@ -26,4 +26,4 @@ management:
   security:
     enabled: false
 
-
+nfs.simulatorServlet.enabled: true

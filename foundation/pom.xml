@@ -83,6 +83,18 @@
         <version>1.1.0.Final</version>
       </dependency>
 
+      <!-- commons util -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.3.2</version>
+      </dependency>
+
       <!-- CXF for web service -->
       <dependency>
         <groupId>org.apache.cxf</groupId>

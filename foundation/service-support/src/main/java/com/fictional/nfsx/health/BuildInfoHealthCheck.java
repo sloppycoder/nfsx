@@ -1,4 +1,4 @@
-package com.fictional.nfsx.service.health;
+package com.fictional.nfsx.health;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

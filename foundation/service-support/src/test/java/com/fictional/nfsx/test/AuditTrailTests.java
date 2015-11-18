@@ -14,7 +14,6 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestApplication.class)
-@ActiveProfiles("test")
 public class AuditTrailTests {
 
     @Autowired
