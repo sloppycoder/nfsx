@@ -1,6 +1,10 @@
 package com.fictional.ibank.web;
 
+import com.fictional.ibank.card.model.CreditCard;
+import com.fictional.ibank.web.service.card.CreditCardResourceClient;
 import com.fictional.ibank.web.service.profile.CustomerServiceProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +26,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 @SpringBootApplication
@@ -34,11 +40,16 @@ import java.util.Map;
 @EnableCircuitBreaker
 public class MainAppApplication extends WebMvcConfigurerAdapter {
 
+    private static final Logger LOG = LoggerFactory.getLogger(MainAppApplication.class);
+
     @Value("${security.oauth2.client.ssoLogoutUri}")
     String ssoLogoutUri;
 
     @Autowired
     CustomerServiceProxy customerServiceProxy;
+
+    @Autowired
+    CreditCardResourceClient creditCardClient;
 
     @Value("${server.context-path}")
     String contextPath;
@@ -57,8 +68,19 @@ public class MainAppApplication extends WebMvcConfigurerAdapter {
 
     @RequestMapping(value = {"/dashboard"})
     public String showDashboard(Map<String, Object> model) throws Exception {
+
+        Collection<CreditCard> cards;
+        try {
+            cards = creditCardClient.getCardsOverview("MY123456");
+        } catch (Exception e) {
+            LOG.warn("Cannot retrieve card overview {}", e);
+            cards = new ArrayList<CreditCard>();
+        }
+
+        model.put("cards", cards);
         model.put("customer", customerServiceProxy.getCustomerFromBackend());
         model.put("sso_logout_url", ssoLogoutUri);
+
         return "dashboard";
     }
 
