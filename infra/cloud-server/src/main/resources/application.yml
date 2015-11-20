@@ -37,7 +37,7 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
   instance:
-    leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
+    leaseRenewalIntervalInSeconds: 30 # should be set to 30 for production
 
 turbine:
   aggregator:
