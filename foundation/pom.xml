@@ -37,9 +37,13 @@
     <rest.assured.version>2.4.1</rest.assured.version>
     <flyway.version>3.2.1</flyway.version>
 
+    <!-- build related -->
+    <docver.maven.plugin.version>0.3.6</docver.maven.plugin.version>
+
   </properties>
 
   <distributionManagement>
+    <!-- these are placeholders only -->
     <repository>
       <id>lib-release</id>
       <name>internal releases</name>
@@ -398,6 +402,13 @@
               </pluginExecutions>
             </lifecycleMappingMetadata>
           </configuration>
+        </plugin>
+
+        <!-- build docker container images -->
+        <plugin>
+          <groupId>com.spotify</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>${docver.maven.plugin.version}</version>
         </plugin>
 
         <!-- end of common plug configuration -->

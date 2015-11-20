@@ -33,6 +33,9 @@
     <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>target/jacoco-it.exec</sonar.jacoco.itReportPath>
 
+    <!-- docker -->
+    <docker.image.name>sloppycoder/ibank-${project.artifactId}</docker.image.name>
+
   </properties>
 
   <dependencyManagement>
@@ -146,7 +149,7 @@
   </dependencies>
 
   <build>
-    <defaultGoal>clean package</defaultGoal>
+    <defaultGoal>clean install</defaultGoal>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -167,9 +170,9 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-		<configuration>
-			<jvmArguments>-XX:PermSize=96m -XX:MaxPermSize=256m</jvmArguments>
-		</configuration>
+        <configuration>
+          <jvmArguments>-XX:PermSize=96m -XX:MaxPermSize=256m</jvmArguments>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -197,5 +200,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
