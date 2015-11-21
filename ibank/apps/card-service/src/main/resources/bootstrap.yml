@@ -17,10 +17,3 @@ spring:
     config:
       enabled: false
 
----
-spring:
-  profiles: itest
-
-  cloud:
-    config:
-      enabled: false

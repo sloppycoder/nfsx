@@ -61,12 +61,3 @@ flyway:
   enabled: true
   locations: db/migration/h2
 
----
-# use H2 database
-spring:
-  profiles: itest
-
-nfs:
-  ccms:
-    card-customer-service:
-      endpoint-url: http://127.0.0.1:9092/CardCustomerService
