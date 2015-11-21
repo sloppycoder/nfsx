@@ -28,3 +28,13 @@ spring:
     resource:
       userInfoUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/user
       preferTokenInfo: false
+
+---
+spring:
+  profiles: mysql
+
+  datasource:
+    url: ${JDBC_URL:jdbc:mysql://localhost/profdb}
+    username: profsvc
+    password: password
+

@@ -54,3 +54,14 @@ spring:
         prefix: /cloudconfig
         native:
           searchLocations: ./src/main/resources
+
+---
+spring:
+  profiles: docker
+
+  cloud:
+    config:
+      server:
+        prefix: /cloudconfig
+        native:
+          searchLocations: /config

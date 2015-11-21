@@ -32,6 +32,7 @@
 
     <!--jdbc drivers -->
     <h2.version>1.4.181</h2.version>
+    <mysql.jdbc.version>5.1.37</mysql.jdbc.version>
 
     <!-- test related dependencies -->
     <rest.assured.version>2.4.1</rest.assured.version>
@@ -117,6 +118,11 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${h2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.jdbc.version}</version>
       </dependency>
 
       <!-- enable entity mapper support -->

@@ -13,9 +13,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://127.0.0.1:8761/eureka/}
-      registryFetchIntervalSeconds: 5 # 30 for production?
+      registryFetchIntervalSeconds: 10 # 30 for production?
   instance:
-    leaseRenewalIntervalInSeconds: 5 # should be set to 30 for production
+    leaseRenewalIntervalInSeconds: 10 # should be set to 30 for production
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
@@ -32,39 +32,10 @@ management:
 
 # settings used by Spring
 spring:
-  # default to h2 database
-  profiles:
-    include: h2
-
   main:
     show-banner: false
 
 ---
-spring:
-  profiles: oracle
-
-  datasource:
-    url: jdbc:oracle:thin:@192.168.99.100:32769:XE
-    username: spring
-    password: spring
-
-  jpa:
-    database: oracle
-    show-sql: true
-    hibernate:
-      ddl-auto: ""
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.Oracle10gDialect
-
-flyway:
-  enabled: true
-  locations: db/migration/oracle
-  initOnMigrate: true
-
----
-# use H2 database
 spring:
   profiles: h2
 
@@ -74,7 +45,7 @@ spring:
 
   jpa:
     database: H2
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: ""
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
@@ -85,3 +56,21 @@ spring:
 flyway:
   enabled: true
   locations: db/migration/h2
+
+---
+spring:
+  profiles: mysql
+
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+flyway:
+  enabled: true
+  locations: db/migration/mysql

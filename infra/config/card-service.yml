@@ -41,25 +41,11 @@ nfs:
       endpoint-url: http://localhost:9092/CardCustomerService
 
 ---
-# use H2 database
 spring:
-  profiles: h2
+  profiles: mysql
 
   datasource:
-    url: jdbc:h2:mem:tempdb;MODE=oracle;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-
-  jpa:
-    database: H2
-    show-sql: false
-    hibernate:
-      ddl-auto: none
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-
-flyway:
-  enabled: true
-  locations: db/migration/h2
+    url: ${JDBC_URL:jdbc:mysql://localhost/carddb}
+    username: cardsvc
+    password: password
 

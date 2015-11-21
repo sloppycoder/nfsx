@@ -39,7 +39,6 @@ nfs:
 nfs.simulatorServlet.enabled: true
 
 ---
-# use H2 database
 spring:
   profiles: h2
 
@@ -61,3 +60,25 @@ flyway:
   enabled: true
   locations: db/migration/h2
 
+---
+spring:
+  profiles: mysql
+
+  datasource:
+    url: ${JDBC_URL:jdbc:mysql://localhost/carddb}
+    username: cardsvc
+    password: password
+
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate:
+      ddl-auto: ""
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+flyway:
+  enabled: true
+  locations: db/migration/mysql
