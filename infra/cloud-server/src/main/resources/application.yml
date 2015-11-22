@@ -16,7 +16,7 @@ security:
 
 spring:
   profiles:
-    active: native
+    active: git
 
   main:
     banner-mode: OFF
@@ -28,8 +28,8 @@ spring:
     config:
       server:
         prefix: /cloudconfig
-        native:
-          searchLocations: ${CLOUD_CONFIG_PATH:../config}
+        git:
+          uri: https://github.com/sloppycoder/nfs_config.git
 
 eureka:
   client:
@@ -55,3 +55,18 @@ spring:
         prefix: /cloudconfig
         native:
           searchLocations: ./src/main/resources
+
+logging:
+  level:
+    root: ERROR
+
+---
+spring:
+  profiles: local
+
+  cloud:
+    config:
+      server:
+        prefix: /cloudconfig
+        native:
+          searchLocations: ../config

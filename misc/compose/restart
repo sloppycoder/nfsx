@@ -1,0 +1,13 @@
+docker stop compose_authsvr_1
+docker stop compose_redis_1
+docker stop compose_cloudsvr_1
+docker stop compose_webapp_1
+docker stop compose_profilesvc_1
+docker stop compose_cardsvc_1
+
+docker ps -a -q | xargs docker rm
+
+export DB_TYPE=h2
+export MYSQL_HOST=127.0.0.1
+
+docker-compose up

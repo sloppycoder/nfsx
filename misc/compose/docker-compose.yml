@@ -1,42 +1,74 @@
 #
-# requires docker 1.9 networking feature
-#
-# docker-compose --x-networking up
+# docker-compose up
 #
 
 # redis is used to store session data
 redis:
   image: redis
+  expose:
+    - "6379"
 
 authsvr:
   image: sloppycoder/infra-auth-server
+  expose:
+    - "19999"
+  ports:
+    - "19999:19999"
 
 cloudsvr:
   image: sloppycoder/infra-cloud-server
-  volumes:
-    - /home/docker/config:/config
+  environment:
+    EUREKA_HOST: cloudsvr
+  expose:
+    - "8761"
+  ports:
+    - "8761:8761"
 
 profilesvc:
   image: sloppycoder/ibank-profile-service
+  command: "-Dspring.active.profiles=${DB_TYPE}"
   environment:
-    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
-    EUREKA_URL: http://compose_cloudsvr_1:8761
-    JAVA_EXTRA_OPTS: ""
+    CONFIG_SERVER_URL: http://cloudsvr:8761
+    EUREKA_HOST: cloudsvr
+    JDBC_URL: jdbc:mysql://mysql/profdb
+  expose:
+    - "8110"
+  links:
+    - cloudsvr
+    - authsvr
+  extra_hosts:
+    - "mysql:${MYSQL_HOST}"
 
 cardsvc:
   image: sloppycoder/ibank-card-service
+  command: "-Dspring.active.profiles=${DB_TYPE}"
   environment:
-    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
-    EUREKA_URL: http://compose_cloudsvr_1:8761
-    JAVA_EXTRA_OPTS: ""
+    CONFIG_SERVER_URL: http://cloudsvr:8761
+    EUREKA_HOST: cloudsvr
+    JDBC_URL: jdbc:mysql://mysql/carddb
+  expose:
+    - "8120"
+  links:
+    - cloudsvr
+    - authsvr
+  extra_hosts:
+    - "mysql:${MYSQL_HOST}"
 
 webapp:
   image: sloppycoder/ibank-webapp
   environment:
-    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
-    EUREKA_URL: http://compose_cloudsvr_1:8761
-    JAVA_EXTRA_OPTS: ""
-    REDIS_HOST: compose_redis_1
-    APP_MAIN_URL: http://10.0.2.15:8000
-  expose:
-    - "8000"
+    CONFIG_SERVER_URL: http://cloudsvr:8761
+    EUREKA_HOST: cloudsvr
+    REDIS_HOST: redis
+    AUTH_SERVER_URL: http://192.168.99.100:19999/uaa
+    APP_MAIN_URL: http://192.168.99.100:8000/app
+  ports:
+    - "8000:8000"
+  links:
+    - redis
+    - cloudsvr
+    - authsvr
+    - profilesvc
+    - cardsvc
+  extra_hosts:
+    - "mysql:${MYSQL_HOST}"
