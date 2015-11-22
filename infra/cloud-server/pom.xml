@@ -82,6 +82,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
         <configuration>
           <skip>true</skip>
         </configuration>
@@ -89,6 +90,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
         <executions>
           <execution>
             <goals>
@@ -124,6 +126,7 @@
           <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>docker-maven-plugin</artifactId>
+            <version>0.3.6</version>
             <executions>
               <execution>
                 <phase>package</phase>

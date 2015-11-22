@@ -2,12 +2,16 @@ debug: false
 
 spring:
   application:
-    name: profile-service
+    name: profilesvc
 
   cloud:
     config:
       uri: ${CONFIG_SERVER_URL:http://127.0.0.1:8761}/cloudconfig
       fail-fast: true
+      retry:
+        initial-interval: 2000
+        max-interval: 60000
+        multiplier: 2
 
 ---
 spring:

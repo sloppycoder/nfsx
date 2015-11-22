@@ -17,7 +17,7 @@ logging:
 
 spring:
   application:
-    name: auth-server
+    name: authsvr
 
   main:
     banner-mode: OFF

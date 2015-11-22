@@ -22,14 +22,12 @@ spring:
     banner-mode: OFF
 
   config:
-    name: cloud-server
+    name: cloudsvr
 
   cloud:
     config:
       server:
         prefix: /cloudconfig
-#        git:
-#          uri: .
         native:
           searchLocations: ${CLOUD_CONFIG_PATH:../config}
 
@@ -57,14 +55,3 @@ spring:
         prefix: /cloudconfig
         native:
           searchLocations: ./src/main/resources
-
----
-spring:
-  profiles: docker
-
-  cloud:
-    config:
-      server:
-        prefix: /cloudconfig
-        native:
-          searchLocations: /config

@@ -1,0 +1,42 @@
+#
+# requires docker 1.9 networking feature
+#
+# docker-compose --x-networking up
+#
+
+# redis is used to store session data
+redis:
+  image: redis
+
+authsvr:
+  image: sloppycoder/infra-auth-server
+
+cloudsvr:
+  image: sloppycoder/infra-cloud-server
+  volumes:
+    - /home/docker/config:/config
+
+profilesvc:
+  image: sloppycoder/ibank-profile-service
+  environment:
+    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
+    EUREKA_URL: http://compose_cloudsvr_1:8761
+    JAVA_EXTRA_OPTS: ""
+
+cardsvc:
+  image: sloppycoder/ibank-card-service
+  environment:
+    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
+    EUREKA_URL: http://compose_cloudsvr_1:8761
+    JAVA_EXTRA_OPTS: ""
+
+webapp:
+  image: sloppycoder/ibank-webapp
+  environment:
+    AUTH_SERVER_URL: http://compose_authsvr_1:19999/uaa
+    EUREKA_URL: http://compose_cloudsvr_1:8761
+    JAVA_EXTRA_OPTS: ""
+    REDIS_HOST: compose_redis_1
+    APP_MAIN_URL: http://10.0.2.15:8000
+  expose:
+    - "8000"

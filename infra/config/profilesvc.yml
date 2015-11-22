@@ -21,9 +21,6 @@ security:
 cors.allow.origin: "*"
 
 spring:
-  application:
-    name: profile-service
-
   oauth2:
     resource:
       userInfoUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/user

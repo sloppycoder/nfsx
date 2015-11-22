@@ -39,14 +39,9 @@ security:
 
 cors.allow.origin: "*"
 
-spring:
-  application:
-    name: web-app
-
 flyway:
   enabled: false
   locations: .
-
 
 management:
   security:

@@ -3,7 +3,7 @@ server:
   context-path: /app
 
   tomcat:
-    basedir: ${TOMCAT_BASEDIR_ROOT:${HOME}/tmp/nfs}/${spring.application.name}_${server.port}
+    basedir: ${TOMCAT_BASEDIR_ROOT:${HOME}/tmp}/${spring.application.name}_${server.port}
     access-log-pattern: "%l %u %t %r %s %b %{User-Agent}i %{Referer}i %{X-Forwarded-For}i %{X-Forwarded-Proto}i %{Location}o"
     access-log-enabled: true
     #protocol-header: X-Forwarded-Proto
@@ -29,7 +29,7 @@ security:
       accessTokenUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/token
       userAuthorizationUri: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/oauth/authorize
       # ssoLogoutUrl below is custom property, not part of Spring
-      ssoLogoutUrl: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect_uri=${LOGOUT_REDIRECT_URL:http://localhost:8000/app/autologout}
+      ssoLogoutUrl: ${AUTH_SERVER_URL:http://localhost:19999/uaa}/logout?redirect_uri=${APP_MAIN_URL:http://localhost:8000/app}/autologout
       # the credential below must be configured in authorization server.
       clientId: acme
       clientSecret: acmesecret
@@ -48,6 +48,7 @@ security:
 cors.allow.origin: "*"
 
 spring:
-  application:
-    name: web-app
-
+  redis:
+    host: ${REDIS_HOST:localhost}
+    password: ""
+    port: 6379
