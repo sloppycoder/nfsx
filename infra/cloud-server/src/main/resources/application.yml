@@ -18,6 +18,9 @@ spring:
   profiles:
     active: native
 
+  main:
+    banner-mode: OFF
+
   config:
     name: cloud-server
 
@@ -43,10 +46,6 @@ turbine:
   aggregator:
     clusterConfig: WEBAPP
   appConfig: webapp
-
-spring:
-  main:
-    banner-mode: OFF
 
 ---
 spring:

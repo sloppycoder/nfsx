@@ -39,7 +39,7 @@ public class CloudServerApplicationTests {
     @Test
     public void hystrixDashboardLoads() {
         ResponseEntity<String> response =
-        template.getForEntity(fullUrl("/hystrix"), String.class);
+        template.getForEntity(fullUrl("hystrix"), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertTrue(response.getBody().contains("Hystrix Dashboard"));
     }
@@ -47,9 +47,9 @@ public class CloudServerApplicationTests {
     @Test
     public void configServerLoads() {
         ResponseEntity<String> response =
-            template.getForEntity(fullUrl("cloudconfig/default/application.yml"), String.class);
+            template.getForEntity(fullUrl("cloudconfig/application.yml/default"), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().contains("spring.profiles"));
+        assertTrue(response.getBody().contains("profiles"));
     }
 
     private String fullUrl() {
