@@ -24,7 +24,7 @@ cloudsvr:
   ports:
     - "8761:8761"
 
-profilesvc:
+profilesc:
   image: sloppycoder/ibank-profile-service
   command: "-Dspring.active.profiles=${DB_TYPE}"
   environment:
