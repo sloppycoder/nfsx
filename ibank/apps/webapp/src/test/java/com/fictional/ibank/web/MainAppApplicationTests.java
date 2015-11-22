@@ -1,6 +1,5 @@
 package com.fictional.ibank.web;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles("test,h2")
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
-public class MainAppApplicationTests {
+public class MainAppApplicationTests extends RedisBasedTest {
 
     @Value("${server.context-path}")
     String contextPath;

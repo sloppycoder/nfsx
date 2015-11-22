@@ -19,7 +19,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 @SpringApplicationConfiguration(classes = MainAppApplication.class)
 @ActiveProfiles("test,h2")
 @WebAppConfiguration
-public class CustomHealthIndicatorTests {
+public class CustomHealthIndicatorTests extends RedisBasedTest {
 
     @Autowired
     private WebApplicationContext context;
