@@ -1,7 +1,7 @@
 package com.fictional.nfsx.simulator;
 
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
+import com.google.common.io.Files;
+import com.google.common.io.Resources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ public class SimulatorServlet extends HttpServlet {
 
         URL outFileUrl =  getClass().getClassLoader().getResource(responseProvider.getFilename());
         if (outFileUrl != null) {
-            String ext = FilenameUtils.getExtension(responseProvider.getFilename()).toLowerCase();
+            String ext = Files.getFileExtension(responseProvider.getFilename()).toLowerCase();
             switch (ext) {
                 case "xml":
                     resp.setContentType("application/xml");
@@ -56,7 +56,7 @@ public class SimulatorServlet extends HttpServlet {
             }
 
             resp.setStatus(200);
-            IOUtils.copy(outFileUrl.openStream(), resp.getOutputStream());
+            Resources.asByteSource(outFileUrl).copyTo(resp.getOutputStream());
             LOG.info("responding {} using content from file {}. status 200", req.getMethod(), responseProvider.getFilename());
         } else {
             resp.setStatus(404);

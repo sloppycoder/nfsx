@@ -38,6 +38,9 @@
     <rest.assured.version>2.4.1</rest.assured.version>
     <flyway.version>3.2.1</flyway.version>
 
+    <!-- utilites libraries -->
+    <guava.version>19.0-rc2</guava.version>
+
     <!-- build related -->
     <docver.maven.plugin.version>0.3.6</docver.maven.plugin.version>
 
@@ -88,16 +91,12 @@
         <version>1.1.0.Final</version>
       </dependency>
 
+
       <!-- commons util -->
       <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>2.4</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.3.2</version>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
       </dependency>
 
       <!-- CXF for web service -->
