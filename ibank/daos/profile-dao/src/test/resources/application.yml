@@ -10,7 +10,7 @@ spring:
     include: h2
 
   main:
-    show-banner: false
+    banner-mode: OFF
 
 ---
 # use H2 database

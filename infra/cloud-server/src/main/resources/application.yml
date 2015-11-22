@@ -44,6 +44,10 @@ turbine:
     clusterConfig: WEBAPP
   appConfig: webapp
 
+spring:
+  main:
+    banner-mode: OFF
+
 ---
 spring:
   profiles: test

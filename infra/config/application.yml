@@ -33,7 +33,7 @@ management:
 # settings used by Spring
 spring:
   main:
-    show-banner: false
+    banner-mode: OFF
 
 ---
 spring:

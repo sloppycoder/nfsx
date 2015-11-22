@@ -28,13 +28,6 @@ spring:
   profiles:
     include: h2
 
-  main:
-    show-banner: false
-
-#  jackson:
-#    serialization:
-#      WRAP_ROOT_VALUE: true
-
 nfs:
   ccms:
     card-customer-service:

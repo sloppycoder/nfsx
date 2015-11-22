@@ -29,7 +29,7 @@ spring:
     include: h2
 
   main:
-    show-banner: false
+    banner-mode: OFF
 
 nfs:
   ccms:
