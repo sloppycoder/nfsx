@@ -10,7 +10,7 @@ This module does not contain any implementation details.
 
 Highlights:
  * [Jackson @JSON annotation](https://github.com/FasterXML/jackson-annotations) in models in controller JSON serialization and deserialization behaviors
- * Standard based [Java bean validation](http://beanvalidation.org) annotation for data type validation. 
+ * JSR303 based [Java bean validation](http://beanvalidation.org) annotation for data type validation. 
 
 #### apps/profile-service
 Micro server that provide API to access customer profile data. 
@@ -30,6 +30,7 @@ Main application UI server.
 Highlights:
  * application configuration is dynamically downloaded from cloud config server upon start.
  * SSO integration with Oauth2 authentication server
+ * Use spring-session to support clustering. currently using Redis as external store.
  * Annotation driven automatic REST server discovery and consumption based on [Feign](https://github.com/Netflix/feign)
  * custom health indicator endpoint that display git repository info, available at http://server:port/health
  
@@ -40,7 +41,8 @@ main web application. contains UI components for end-users.
 1. start authentication server by ``` cd nfsx/infra/auth-server; mvn ```
 2. start cloud config and Eureka server by ``` cd nfsx/infra/cloud-server; mvn ```
 3. start profile service by ``` cd nfsx/ibank/apps/profile-server; mvn spring-boot:run ```
-4. start main UI application by ``` cd nfsx/ibank/apps/webapp; mvn spring-boot:run ```
+4. start Redis server
+5. start main UI application by ``` cd nfsx/ibank/apps/webapp; mvn spring-boot:run ```
 
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 
