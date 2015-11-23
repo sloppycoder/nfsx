@@ -46,6 +46,11 @@ main web application. contains UI components for end-users.
 
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 
+### To run this demo using Docker 
+This is much easier...
+1. Install [docker machine](https://www.docker.com/docker-machine).
+2. ``` cd nfsx/misc/compose ; docker-compose up ```
+
 ### To check Eureka and Hystrix Dashboard
 * Eureka dashboard is available at [http://localhost:8761](http://localhost:8761)
 * Hystrix dashboard for webapp is available at [http://localhost:8761/hystrix](http://localhost:8761/hystrix)
