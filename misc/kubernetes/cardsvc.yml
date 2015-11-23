@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cardsvc
+  labels:
+    name: cardsvc
+spec:
+  ports:
+  - port: 8110
+    targetPort: 8110
+  selector:
+    name: cardsvc
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cardsvc
+  labels:
+    name: cardsvc
+spec:
+  replicas: 1
+  selector:
+    name: cardsvc
+  template:
+    metadata:
+      labels:
+        name: cardsvc
+    spec:
+      containers:
+      - name: cardsvc
+        image: sloppycoder/ibank-card-service
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: SPRING_PROFILES_ACTIVE
+          value: "h2"
+        - name: CONFIG_SERVER_URL
+          value: "http://cloudsvr:8761"
+        - name: EUREKA_HOST
+          value: "cloudsvr"
+        - name: JDBC_URL
+          value: "jdbc:mysql://dbhost/profdb"
+        ports:
+        - containerPort: 8110
+

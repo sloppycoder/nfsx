@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudsvr
+  labels:
+    name: cloudsvr
+spec:
+  ports:
+  - port: 8761
+    targetPort: 8761
+  selector:
+    name: cloudsvr
+
+---
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cloudsvr
+  labels:
+    name: cloudsvr
+spec:
+  replicas: 1
+  selector:
+    name: cloudsvr
+  template:
+    metadata:
+      labels:
+        name: cloudsvr
+    spec:
+      containers:
+      - name: cloudsvr
+        image: sloppycoder/infra-cloud-server
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 8761
+

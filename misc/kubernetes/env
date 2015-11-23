@@ -1,0 +1,7 @@
+#!/bin/bash
+
+KUBECTL=`which kubectl`
+if [ "$KUBECTL" = "" ]; then
+    alias kubectl="/Users/lee/Projects/misc/k8s/kubernetes/cluster/kubectl.sh"
+fi
+

@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: authsvr
+  labels:
+    name: authsvr
+spec:
+  ports:
+  - port: 19999
+    targetPort: 19999
+  selector:
+    name: authsvr
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: authsvr
+  labels:
+    name: authsvr
+spec:
+  replicas: 1
+  selector:
+    name: authsvr
+  template:
+    metadata:
+      labels:
+        name: authsvr
+    spec:
+      containers:
+      - name: authsvr
+        image: sloppycoder/infra-auth-server
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 19999
+

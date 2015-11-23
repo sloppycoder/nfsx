@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: profilesvc
+  labels:
+    name: profilesvc
+spec:
+  ports:
+  - port: 8110
+    targetPort: 8110
+  selector:
+    name: profilesvc
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: profilesvc
+  labels:
+    name: profilesvc
+spec:
+  replicas: 1
+  selector:
+    name: profilesvc
+  template:
+    metadata:
+      labels:
+        name: profilesvc
+    spec:
+      containers:
+      - name: profilesvc
+        image: sloppycoder/ibank-profile-service
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: SPRING_PROFILES_ACTIVE
+          value: "h2"
+        - name: CONFIG_SERVER_URL
+          value: "http://cloudsvr:8761"
+        - name: EUREKA_HOST
+          value: "cloudsvr"
+        - name: JDBC_URL
+          value: "jdbc:mysql://dbhost/profdb"
+        ports:
+        - containerPort: 8110
+
