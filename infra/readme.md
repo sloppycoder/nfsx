@@ -15,7 +15,6 @@ various proxy server settings to run this applicaiton behind a single URL.
 
 Below are 2 samples of ngnix setting for SSL offload. 
 
-* [behind elb](https://github.com/sloppycoder/nfsx/blob/master/infra/proxy/ngnix_ssl_offload/nginx.conf.behind_elb) nginx serves request behind AWS Elastic Load Balancer (ELB). In this configuration ELB does ssl offload and nginx only proxy requests to Java servers.
-* [direct](https://github.com/sloppycoder/nfsx/blob/master/infra/proxy/ngnix_ssl_offload/nginx.conf.direct
-) nginx serves request directly from the internet. In this configuration ngnix does both ssl offload and proxies request to Java servers. For some reason tomcat will always redirect to http URL instead of https, so proxy_redirect setting is required to make things work.
+* [behind elb](https://github.com/sloppycoder/nfsx/blob/master/misc/proxy/ngnix_ssl_offload/nginx.conf.behind_elb) nginx serves request behind AWS Elastic Load Balancer (ELB). In this configuration ELB does ssl offload and nginx only proxy requests to Java servers.
+* [direct](https://github.com/sloppycoder/nfsx/blob/master/misc/proxy/ngnix_ssl_offload/nginx.conf.direct) nginx serves request directly from the internet. In this configuration ngnix does both ssl offload and proxies request to Java servers. For some reason tomcat will always redirect to http URL instead of https, so proxy_redirect setting is required to make things work.
    
