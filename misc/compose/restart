@@ -1,3 +1,10 @@
+#! /bin/bash
+
+if [ "$DB_TYPE" = "" ]; then
+  DB_TYPE=h2
+fi
+
+
 docker stop compose_authsvr_1
 docker stop compose_redis_1
 docker stop compose_cloudsvr_1
@@ -6,8 +13,9 @@ docker stop compose_profilesvc_1
 docker stop compose_cardsvc_1
 
 docker ps -a -q | xargs docker rm
+docker rmi $(docker images | grep "^<none>" | awk ' {print $3} ')
 
-export DB_TYPE=h2
-export MYSQL_HOST=127.0.0.1
+#export DB_TYPE=mysql
+export MYSQL_HOST=192.168.99.1
 
 docker-compose up

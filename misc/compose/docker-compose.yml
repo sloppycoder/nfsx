@@ -1,4 +1,5 @@
 #
+#
 # docker-compose up
 #
 
@@ -10,10 +11,14 @@ redis:
 
 authsvr:
   image: sloppycoder/infra-auth-server
+#  environment:
+#    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
   expose:
     - "19999"
   ports:
     - "19999:19999"
+  extra_hosts:
+    - "dbhost:${MYSQL_HOST}"
 
 cloudsvr:
   image: sloppycoder/infra-cloud-server
@@ -26,33 +31,33 @@ cloudsvr:
 
 profilesvc:
   image: sloppycoder/ibank-profile-service
-  command: "-Dspring.active.profiles=${DB_TYPE}"
   environment:
+    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
     CONFIG_SERVER_URL: http://cloudsvr:8761
     EUREKA_HOST: cloudsvr
-    JDBC_URL: jdbc:mysql://mysql/profdb
+    JDBC_URL: jdbc:mysql://dbhost/profdb
   expose:
     - "8110"
   links:
     - cloudsvr
     - authsvr
   extra_hosts:
-    - "mysql:${MYSQL_HOST}"
+    - "dbhost:${MYSQL_HOST}"
 
 cardsvc:
   image: sloppycoder/ibank-card-service
-  command: "-Dspring.active.profiles=${DB_TYPE}"
   environment:
+    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
     CONFIG_SERVER_URL: http://cloudsvr:8761
     EUREKA_HOST: cloudsvr
-    JDBC_URL: jdbc:mysql://mysql/carddb
+    JDBC_URL: jdbc:mysql://dbhost/carddb
   expose:
     - "8120"
   links:
     - cloudsvr
     - authsvr
   extra_hosts:
-    - "mysql:${MYSQL_HOST}"
+    - "dbhost:${MYSQL_HOST}"
 
 webapp:
   image: sloppycoder/ibank-webapp
@@ -71,4 +76,4 @@ webapp:
     - profilesvc
     - cardsvc
   extra_hosts:
-    - "mysql:${MYSQL_HOST}"
+    - "dbhost:${MYSQL_HOST}"
