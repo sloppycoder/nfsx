@@ -5,7 +5,7 @@
 
 # redis is used to store session data
 redis:
-  image: redis
+  image: redis:3.0.5
   expose:
     - "6379"
 
@@ -15,8 +15,6 @@ authsvr:
 #    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
   expose:
     - "19999"
-  ports:
-    - "19999:19999"
   extra_hosts:
     - "dbhost:${MYSQL_HOST}"
 
@@ -26,8 +24,6 @@ cloudsvr:
     EUREKA_HOST: cloudsvr
   expose:
     - "8761"
-  ports:
-    - "8761:8761"
 
 profilesvc:
   image: sloppycoder/ibank-profile-service
@@ -65,10 +61,12 @@ webapp:
     CONFIG_SERVER_URL: http://cloudsvr:8761
     EUREKA_HOST: cloudsvr
     REDIS_HOST: redis
-    AUTH_SERVER_URL: http://192.168.99.100:19999/uaa
-    APP_MAIN_URL: http://192.168.99.100:8000/app
-  ports:
-    - "8000:8000"
+    # below are for use in browser
+    # so need external domain name or public IP
+    AUTH_SERVER_URL: "${PUBLIC_BASE_URL}/uaa"
+    APP_MAIN_URL: "${PUBLIC_BASE_URL}/app"
+  expose:
+    - "8000"
   links:
     - redis
     - cloudsvr
@@ -77,3 +75,12 @@ webapp:
     - cardsvc
   extra_hosts:
     - "dbhost:${MYSQL_HOST}"
+
+web:
+  image: sloppycoder/ibank-web
+  ports:
+    - "8080:8080"
+  links:
+    - cloudsvr
+    - authsvr
+    - webapp

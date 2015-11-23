@@ -3,3 +3,4 @@ docker push sloppycoder/ibank-profile-service
 docker push sloppycoder/ibank-webapp
 docker push sloppycoder/infra-cloud-server
 docker push sloppycoder/infra-auth-server
+docker push sloppycoder/ibank-web

@@ -11,11 +11,16 @@ docker stop compose_cloudsvr_1
 docker stop compose_webapp_1
 docker stop compose_profilesvc_1
 docker stop compose_cardsvc_1
+docker stop compose_web_1
 
 docker ps -a -q | xargs docker rm
 docker rmi $(docker images | grep "^<none>" | awk ' {print $3} ')
 
-#export DB_TYPE=mysql
+#DB_TYPE=mysql
+
+# would be nice if IP address can be parsed from env
+export DB_TYPE
+export PUBLIC_BASE_URL=http://192.168.99.100:8080
 export MYSQL_HOST=192.168.99.1
 
 docker-compose up
