@@ -8,7 +8,6 @@ logging:
     root: INFO
     org.apache.http: WARN
     com.netflix: WARN
-    CustomerClient: FULL
     org.springframework.security: INFO
 
 security:
