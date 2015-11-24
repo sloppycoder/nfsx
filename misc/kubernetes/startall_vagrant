@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#
+# this script starts all container in locally installed Kubernetes cluster
+#
+
+if [ "$NODE_EXTERNAL_IP" = "" ]; then
+  NODE_EXTERNAL_IP=$(kubectl get nodes | tail -1 | cut -d " " -f 1) 
+fi
+
+echo Using external IP address =$NODE_EXTERNAL_IP=
+
+if [ "$NODE_EXTERNAL_IP" = "" ]; then
+  echo  Unable determine node external IP address, cannot continue...
+  echo  Please manually specify external IP address by: 
+  echo 
+  echo    export NODE_EXTERNAL_IP=12.34.56.78
+  echo
+  echo  and this this script again
+  exit
+fi
+
+# wait for redis to stablize, it is required by webapp
+kubectl create -f redis.yml ; sleep 5
+
+# start all services that are not accessed from external IP
+cat authsvr.yml cloudsvr.yml cardsvc.yml profilesvc.yml | kubectl create -f -
+
+# start the rest
+cat webapp.yml.template | sed -e "s/NODE_EXTERNAL_IP/$NODE_EXTERNAL_IP/g" | kubectl create -f -
+cat web.yml.template | sed -e "s/NODE_EXTERNAL_IP/$NODE_EXTERNAL_IP/g" | kubectl create -f -
+
+echo Your applicaiton should be availabe soon at:
+echo 
+echo   http://$NODE_EXTERNAL_IP:8080/app
+echo
+
+

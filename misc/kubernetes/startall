@@ -1,9 +1,0 @@
-#!/bin/bash
-
-shopt -s expand_aliases
-
-. ./env
-
-cat redis.yml authsvr.yml cloudsvr.yml cardsvc.yml profilesvc.yml webapp.yml web.yml | kubectl create -f -
-sleep 2
-kubectl get all
