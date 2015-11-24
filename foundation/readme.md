@@ -22,21 +22,18 @@ Domain data models and APIs for RESTful micro services. They should be reference
  * Java validation annotation for data type validation. 
 
 #### service-support
-Common building blocks and support features, e.g. health check. Other functionality to include: audit 
+Common building blocks and support features:
+* display git commit info in healthcheck end point.
+* annotation based audit trail 
+* servlet to simulate external http based services for use in testing
 
-#### samples/minimal-service
-Micro services for the serves RESTful APIs for various functionalities. 
-* base-service is a template micro service.
-* profile-service manages the customer profile.
-* casa-service is APIs for CASA services.
+#### test-webapp
+A minimal application that is used as test container for various features above.
 
 Each of the services will use the following 
  * [modelmapper](http://modelmapper.org) based intelligent data mapping
  * jacoco agent coverage report support
  * git info maven plugin to store git status in properties file and expose as health check end point.
  * test cases for ensure application can start and custom health indicator is functional.
- 
-#### samples/minimal-webapp
-main web application. same as services and adds freemarker based UI components for end-users. 
 
    

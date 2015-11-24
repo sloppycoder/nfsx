@@ -13,7 +13,7 @@ Highlights:
  * JSR303 based [Java bean validation](http://beanvalidation.org) annotation for data type validation. 
 
 #### apps/profile-service
-Micro server that provide API to access customer profile data. 
+Micro service that provide API to access customer profile data. 
  
 Highlights:
  * application configuration is dynamically downloaded from cloud config server upon start.
@@ -23,7 +23,12 @@ Highlights:
  * spring-mvc @RestController that implements the REST API secured by spring-security, integrated OAuth2 authorization server.
  * custom health indicator endpoint that display git repository info, available at http://server:port/health
  * [Rest Assured](https://github.com/jayway/rest-assured/wiki) fluent API for testing REST APIs.
- 
+
+#### apps/card-service
+Micro service that provide API to access credit card information. It uses the same components as profile-service, plus
+ * CXF based web service client to access external SOAP server
+ * Use simulator to mock SOAP reply during unit tests.
+
 #### apps/webapp
 Main application UI server. 
  
@@ -43,13 +48,13 @@ main web application. contains UI components for end-users.
 3. start profile service by ``` cd nfsx/ibank/apps/profile-server; mvn spring-boot:run ```
 4. start Redis server
 5. start main UI application by ``` cd nfsx/ibank/apps/webapp; mvn spring-boot:run ```
+6. point your browser to [http://127.0.0.1:8080/app](http://127.0.0.1:8080/app)
 
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 
-### To run this demo using Docker 
-This is much easier...
-1. Install [docker machine](https://www.docker.com/docker-machine).
-2. ``` cd nfsx/misc/compose ; docker-compose up ```
+### To run this demo using Docker Machine or Kubernetes
+see [this page](../misc) for details.
+
 
 ### To check Eureka and Hystrix Dashboard
 * Eureka dashboard is available at [http://localhost:8761](http://localhost:8761)
