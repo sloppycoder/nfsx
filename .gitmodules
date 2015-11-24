@@ -1,3 +1,3 @@
 [submodule "infra/config"]
 	path = infra/nfs_config
-	url = git@github.com:sloppycoder/nfs_config.git
+	url = https://github.com/sloppycoder/nfs_config.git
