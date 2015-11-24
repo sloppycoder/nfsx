@@ -69,4 +69,4 @@ spring:
       server:
         prefix: /cloudconfig
         native:
-          searchLocations: ../config
+          searchLocations: ../nfs_config
