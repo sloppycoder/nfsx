@@ -1,7 +1,7 @@
 branches:
   only:
     - master
-    - deploy*
+    - /^deploy-.*$/
 
 sudo: false
 
@@ -14,7 +14,10 @@ language: java
 
 jdk:
   - oraclejdk8
-  - oraclejdk7
+#  - oraclejdk7
+
+maven:
+  version: 3.2.1
 
 #services:
 #  - docker
@@ -24,10 +27,10 @@ jdk:
 
 script:
 #  - jdk_switcher use oraclejdk7
-#  - ./mvnw test
   - jdk_switcher use oraclejdk8
-  - ./mvnw test
+  - mvn -version
   - jq --version
+  - mvn test
   -
 #  - ./mvnw package -DskipTests -Pdocer
 #  - docker images
