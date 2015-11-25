@@ -3,9 +3,7 @@ server:
 
 logging:
   level:
-    root: INFO
-    org.apache.http: WARN
-    org.springframework.security: INFO
+    root: ERROR
 
 cors.allow.origin: "http://localhost:9000"
 

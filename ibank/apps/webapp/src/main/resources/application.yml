@@ -5,10 +5,7 @@ server:
 
 logging:
   level:
-    root: INFO
-    org.apache.http: WARN
-    com.netflix: WARN
-    org.springframework.security: INFO
+    root: ERROR
 
 security:
   require-ssl: true

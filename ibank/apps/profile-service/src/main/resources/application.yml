@@ -17,11 +17,7 @@ cors.allow.origin: "*"
 
 logging:
   level:
-    root: INFO
-    org.apache.http: WARN
-    com.netflix: WARN
-    org.springframework.security: INFO
-    com.netflix.discovery.DiscoveryClient: OFF
+    root: ERROR
 
 # default to h2 database
 spring:

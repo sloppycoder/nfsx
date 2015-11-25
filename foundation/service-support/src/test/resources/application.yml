@@ -3,10 +3,7 @@ server:
 
 logging:
   level:
-    root: INFO
-    org.apache.http: WARN
-    org.springframework.security: WARN
-    com.fictional: DEBUG
+    root: ERROR
 
 security:
   require-ssl: false
