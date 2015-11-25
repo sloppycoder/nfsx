@@ -14,25 +14,13 @@ language: java
 
 jdk:
   - oraclejdk8
-#  - oraclejdk7
 
 maven:
   version: 3.2.1
 
-#services:
-#  - docker
-
-#before_install:
-#  - docker pull java:openjdk-8-jre
-
 script:
-#  - jdk_switcher use oraclejdk7
   - jdk_switcher use oraclejdk8
   - mvn -version
   - jq --version
   - mvn test
-  -
-#  - ./mvnw package -DskipTests -Pdocer
-#  - docker images
-
 
