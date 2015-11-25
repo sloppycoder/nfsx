@@ -1,0 +1,19 @@
+#! /bin/bash
+
+if [ "$1" = "" ]; then
+  echo Usage: resize cluster_name num_of_instances
+  exit 1
+fi
+
+if [ "$1" = "" ]; then
+  NEW_SIZE=2
+else 
+  NEW_SIZE=$2
+fi
+
+CLUSTER_NAME=$1
+INST_GROUP_NAME=$(gcloud container clusters describe cluster1 --format yaml | grep -A 1 instanceGroupUrls | cut -d "/" -f 11)
+
+echo resizing instance group $INST_GROUP_NAME for cluster $CLUSTER_NAME  to $NEW_SIZE
+
+echo gcloud compute instance-groups managed resize $INST_GROUP_NAME --size $NEW_SIZE
