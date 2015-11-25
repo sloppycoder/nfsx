@@ -1,0 +1,33 @@
+branches:
+  only:
+    - master
+    - deploy*
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - jq
+
+language: java
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+services:
+  - docker
+
+before_install:
+  - docker pull java:openjdk-8-jre
+
+script:
+  - jdk_switcher use oraclejdk7
+  - mvn test
+  - jdk_switcher use oraclejdk8
+  - mvn test
+  - mvn package -DskipTests -Pdocer
+  - docker images
+
+
