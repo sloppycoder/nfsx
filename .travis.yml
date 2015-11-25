@@ -3,7 +3,10 @@ branches:
     - master
     - deploy*
 
-sudo: false
+sudo: required
+
+services:
+  - docker
 
 addons:
   apt:
@@ -14,22 +17,19 @@ language: java
 
 jdk:
   - oraclejdk8
-  - oraclejdk7
 
-#services:
-#  - docker
+maven:
+  version: 3.2.1
 
-#before_install:
-#  - docker pull java:openjdk-8-jre
+install:
+  - mvn clean install -DskipTests
 
 script:
-#  - jdk_switcher use oraclejdk7
-#  - ./mvnw test
   - jdk_switcher use oraclejdk8
-  - ./mvnw test
-  - jq --version
-  -
-#  - ./mvnw package -DskipTests -Pdocer
-#  - docker images
+  - mvn test
 
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - mvn clean package -Pdocker -DpushImage
+  - docker images
 
