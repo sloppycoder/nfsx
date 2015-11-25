@@ -3,10 +3,10 @@ branches:
     - master
     - /^deploy-.*$/
 
-sudo: required
+sudo: false
 
-services:
-  - docker
+#services:
+#  - docker
 
 addons:
   apt:
@@ -28,8 +28,8 @@ script:
   - jdk_switcher use oraclejdk8
   - mvn test
 
-after_success:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - mvn clean package -Pdocker -DpushImage
-  - docker images
+#after_success:
+#  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+#  - mvn clean package -Pdocker -DpushImage
+#  - docker images
 
