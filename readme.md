@@ -14,5 +14,5 @@ The project name is derived from racing game [Need for Speed](http://www.needfor
 Here is a [wish list](wish_list.md) for next steps in the project. Things that I'd like to do but not specific enough to become an issue will be tracked here.
 Suggestions are welcome. Help will be appreciated.
 
-Credit goes to samples provided by [Spring Boot](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples) and [Spring Cloud](https://github.com/spring-cloud-samples) from which all components are based.
+Credit goes to samples provided by [Spring Boot](http://projects.spring.io/spring-boot/) and [Spring Cloud](http://projects.spring.io/spring-cloud/) from which all components are based.
 
