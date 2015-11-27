@@ -3,10 +3,7 @@ branches:
     - master
     - /^deploy-.*$/
 
-sudo: required
-
-services:
-  - docker
+sudo: false
 
 addons:
   apt:
@@ -23,8 +20,5 @@ maven:
 
 script:
   - jdk_switcher use oraclejdk7
-  - mvn clean install -Pdocker -DuseGitCommitId
-
-after_success:
-  - docker images
+  - mvn clean install
 
