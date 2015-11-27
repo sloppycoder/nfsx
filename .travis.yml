@@ -16,7 +16,7 @@ addons:
 language: java
 
 jdk:
-  - oraclejdk8
+  - oraclejdk7
 
 maven:
   version: 3.2.1
