@@ -3,10 +3,10 @@ branches:
     - master
     - /^deploy-.*$/
 
-sudo: false
+sudo: required
 
-#services:
-#  - docker
+services:
+  - docker
 
 addons:
   apt:
@@ -21,15 +21,10 @@ jdk:
 maven:
   version: 3.2.1
 
-install:
-  - mvn clean install -DskipTests
-
 script:
   - jdk_switcher use oraclejdk8
-  - mvn test
+  - mvn clean install -Pdocker
 
-#after_success:
-#  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-#  - mvn clean package -Pdocker -DpushImage
-#  - docker images
+after_success:
+  - docker images
 
