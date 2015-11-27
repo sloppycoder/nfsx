@@ -15,10 +15,9 @@
   <description>bare minimum oauth2 authorization server to run demos</description>
 
   <properties>
-    <docker.image.name>sloppycoder/infra-auth-server</docker.image.name>
+    <docker.image.name>${docker.registry.prefix}/infra-auth-server</docker.image.name>
     <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
   </properties>
-
 
   <dependencyManagement>
     <dependencies>

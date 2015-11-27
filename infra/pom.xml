@@ -17,6 +17,11 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.7</java.version>
 
+    <!--
+    <docker.registry.prefix>gcr.io/guru-gce-app1</docker.registry.prefix>
+    <docker.registry.prefix>sloppycoder</docker.registry.prefix>
+    -->
+
   </properties>
 
   <distributionManagement>
