@@ -22,7 +22,7 @@ maven:
   version: 3.2.1
 
 script:
-  - jdk_switcher use oraclejdk8
+  - jdk_switcher use oraclejdk7
   - mvn clean install -Pdocker
 
 after_success:
