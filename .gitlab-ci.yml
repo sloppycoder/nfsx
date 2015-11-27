@@ -1,0 +1,18 @@
+stages:
+  - build
+
+job1:
+  stage: build
+
+  script:
+    # private build tagged with git commit id for integration testing
+    - ./mvnw clean install -DskipTests -DuseGitCommitId -Ddocker.registry.prefix="gcr.io/guru-gce-app1"
+
+    # for publishing to official repo
+    #  -  ./mvn clean install -DskipTests -Ddocker.registry.prefix=sloppycoder
+
+    - docker images
+
+  only:
+    - master
+
