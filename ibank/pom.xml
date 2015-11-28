@@ -63,6 +63,7 @@
     <module>domain</module>
     <module>daos</module>
     <module>apps</module>
+    <module>httpd</module>
   </modules>
 
   <properties>

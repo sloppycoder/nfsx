@@ -1,4 +1,4 @@
-# docker rmi sloppycoder/ibank-web ; docker build --rm --tag sloppycoder/ibank-web .
+# docker rmi sloppycoder/ibank-httpd ; docker build --rm --tag sloppycoder/ibank-httpd .
 
 FROM httpd:2.4
 MAINTAINER Li Lin <guru.lin@gmail..com>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.fictional.ibank</groupId>
+    <artifactId>ibank-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>httpd</artifactId>
+  <description>module for building httpd docker container only</description>
+
+  <properties>
+
+    <!-- docker -->
+    <docker.registry.prefix>sloppycoder</docker.registry.prefix>
+    <docker.image.name>${docker.registry.prefix}/ibank-${project.artifactId}</docker.image.name>
+
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>docker</id>
+      <activation>
+        <property>
+          <name>env.DOCKER_HOST</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>build</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <imageName>${docker.image.name}</imageName>
+              <dockerDirectory>${project.basedir}/docker</dockerDirectory>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>

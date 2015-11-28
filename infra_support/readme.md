@@ -1,6 +1,6 @@
-### Misc files
+### Infra support
 
-This folder stores misc files related to this project. 
+This folder stores scripts and configuration files related to infra setup, build and deployment. 
 
 #### compose
 Configuration files to launc the applicaiton using [Docker Compose](https://docs.docker.com/compose/)
@@ -9,7 +9,7 @@ To launch the entire app
 
 1. Install [docker machine](https://www.docker.com/docker-machine).
 2. ``` cd compose ; docker-compose up ```
-3. Point your browser to http://<your_docker_machine_IP>:8080/app
+3. Point your browser to the URL printed on the screen, e.g. http://192.168.99.100:8080/app
 
 #### dbsetup
 Scripts to initialize databases.
@@ -28,10 +28,6 @@ Better yet,
 2. Get your [Google Cloud SDK](https://cloud.google.com/sdk/?hl=en) and [install kubectl](https://cloud.google.com/container-engine/docs/before-you-begin) and configure your credentails.
 3. ``` cd kubernetes ; ./startall_gce ```
 4. After launching the application the script will print out the URL to access the application. 
-
-
-#### ibank-httpd
-Dockerfile for fornt end http server.
 
 #### proxy
 configuration files for use with http server as reverse proxy to the ibank application.

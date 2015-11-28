@@ -34,6 +34,7 @@
     <sonar.jacoco.itReportPath>target/jacoco-it.exec</sonar.jacoco.itReportPath>
 
     <!-- docker -->
+    <docker.registry.prefix>sloppycoder</docker.registry.prefix>
     <docker.image.name>${docker.registry.prefix}/ibank-${project.artifactId}</docker.image.name>
 
   </properties>
