@@ -32,22 +32,24 @@ spec:
       - name: webapp
         image: us.gcr.io/guru-gce-app1/ibank-webapp
         env:
-        - name: GET_HOSTS_FROM
-          value: dns
-        - name: SPRING_PROFILES_ACTIVE
-          value: "h2"
-        - name: CONFIG_SERVER_URL
-          value: "http://cloudsvr:8761"
-        - name: EUREKA_HOST
-          value: "cloudsvr"
-        - name: JDBC_URL
-          value: "jdbc:mysql://dbhost/profdb"
-        - name: REDIS_HOST
-          value: "redis"
-        - name: AUTH_SERVER_URL
-          value: "http://NODE_EXTERNAL_IP:8080/uaa"
-        - name: APP_MAIN_URL
-          value: "http://NODE_EXTERNAL_IP:8080/app"
+          - name: GET_HOSTS_FROM
+            value: dns
+          - name: SPRING_PROFILES_ACTIVE
+            value: "h2"
+          - name: CONFIG_SERVER_URL
+            value: "http://cloudsvr:8761"
+          - name: EUREKA_HOST
+            value: "cloudsvr"
+          - name: JDBC_URL
+            value: "jdbc:mysql://dbhost/profdb"
+          - name: REDIS_HOST
+            value: "redis"
+          - name: AUTH_SERVER_URL
+            value: "http://authsvr:19999/uaa"
+          - name: PUBLIC_APP_URL
+            value: "http://NODE_EXTERNAL_IP:8080/app"
+          - name: PUBLIC_AUTH_URL
+            value: "http://NODE_EXTERNAL_IP:8080/uaa"
         ports:
         - containerPort: 8110
 

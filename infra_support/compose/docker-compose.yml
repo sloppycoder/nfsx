@@ -10,7 +10,7 @@ redis:
     - "6379"
 
 authsvr:
-  image: sloppycoder/infra-auth-server
+  image: ${DOCKER_REGISTRY_PREFIX}/infra-auth-server
 #  environment:
 #    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
   expose:
@@ -19,14 +19,14 @@ authsvr:
     - "dbhost:${MYSQL_HOST}"
 
 cloudsvr:
-  image: sloppycoder/infra-cloud-server
+  image: ${DOCKER_REGISTRY_PREFIX}/infra-cloud-server
   environment:
     EUREKA_HOST: cloudsvr
   expose:
     - "8761"
 
 profilesvc:
-  image: sloppycoder/ibank-profile-service
+  image: ${DOCKER_REGISTRY_PREFIX}/ibank-profile-service
   environment:
     SPRING_PROFILES_ACTIVE: ${DB_TYPE}
     CONFIG_SERVER_URL: http://cloudsvr:8761
@@ -41,7 +41,7 @@ profilesvc:
     - "dbhost:${MYSQL_HOST}"
 
 cardsvc:
-  image: sloppycoder/ibank-card-service
+  image: ${DOCKER_REGISTRY_PREFIX}/ibank-card-service
   environment:
     SPRING_PROFILES_ACTIVE: ${DB_TYPE}
     CONFIG_SERVER_URL: http://cloudsvr:8761
@@ -56,15 +56,16 @@ cardsvc:
     - "dbhost:${MYSQL_HOST}"
 
 webapp:
-  image: sloppycoder/ibank-webapp
+  image: ${DOCKER_REGISTRY_PREFIX}/ibank-webapp
   environment:
     CONFIG_SERVER_URL: http://cloudsvr:8761
+    AUTH_SERVER_URL: http://authsvr:19999/uaa
     EUREKA_HOST: cloudsvr
     REDIS_HOST: redis
     # below are for use in browser
     # so need external domain name or public IP
-    AUTH_SERVER_URL: "${PUBLIC_BASE_URL}/uaa"
-    APP_MAIN_URL: "${PUBLIC_BASE_URL}/app"
+    PUBLIC_APP_URL: ${PUBLIC_BASE_URL}/app
+    PUBLIC_AUTH_URL: ${PUBLIC_BASE_URL}/uaa
   expose:
     - "8000"
   links:
@@ -77,7 +78,7 @@ webapp:
     - "dbhost:${MYSQL_HOST}"
 
 httpd:
-  image: sloppycoder/ibank-httpd
+  image: ${DOCKER_REGISTRY_PREFIX}/ibank-httpd
   ports:
     - "8080:8080"
   links:

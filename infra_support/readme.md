@@ -8,7 +8,7 @@ Configuration files to launc the applicaiton using [Docker Compose](https://docs
 To launch the entire app
 
 1. Install [docker machine](https://www.docker.com/docker-machine).
-2. ``` cd compose ; docker-compose up ```
+2. ``` cd compose ; ./restart ```
 3. Point your browser to the URL printed on the screen, e.g. http://192.168.99.100:8080/app
 
 #### dbsetup

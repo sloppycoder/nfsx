@@ -1,18 +1,53 @@
+variables:
+  DB_TYPE: "h2"
+  PUBLIC_BASE_URL: "http://localhost:8080"
+  DOCKER_REGISTRY_PREFIX: "gcr.io/guru-gce-app1"
+  BROWSER: "ghostdriver"
+
 stages:
   - build
+  - deploy
+  - test
 
-job1:
+before_script:
+    - git submodule update --init
+
+maven:
   stage: build
 
   script:
-    # private build tagged with git commit id for integration testing
-    - ./mvnw clean install -DskipTests -DuseGitCommitId -Ddocker.registry.prefix="gcr.io/guru-gce-app1"
-
-    # for publishing to official repo
-    #  -  ./mvn clean install -DskipTests -Ddocker.registry.prefix=sloppycoder
-
+    - docker images
+    - infra_support/compose/shutdown.sh
+    - infra_support/compose/rmi_all.sh
+    - ./mvnw clean install -Pdocker -Ddocker.registry.prefix="gcr.io/guru-gce-app1"
     - docker images
 
   only:
     - master
+    - /^gitlab-.*$/
 
+docker-compose:
+  stage: deploy
+  script:
+    - cd infra_support/compose
+    - docker-compose up -d
+    - ./wait_for_app.sh
+
+  only:
+    - master
+    - /^gitlab-.*$/
+
+cukes:
+  stage: test
+  script:
+    - docker ps
+    - cd ibank/cukes
+    - bundle install
+    - ./run.sh
+    - ../../infra_support/compose/shutdown.sh
+    - sleep 5
+    - docker ps
+
+  only:
+    - master
+    - /^gitlab-.*$/

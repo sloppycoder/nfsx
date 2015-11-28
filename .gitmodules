@@ -1,3 +1,6 @@
 [submodule "infra/config"]
 	path = infra/nfs_config
 	url = https://github.com/sloppycoder/nfs_config.git
+[submodule "ibank/cukes"]
+	path = ibank/cukes
+	url = https://github.com/sloppycoder/nfsx-cukes.git
