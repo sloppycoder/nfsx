@@ -2,38 +2,40 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: httpd
   labels:
-    name: web
+    name: httpd
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
-  - port: 80
+  - port: 8080
     targetPort: 8080
     protocol: TCP
-    name: web
+    name: httpd
+  externalIPs:
+    - NODE_EXTERNAL_IP
   selector:
-    name: web
+    name: httpd
 
 ---
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: web
+  name: httpd
   labels:
-    name: web
+    name: httpd
 spec:
   replicas: 1
   selector:
-    name: web
+    name: httpd
   template:
     metadata:
       labels:
-        name: web
+        name: httpd
     spec:
       containers:
-      - name: web
-        image: sloppycoder/ibank-web
+      - name: httpd
+        image: us.gcr.io/guru-gce-app1/ibank-web
         env:
         - name: GET_HOSTS_FROM
           value: dns

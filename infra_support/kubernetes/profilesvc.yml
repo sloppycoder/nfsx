@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: profilesvc
-        image: sloppycoder/ibank-profile-service
+        image: us.gcr.io/guru-gce-app1/ibank-profile-service
         env:
         - name: GET_HOSTS_FROM
           value: dns

@@ -6,9 +6,9 @@ grab_ingress_ip() {
     echo ==Using load balancer ingress IP address ==$NODE_EXTERNAL_IP==
 }
 
-kubectl create -f web-gce.yml
+kubectl create -f httpd-gce.yml
 
-# it may take a while for ingress ip to be available 
+# it may take a while for ingress ip to be available
 if [ "$NODE_EXTERNAL_IP" = "" ]; then
    grab_ingress_ip
 fi
@@ -26,13 +26,13 @@ echo Using load balancer ingress IP address =$NODE_EXTERNAL_IP=
 if [ "$NODE_EXTERNAL_IP" = "" ]; then
   echo Unable determine ingress IP address of load balancer...
   echo Please manually launch the webpp by:
-  echo 
+  echo
   echo   cp webapp.yml.template  webapp.yml
-  echo 
+  echo
   echo Rreplace NODE_EXTERNAL_IP:8080 inside webapp.yml  with your actually IP address, then
-  echo 
+  echo
   echo   kubectl create -f webapp.yml
-  echo 
+  echo
   exit
 fi
 
@@ -40,6 +40,6 @@ cat redis.yml authsvr.yml cloudsvr.yml cardsvc.yml profilesvc.yml | kubectl crea
 cat webapp.yml.template | sed -e "s/NODE_EXTERNAL_IP:8080/$NODE_EXTERNAL_IP/g" | kubectl create -f -
 
 echo Your applicaiton should be availabe soon at:
-echo 
+echo
 echo   http://$NODE_EXTERNAL_IP/app
 echo
