@@ -76,8 +76,8 @@ webapp:
   extra_hosts:
     - "dbhost:${MYSQL_HOST}"
 
-web:
-  image: sloppycoder/ibank-web
+httpd:
+  image: sloppycoder/ibank-httpd
   ports:
     - "8080:8080"
   links:

@@ -1,9 +1,22 @@
 #! /bin/bash
 
+if [ "$DOCKER_MACHINE_NAME" = "" ]; then
+  echo DOCKER_MACHINE_NAME is not set. unable to continue
+  exit 1
+fi
+
+
+DOCKER_HOST_IP=$(docker-machine inspect --format='{{.Driver.IPAddress}}' $DOCKER_MACHINE_NAME)
+if [ "$DOCKER_HOST_IP" = "" ]; then
+  echo unable to determine IP address of docker machine $DOCKER_MACHINE_NAME. is it running?
+  exit 1
+fi
+
+export PUBLIC_BASE_URL=http://$DOCKER_HOST_IP:8080
+
 if [ "$DB_TYPE" = "" ]; then
   DB_TYPE=h2
 fi
-
 
 docker stop compose_authsvr_1
 docker stop compose_redis_1
@@ -11,16 +24,18 @@ docker stop compose_cloudsvr_1
 docker stop compose_webapp_1
 docker stop compose_profilesvc_1
 docker stop compose_cardsvc_1
-docker stop compose_web_1
+docker stop compose_httpd_1
 
 docker ps -a -q | xargs docker rm
-docker rmi $(docker images | grep "^<none>" | awk ' {print $3} ')
 
 #DB_TYPE=mysql
 
 # would be nice if IP address can be parsed from env
 export DB_TYPE
-export PUBLIC_BASE_URL=http://192.168.99.100:8080
 export MYSQL_HOST=192.168.99.1
 
-docker-compose up
+docker-compose up > compose.log 2>&1  &
+
+echo docker-compose output has been redirected to compose.log file
+echo Your application should be available shortly at $PUBLIC_BASE_URL/app
+echo

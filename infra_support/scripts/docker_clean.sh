@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set +e
-
 docker rmi sloppycoder/ibank-card-service      
 docker rmi sloppycoder/ibank-profile-service  
 docker rmi sloppycoder/ibank-webapp          
