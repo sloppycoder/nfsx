@@ -53,7 +53,7 @@ main web application. contains UI components for end-users.
 After server initializes open the browser and navigator to http://localhost:8000. Login as ```user/password``` and you should see a greeting message on top of the screen.
 
 ### To run this demo using Docker Machine or Kubernetes
-see [this page](../misc) for details.
+see [infra support](../infra_support) for details.
 
 
 ### To check Eureka and Hystrix Dashboard

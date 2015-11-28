@@ -9,7 +9,7 @@ The project name is derived from racing game [Need for Speed](http://www.needfor
 * [infra](infra) - infrastructure support including oauth2 server, config config server, Eureka server and Hystrix console.
 * [foundation](foundation) - foundation building blocks that enables 
 * [ibank](ibank) - proof of concept sample application built with above foundation components.
-* [misc](misc) - various code and scripts that is related to infrastructure setup.
+* [infra_support](infra_support) - various code and scripts that is related to infrastructure setup.
 
 Here is a [wish list](wish_list.md) for next steps in the project. Things that I'd like to do but not specific enough to become an issue will be tracked here.
 Suggestions are welcome. Help will be appreciated.
