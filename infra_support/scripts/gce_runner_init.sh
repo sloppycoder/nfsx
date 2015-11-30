@@ -4,7 +4,7 @@
 #
 
 yum update -y
-yum install -y java-1.8.0-openjdk-devel lsof bzip2 wget patch
+yum install -y java-1.8.0-openjdk-devel lsof bzip2 wget patch psmisc bind-utils
 
 # jq
 curl -sL https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -o /usr/local/bin/jq
@@ -45,7 +45,7 @@ curl --insecure https://www.vino9.net/ca-bundle.crt  -o /etc/pki/ca-trust/source
 update-ca-trust
 
 # install development tool so as to be able to install gem which needs compilation
-yum install -y ruby rubygem-bundler
+yum install -y ruby ruby-devel rubygem-bundler
 yum install -y gcc openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
 
 
