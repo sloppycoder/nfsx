@@ -9,4 +9,8 @@ done
 
 # the command below determines the return status of the script
 sleep 3
-curl -sL $PUBLIC_BASE_URL/app | grep csrf_token  > /dev/null
+curl -sL $PUBLIC_BASE_URL/app | grep csrf_token
+RET=$?
+echo curl returned $RET
+
+exit 0
