@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: cardsvc
-        image: us.gcr.io/guru-gce-app1/ibank-card-service
+        image: gcr.io/guru-gce-app1/ibank-card-service
         env:
         - name: GET_HOSTS_FROM
           value: dns

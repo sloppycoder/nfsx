@@ -12,7 +12,7 @@ else
 fi
 
 CLUSTER_NAME=$1
-INST_GROUP_NAME=$(gcloud container clusters describe cluster1 --format yaml | grep -A 1 instanceGroupUrls | cut -d "/" -f 11)
+INST_GROUP_NAME=$(gcloud container clusters describe $CLUSTER_NAME --format yaml | grep -A 1 instanceGroupUrls | cut -d "/" -f 11)
 
 echo resizing instance group $INST_GROUP_NAME for cluster $CLUSTER_NAME  to $NEW_SIZE
 

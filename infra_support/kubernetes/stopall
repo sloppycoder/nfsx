@@ -1,5 +1,5 @@
 #!/bin/bash
 
-kubectl  stop services,rc web webapp profilesvc cardsvc cloudsvr authsvr redis
+kubectl  stop services,rc httpd webapp profilesvc cardsvc cloudsvr authsvr redis
 sleep 2
 kubectl get all

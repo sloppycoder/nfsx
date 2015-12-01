@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: httpd
-        image: us.gcr.io/guru-gce-app1/ibank-httpd
+        image: gcr.io/guru-gce-app1/ibank-httpd
         env:
         - name: GET_HOSTS_FROM
           value: dns

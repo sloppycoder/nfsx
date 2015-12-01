@@ -2,7 +2,7 @@
 
 grab_ingress_ip() {
     sleep 90
-    NODE_EXTERNAL_IP=$(kubectl describe service web | grep "Ingress" | cut -d ":" -f 2 | xargs)
+    NODE_EXTERNAL_IP=$(kubectl describe service httpd | grep "Ingress" | cut -d ":" -f 2 | xargs)
     echo ==Using load balancer ingress IP address ==$NODE_EXTERNAL_IP==
 }
 

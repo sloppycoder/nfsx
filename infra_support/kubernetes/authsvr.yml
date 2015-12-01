@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: authsvr
-        image: us.gcr.io/guru-gce-app1/infra-auth-server
+        image: gcr.io/guru-gce-app1/infra-auth-server
         env:
         - name: GET_HOSTS_FROM
           value: dns

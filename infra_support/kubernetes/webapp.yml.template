@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: us.gcr.io/guru-gce-app1/ibank-webapp
+        image: gcr.io/guru-gce-app1/ibank-webapp
         env:
           - name: GET_HOSTS_FROM
             value: dns

@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: cloudsvr
-        image: us.gcr.io/guru-gce-app1/infra-cloud-server
+        image: gcr.io/guru-gce-app1/infra-cloud-server
         env:
         - name: GET_HOSTS_FROM
           value: dns
