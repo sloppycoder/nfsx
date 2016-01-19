@@ -16,4 +16,4 @@ INST_GROUP_NAME=$(gcloud container clusters describe $CLUSTER_NAME --format yaml
 
 echo resizing instance group $INST_GROUP_NAME for cluster $CLUSTER_NAME  to $NEW_SIZE
 
-echo gcloud compute instance-groups managed resize $INST_GROUP_NAME --size $NEW_SIZE
+gcloud compute instance-groups managed resize $INST_GROUP_NAME --size $NEW_SIZE
