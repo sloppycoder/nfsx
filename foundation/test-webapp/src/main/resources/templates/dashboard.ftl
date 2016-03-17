@@ -7,18 +7,14 @@
 </b>
 <p> Here are your clients </p>
 
-<#--<#list cards>-->
-<#--<table>-->
-  <#--<#items as card>-->
-  <#--<tr>-->
-      <#--<td>${card.productName}-->
-      <#--<td>${card.balance}-->
-  <#--<td>${card.availableLimit}-->
-    <#--</#items>-->
-<#--</table>-->
-<#--<#else>-->
-<#--<p> no card information available-->
-<#--</#list>-->
+<table class="table table-striped" width="80%">
+<#list clients as client>
+  <tr>
+    <td>${client.clientId}
+    <td>${client.name}
+    <td>${client.countryCode}
+</#list>
+</table>
 
 <form id="LogoutForm" role="form" action="/logout" method="post">
     <button class="btn btn-primary" type="submit">Logout</button>

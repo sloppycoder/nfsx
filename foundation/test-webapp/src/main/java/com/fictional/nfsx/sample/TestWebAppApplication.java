@@ -1,5 +1,6 @@
 package com.fictional.nfsx.sample;
 
+import com.fictional.nfsx.sample.persistence.dao.ClientRepository;
 import com.fictional.nfsx.sample.persistence.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import javax.sql.DataSource;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.Map;
 
 @SpringBootApplication
@@ -39,6 +41,9 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
 
     @Value("${cors.allow.origin}")
     private String originDomain;
+
+    @Autowired
+    ClientRepository clientRepo;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -70,7 +75,13 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
 
     @RequestMapping(value = {"/dashboard"})
     public String showDashboard(Map<String, Object> model, Principal user) throws Exception {
-        model.put("user", user == null ? "anonymous" : user.getName());
+
+        String username =  user == null ? "anonymous" : user.getName();
+        Collection<Client> clientList = clientRepo.getClientForUser(username);
+
+        model.put("clients", clientList);
+        model.put("user", username);
+
         return "dashboard";
     }
 

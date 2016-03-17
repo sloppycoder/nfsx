@@ -12,7 +12,7 @@ create table cif (
   id number(19,0) not null,
   cif_id varchar2(10 char) not null,
   country_code varchar2(3 char) not null,
-  secret_notes varchar2(10 char) not null,
+  name varchar2(32 char) not null,
   rm_id varchar2(8 char) not null,
   primary key (id)
 );
