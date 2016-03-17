@@ -116,11 +116,11 @@
       <artifactId>modelmapper-spring-boot-starter</artifactId>
     </dependency>
 
+    <!-- uncomment the following to enable netflix OSS capabilites
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-config</artifactId>
     </dependency>
-    <!-- uncomment the following to enable netflix OSS capabilites
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-feign</artifactId>
@@ -151,6 +151,14 @@
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc6</artifactId>
+      <version>11.2.0.4</version>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>

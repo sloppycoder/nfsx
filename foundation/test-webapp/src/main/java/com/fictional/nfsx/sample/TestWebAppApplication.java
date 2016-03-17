@@ -1,61 +1,40 @@
 package com.fictional.nfsx.sample;
 
-import com.fictional.nfsx.annotation.Audited;
+import com.fictional.nfsx.sample.persistence.entity.Client;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.ManagementServerProperties;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.sql.DataSource;
 import java.security.Principal;
 import java.util.Map;
 
-/**
-
-To test CORS functionality,
-
-curl -v -X OPTIONS http://localhost:8080/user \
-  -H 'Origin: http://localhost:9292' \
-  -H 'Access-Control-Request-Headers: Origin, Accept, Content-Type' \
-  -H 'Access-Control-Request-Method: GET'
-
-output:
-
-> OPTIONS /user HTTP/1.1
-> Host: localhost:8080
-> User-Agent: curl/7.43.0
-> Accept: * /*
-
-> Origin: http://localhost:9000
-> Access-Control-Request-Headers: Origin
-> Access-Control-Request-Method: PUT
->
-
- < HTTP/1.1 200 OK
-< Server: Apache-Coyote/1.1
-< X-Application-Context: test-webapp:8080
-< Access-Control-Allow-Origin: http://localhost:9000
-< Vary: Origin
-< Access-Control-Allow-Methods: GET,POST,DELETE,PUT
-< Access-Control-Allow-Headers: Origin
-< Access-Control-Allow-Credentials: true
-< Access-Control-Max-Age: 3600
-< Allow: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
-< Content-Length: 0
-< Date: Tue, 17 Nov 2015 17:32:06 GMT
-
-
-**/
-
 @SpringBootApplication
+@Configuration
+@EnableAutoConfiguration
 @Controller
-@EnableWebMvc
+@ComponentScan
+@EntityScan(basePackageClasses=Client.class)
+@EnableJpaRepositories("com.fictional.nfsx.sample.persistence.dao")
 public class TestWebAppApplication extends WebMvcConfigurerAdapter {
 
     @Value("${cors.allow.origin}")
@@ -77,20 +56,71 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
         };
     }
 
-    @Audited
-    @RequestMapping(value = {"/dashboard"})
-    public String showIndex(Map<String, Object> model) throws Exception {
-        model.put("customer", "Mr. Bean");
-        return "dashboard";
-    }
-
     @RequestMapping("/user")
     @ResponseBody
     public Principal user(Principal user) {
         return user;
     }
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/dashboard").setViewName("dashboard");
+    }
 
+    @RequestMapping(value = {"/dashboard"})
+    public String showDashboard(Map<String, Object> model, Principal user) throws Exception {
+        model.put("user", user == null ? "anonymous" : user.getName());
+        return "dashboard";
+    }
+
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:dashboard";
+    }
+
+
+    @Configuration
+    @Order(ManagementServerProperties.ACCESS_OVERRIDE_ORDER)
+    protected static class LoginConfig extends WebSecurityConfigurerAdapter {
+
+        @Autowired
+        private DataSource dataSource;
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+
+            // http://stackoverflow.com/questions/22886186/how-to-setup-access-control-allow-origin-filter-problematically-in-spring-securi
+            // @formatter:off
+            http
+                .csrf().ignoringAntMatchers("/logout")
+            .and()
+                .formLogin().loginPage("/login").permitAll()
+            .and()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+            .and()
+                .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/")
+                .permitAll();
+            // @formatter:on
+        }
+
+
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            // @formatter:off
+            auth.jdbcAuthentication()
+                .dataSource(this.dataSource)
+                .usersByUsernameQuery(
+                        "select username, password, enabled from users where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username, authority from authorities where username=?");
+            // @formatter:on
+        }
+
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(TestWebAppApplication.class, args);

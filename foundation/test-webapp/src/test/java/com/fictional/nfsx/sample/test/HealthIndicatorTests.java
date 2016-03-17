@@ -18,7 +18,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestWebAppApplication.class)
-@ActiveProfiles("test")
+@ActiveProfiles("test,h2")
 @WebAppConfiguration
 public class HealthIndicatorTests {
 

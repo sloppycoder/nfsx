@@ -39,9 +39,10 @@ public class TestWebAppApplicationTests {
     }
 
     @Test
-    public void diashboard_displays() throws Exception {
+    public void dashboard_displays() throws Exception {
         mockMvc.perform(get("/dashboard").accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk()).andExpect(content().string(containsString("Mr. Bean")));
+        .andExpect(status().isOk())
+        .andExpect(content().string(containsString("anonymous")));
     }
 
 }
