@@ -79,10 +79,49 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
         String username =  user == null ? "anonymous" : user.getName();
         Collection<Client> clientList = clientRepo.getClientForUser(username);
 
+//        if (clientList.size() <= 0) {
+//            fabricateClientData(username);
+//            clientList = clientRepo.getClientForUser(username);
+//        }
+
         model.put("clients", clientList);
         model.put("user", username);
 
         return "dashboard";
+    }
+
+    private void fabricateClientData(String username) {
+
+        Client c1, c2;
+
+        if ("joe".equalsIgnoreCase(username)) {
+            c1 = new Client();
+            c1.setClientId("C101");
+            c1.setCountryCode("HK");
+            c1.setName("JACKIE CHAN");
+            c1.setRelationshipManagerId("joe");
+
+            c2 = new Client();
+            c2.setClientId("C102");
+            c2.setCountryCode("HK");
+            c2.setName("CHOW YON FAT");
+            c2.setRelationshipManagerId("joe");
+
+            clientRepo.save(c1);
+            clientRepo.save(c2);
+            clientRepo.flush();
+
+        } else if ("mary".equalsIgnoreCase(username)) {
+            c1 = new Client();
+            c1.setClientId("C010");
+            c1.setCountryCode("SG");
+            c1.setName("BILL WINTERS");
+            c1.setRelationshipManagerId("mary");
+
+            clientRepo.save(c1);
+            clientRepo.flush();
+        }
+
     }
 
     @RequestMapping("/")

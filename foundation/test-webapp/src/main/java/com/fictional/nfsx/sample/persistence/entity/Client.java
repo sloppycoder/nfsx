@@ -14,7 +14,7 @@ public class Client extends AbstractPersistable<Long> {
     @Column(name="cif_id", length = 10, nullable = false)
     private String clientId;
 
-    @Column(name="name", length = 10, nullable = false)
+    @Column(name="name", length = 256, nullable = false)
     @Convert(converter = EncryptedStringConverter.class)
     private String name;
 
