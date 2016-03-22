@@ -1,7 +1,9 @@
 package com.fictional.nfsx.sample;
 
+import com.fictional.nfsx.sample.helper.AutowireHelper;
 import com.fictional.nfsx.sample.persistence.dao.ClientRepository;
 import com.fictional.nfsx.sample.persistence.entity.Client;
+import com.fictional.nfsx.sample.security.CryptoKeyManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -43,7 +45,7 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
     private String originDomain;
 
     @Autowired
-    ClientRepository clientRepo;
+    private ClientRepository clientRepo;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -170,6 +172,11 @@ public class TestWebAppApplication extends WebMvcConfigurerAdapter {
             // @formatter:on
         }
 
+    }
+
+    @Bean
+    public AutowireHelper autowireHelper(){
+        return AutowireHelper.getInstance();
     }
 
     public static void main(String[] args) {

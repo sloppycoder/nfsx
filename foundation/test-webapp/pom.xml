@@ -158,6 +158,13 @@
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>com.ibm.websphere</groupId>
+      <artifactId>was_public</artifactId>
+      <version>8.5.5</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
 
 
     <dependency>

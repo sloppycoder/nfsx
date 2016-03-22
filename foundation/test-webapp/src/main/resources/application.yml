@@ -26,6 +26,12 @@ management:
 
 nfs.simulatorServlet.enabled: true
 
+app:
+  db:
+    crypto:
+      key: "MySuperSecretKey"
+      webspherekeyset: ""
+
 ---
 spring:
   profiles: test
