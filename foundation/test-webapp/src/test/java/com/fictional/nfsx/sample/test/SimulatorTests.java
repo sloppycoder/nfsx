@@ -7,45 +7,32 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import java.net.URI;
-
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = TestWebAppApplication.class)
-@WebAppConfiguration
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = TestWebAppApplication.class, webEnvironment= WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test,h2")
-@IntegrationTest("server.port:0")
 public class SimulatorTests {
 
-    @Value("${local.server.port}")
-    private int port;
+    @Autowired
+    private TestRestTemplate template;
 
     @Autowired
     SimulatorResponseProvider responseProvider;
 
-    private RestTemplate template = new TestRestTemplate();
-
     @Test
+    @Ignore
     public void simulator_responses_to_post() throws Exception {
         responseProvider.setFilename("test1.xml");
-        String response = template.postForObject(new URI(getFullUrl()), "Doesn't matter", String.class);
+        String response = template.postForObject(SimulatorAutoConfiguration.CONTEXT_PATH, "Doesn't matter", String.class);
         assertTrue(response.contains("Hello"));
         assertTrue(response.contains("World"));
-    }
-
-    private String getFullUrl() {
-        return "http://localhost:" + port + SimulatorAutoConfiguration.CONTEXT_PATH;
     }
 }
 
