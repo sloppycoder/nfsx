@@ -16,7 +16,7 @@
 
   <properties>
     <docker.image.name>${docker.registry.prefix}/infra-auth-server</docker.image.name>
-    <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
+    <spring.boot.version>1.4.1.RELEASE</spring.boot.version>
   </properties>
 
   <dependencyManagement>
@@ -168,7 +168,7 @@
         <version>2.17</version>
         <configuration>
           <forkCount>1</forkCount>
-          <argLine>-Xmx1024m -XX:PermSize=96m -XX:MaxPermSize=192m -Djava.security.egd=file:/dev/./urandom</argLine>
+          <argLine>-Xmx1024m -Djava.security.egd=file:/dev/./urandom</argLine>
           <includes>
             <include>**/*Test*.java</include>
             <include>**/*Test*.groovy</include>
