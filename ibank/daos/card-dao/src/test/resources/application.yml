@@ -18,7 +18,6 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: none
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
@@ -43,7 +42,6 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: ""
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect

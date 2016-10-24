@@ -6,18 +6,16 @@ import com.fictional.nfsx.sample.helper.AuditTrailTestHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = TestWebAppApplication.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = TestWebAppApplication.class)
 @ActiveProfiles("test,h2")
-@WebAppConfiguration
 public class AuditTrailTests {
 
     @Autowired

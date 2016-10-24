@@ -7,26 +7,22 @@ import com.fictional.nfsx.simulator.SimulatorResponseProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { CardServiceApplication.class })
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = CardServiceApplication.class, webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test,h2")
-@WebAppConfiguration
-@IntegrationTest("server.port:0")
 public class CardBackendServiceSimTests {
 
-    @Value("${local.server.port}")
+    @LocalServerPort
     private int port;
 
     @Autowired
@@ -55,7 +51,7 @@ public class CardBackendServiceSimTests {
     }
 
     private String getFullUrl() {
-        return "http://localhost:" + port + SimulatorAutoConfiguration.CONTEXT_PATH;
+        return "http://localhost:" + port +  SimulatorAutoConfiguration.CONTEXT_PATH;
     }
 
 }
