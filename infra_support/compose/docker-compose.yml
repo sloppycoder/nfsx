@@ -3,85 +3,81 @@
 # docker-compose up
 #
 
-# redis is used to store session data
-redis:
-  image: redis:3.0.5
-  expose:
-    - "6379"
+version: '2'
 
-authsvr:
-  image: ${DOCKER_REGISTRY_PREFIX}/infra-auth-server
-#  environment:
-#    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
-  expose:
-    - "19999"
-  extra_hosts:
-    - "dbhost:${MYSQL_HOST}"
+services:
+  # redis is used to store session data
+  redis:
+    image: redis:3.0.5
+    networks:
+      - default
 
-cloudsvr:
-  image: ${DOCKER_REGISTRY_PREFIX}/infra-cloud-server
-  environment:
-    EUREKA_HOST: cloudsvr
-  expose:
-    - "8761"
+  authsvr:
+    image: ${DOCKER_REGISTRY_PREFIX}/infra-auth-server
+    networks:
+      - default
 
-profilesvc:
-  image: ${DOCKER_REGISTRY_PREFIX}/ibank-profile-service
-  environment:
-    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
-    CONFIG_SERVER_URL: http://cloudsvr:8761
-    EUREKA_HOST: cloudsvr
-    JDBC_URL: jdbc:mysql://dbhost/profdb
-  expose:
-    - "8110"
-  links:
-    - cloudsvr
-    - authsvr
-  extra_hosts:
-    - "dbhost:${MYSQL_HOST}"
+  cloudsvr:
+    image: ${DOCKER_REGISTRY_PREFIX}/infra-cloud-server
+    environment:
+      EUREKA_HOST: cloudsvr
+    networks:
+      - default
 
-cardsvc:
-  image: ${DOCKER_REGISTRY_PREFIX}/ibank-card-service
-  environment:
-    SPRING_PROFILES_ACTIVE: ${DB_TYPE}
-    CONFIG_SERVER_URL: http://cloudsvr:8761
-    EUREKA_HOST: cloudsvr
-    JDBC_URL: jdbc:mysql://dbhost/carddb
-  expose:
-    - "8120"
-  links:
-    - cloudsvr
-    - authsvr
-  extra_hosts:
-    - "dbhost:${MYSQL_HOST}"
+  profilesvc:
+    image: ${DOCKER_REGISTRY_PREFIX}/ibank-profile-service
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      CONFIG_SERVER_URL: http://cloudsvr:8761
+      EUREKA_HOST: cloudsvr
+      JDBC_URL: jdbc:mysql://${MYSQL_HOST}/profdb
+    networks:
+      - default
+    depends_on:
+      - cloudsvr
+      - authsvr
 
-webapp:
-  image: ${DOCKER_REGISTRY_PREFIX}/ibank-webapp
-  environment:
-    CONFIG_SERVER_URL: http://cloudsvr:8761
-    AUTH_SERVER_URL: http://authsvr:19999/uaa
-    EUREKA_HOST: cloudsvr
-    REDIS_HOST: redis
-    # below are for use in browser
-    # so need external domain name or public IP
-    PUBLIC_APP_URL: ${PUBLIC_BASE_URL}/app
-    PUBLIC_AUTH_URL: ${PUBLIC_BASE_URL}/uaa
-  expose:
-    - "8000"
-  links:
-    - redis
-    - cloudsvr
-    - authsvr
-    - profilesvc
-    - cardsvc
-  extra_hosts:
-    - "dbhost:${MYSQL_HOST}"
+  cardsvc:
+    image: ${DOCKER_REGISTRY_PREFIX}/ibank-card-service
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      CONFIG_SERVER_URL: http://cloudsvr:8761
+      EUREKA_HOST: cloudsvr
+      JDBC_URL: jdbc:mysql://${MYSQL_HOST}/carddb
+    networks:
+      - default
+    depends_on:
+      - cloudsvr
+      - authsvr
 
-httpd:
-  image: ${DOCKER_REGISTRY_PREFIX}/ibank-httpd
-  ports:
-    - "8080:8080"
-  links:
-    - cloudsvr
-    - authsvr
-    - webapp
+  webapp:
+    image: ${DOCKER_REGISTRY_PREFIX}/ibank-webapp
+    environment:
+      CONFIG_SERVER_URL: http://cloudsvr:8761
+      AUTH_SERVER_URL: http://authsvr:19999/uaa
+      EUREKA_HOST: cloudsvr
+      REDIS_HOST: redis
+      # below are for use in browser
+      # so need external domain name or public IP
+      PUBLIC_APP_URL: ${PUBLIC_BASE_URL}/app
+      PUBLIC_AUTH_URL: ${PUBLIC_BASE_URL}/uaa
+    networks:
+      - default
+    depends_on:
+      - redis
+      - cloudsvr
+      - authsvr
+      - profilesvc
+      - cardsvc
+
+  httpd:
+    image: ${DOCKER_REGISTRY_PREFIX}/ibank-httpd
+    networks:
+      - default
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cloudsvr
+      - authsvr
+      - webapp
+

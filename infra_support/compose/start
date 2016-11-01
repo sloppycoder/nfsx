@@ -1,0 +1,50 @@
+#! /bin/bash
+
+# steps to start the application
+#
+# 1. prepare a mysql server somewhere. if none is available you can start one with docker
+#
+#       docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
+#
+#  2. execute the mysql_dbinit.script
+#
+#  3. set MYSQL_HOST variable below to your MYSQL server address
+#
+
+# change to the actual MYSQL server IP
+export MYSQL_HOST=192.168.20.20
+
+if [ "$DOCKER_REGISTRY_PREFIX" = "" ]; then
+  export DOCKER_REGISTRY_PREFIX="sloppycoder"
+fi
+
+if [ "$DOCKER_MACHINE_NAME" = "" ]; then
+  DOCKER_HOST_IP="127.0.0.1"
+else
+  DOCKER_HOST_IP=$(docker-machine inspect --format='{{.Driver.IPAddress}}' $DOCKER_MACHINE_NAME)
+fi
+
+if [ "$DOCKER_HOST_IP" = "" ]; then
+  echo unable to determine IP address of docker host. abort...
+  exit 1
+fi
+
+
+export PUBLIC_BASE_URL=http://$DOCKER_HOST_IP:8080
+
+echo Starting application $PUBLIC_BASE_URL using docker-compose
+docker-compose up -d
+
+echo Waiting for application to boot ...
+for i in {1..10}; do
+   echo "    checking..."
+   curl -sL $PUBLIC_BASE_URL/app | grep csrf_token > /dev/null && break
+   sleep 30
+done
+
+sleep 3
+curl -sL $PUBLIC_BASE_URL/app | grep csrf_token > /dev/null
+
+$RET && echo Your application should be available at $PUBLIC_BASE_URL/app
+$RET || echo Cannot start application
+
