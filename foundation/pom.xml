@@ -42,7 +42,7 @@
     <guava.version>19.0</guava.version>
 
     <!-- build related -->
-    <docver.maven.plugin.version>0.3.6</docver.maven.plugin.version>
+    <docver.maven.plugin.version>0.4.13</docver.maven.plugin.version>
 
   </properties>
 
