@@ -1,2 +1,0 @@
- AUTH_SERVER_URL=http://www.vino9.net/uaa LOGOUT_REDIRECT_URL=http://www.vino9.net/app/autologout mvn clean spring-boot:run
-
