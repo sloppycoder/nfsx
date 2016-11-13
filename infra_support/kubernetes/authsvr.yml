@@ -10,30 +10,22 @@ spec:
   - port: 19999
     targetPort: 19999
   selector:
-    name: authsvr
+    app: authsvr
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: authsvr
-  labels:
-    name: authsvr
 spec:
   replicas: 1
-  selector:
-    name: authsvr
   template:
     metadata:
       labels:
-        name: authsvr
+        app: authsvr
     spec:
       containers:
-      - name: authsvr
-        image: gcr.io/guru-gce-app1/infra-auth-server
-        env:
-        - name: GET_HOSTS_FROM
-          value: dns
+      - name: cloudsvr
+        image: sloppycoder/infra-auth-server
         ports:
         - containerPort: 19999
-

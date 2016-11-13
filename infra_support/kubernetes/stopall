@@ -1,5 +1,4 @@
 #!/bin/bash
 
-kubectl  stop services,rc httpd webapp profilesvc cardsvc cloudsvr authsvr redis
-sleep 2
+kubectl delete services,deployment httpd webapp profilesvc cardsvc cloudsvr authsvr redis
 kubectl get all

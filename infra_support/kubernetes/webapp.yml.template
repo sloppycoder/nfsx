@@ -10,46 +10,41 @@ spec:
   - port: 8000
     targetPort: 8000
   selector:
-    name: webapp
+    app: webapp
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: webapp
-  labels:
-    name: webapp
 spec:
   replicas: 1
-  selector:
-    name: webapp
   template:
     metadata:
       labels:
-        name: webapp
+        app: webapp
     spec:
       containers:
       - name: webapp
-        image: gcr.io/guru-gce-app1/ibank-webapp
-        env:
-          - name: GET_HOSTS_FROM
-            value: dns
-          - name: SPRING_PROFILES_ACTIVE
-            value: "h2"
-          - name: CONFIG_SERVER_URL
-            value: "http://cloudsvr:8761"
-          - name: EUREKA_HOST
-            value: "cloudsvr"
-          - name: JDBC_URL
-            value: "jdbc:mysql://dbhost/profdb"
-          - name: REDIS_HOST
-            value: "redis"
-          - name: AUTH_SERVER_URL
-            value: "http://authsvr:19999/uaa"
-          - name: PUBLIC_APP_URL
-            value: "http://NODE_EXTERNAL_IP:8080/app"
-          - name: PUBLIC_AUTH_URL
-            value: "http://NODE_EXTERNAL_IP:8080/uaa"
+        image: sloppycoder/ibank-webapp
         ports:
         - containerPort: 8110
-
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: SPRING_PROFILES_ACTIVE
+          value: "mysql"
+        - name: CONFIG_SERVER_URL
+          value: "http://cloudsvr:8761"
+        - name: EUREKA_HOST
+          value: "cloudsvr"
+        - name: JDBC_URL
+          value: "jdbc:mysql://mysql/profdb"
+        - name: REDIS_HOST
+          value: "redis"
+        - name: AUTH_SERVER_URL
+          value: "http://authsvr:19999/uaa"
+        - name: PUBLIC_APP_URL
+          value: "http://NODE_EXTERNAL_IP:8080/app"
+        - name: PUBLIC_AUTH_URL
+          value: "http://NODE_EXTERNAL_IP:8080/uaa"

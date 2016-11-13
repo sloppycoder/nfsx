@@ -5,7 +5,7 @@
 #
 
 if [ "$NODE_EXTERNAL_IP" = "" ]; then
-  NODE_EXTERNAL_IP=$(kubectl get nodes | tail -1 | cut -d " " -f 1)
+  NODE_EXTERNAL_IP=$(minikube ip)
 fi
 
 echo Using external IP address =$NODE_EXTERNAL_IP=

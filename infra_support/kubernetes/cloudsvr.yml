@@ -10,31 +10,23 @@ spec:
   - port: 8761
     targetPort: 8761
   selector:
-    name: cloudsvr
+    app: cloudsvr
 
 ---
-
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: cloudsvr
-  labels:
-    name: cloudsvr
 spec:
   replicas: 1
-  selector:
-    name: cloudsvr
   template:
     metadata:
       labels:
-        name: cloudsvr
+        app: cloudsvr
     spec:
       containers:
       - name: cloudsvr
-        image: gcr.io/guru-gce-app1/infra-cloud-server
-        env:
-        - name: GET_HOSTS_FROM
-          value: dns
+        image: sloppycoder/infra-cloud-server
         ports:
         - containerPort: 8761
 

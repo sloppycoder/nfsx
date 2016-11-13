@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysql
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: "mysql:5.5"
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "password"
+
+
+#
+# to create databases for the applicaiton
+#
+#
+# 1. start database instance
+# kubectl create -f mysql.yml
+#
+# 2. get dokcer instance id using
+# kubectl get pods
+#
+# 3. get into the docker instance
+# docker exec -it <instance_id> /bin/bash
+#
+# 4. create database using the. enter 'password' when prompted
+# mysql -p mysql
+#
+# 5. enter following SQL statements
+#
+# CREATE DATABASE carddb CHARACTER SET utf8 COLLATE utf8_general_ci;
+# CREATE USER 'cardsvc'@'localhost' IDENTIFIED BY 'password';
+# CREATE USER 'cardsvc'@'%' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON carddb.* TO 'cardsvc'@'localhost';
+# GRANT ALL PRIVILEGES ON carddb.* TO 'cardsvc'@'%';
+
+# CREATE DATABASE `profdb` CHARACTER SET utf8 COLLATE utf8_general_ci;
+# CREATE USER 'profsvc'@'localhost' IDENTIFIED BY 'password';
+# CREATE USER 'profsvc'@'%' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON profdb.* TO 'profsvc'@'localhost';
+# GRANT ALL PRIVILEGES ON profdb.* TO 'profsvc'@'%';
+
+

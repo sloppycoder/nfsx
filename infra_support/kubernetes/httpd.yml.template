@@ -15,30 +15,22 @@ spec:
   externalIPs:
     - NODE_EXTERNAL_IP
   selector:
-    name: httpd
+    app: httpd
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: httpd
-  labels:
-    name: httpd
 spec:
   replicas: 1
-  selector:
-    name: httpd
   template:
     metadata:
       labels:
-        name: httpd
+        app: httpd
     spec:
       containers:
       - name: httpd
-        image: gcr.io/guru-gce-app1/ibank-web
-        env:
-        - name: GET_HOSTS_FROM
-          value: dns
+        image: sloppycoder/ibank-web
         ports:
         - containerPort: 8080
-

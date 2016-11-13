@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# WARNING!!
+#
+# this script has not been updated. it may not work any more.
+#
+
 grab_ingress_ip() {
     sleep 90
     NODE_EXTERNAL_IP=$(kubectl describe service httpd | grep "Ingress" | cut -d ":" -f 2 | xargs)

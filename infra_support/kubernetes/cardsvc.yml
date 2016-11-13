@@ -10,38 +10,33 @@ spec:
   - port: 8110
     targetPort: 8110
   selector:
-    name: cardsvc
+    app: cardsvc
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: cardsvc
-  labels:
-    name: cardsvc
 spec:
   replicas: 1
-  selector:
-    name: cardsvc
   template:
     metadata:
       labels:
-        name: cardsvc
+        app: cardsvc
     spec:
       containers:
       - name: cardsvc
-        image: gcr.io/guru-gce-app1/ibank-card-service
+        image: sloppycoder/ibank-card-service
+        ports:
+        - containerPort: 8110
         env:
         - name: GET_HOSTS_FROM
           value: dns
         - name: SPRING_PROFILES_ACTIVE
-          value: "h2"
+          value: "mysql"
         - name: CONFIG_SERVER_URL
           value: "http://cloudsvr:8761"
         - name: EUREKA_HOST
           value: "cloudsvr"
         - name: JDBC_URL
-          value: "jdbc:mysql://dbhost/profdb"
-        ports:
-        - containerPort: 8110
-
+          value: "jdbc:mysql://mysql/carddb"

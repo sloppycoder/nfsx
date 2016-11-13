@@ -10,26 +10,22 @@ spec:
   - port: 6379
     targetPort: 6379
   selector:
-    name: redis
+    app: redis
 
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: redis
-  labels:
-    name: redis
 spec:
   replicas: 1
-  selector:
-    name: redis
   template:
     metadata:
       labels:
-        name: redis
+        app: redis
     spec:
       containers:
       - name: master
-        image: redis
+        image: "redis:3.0.5"
         ports:
         - containerPort: 6379
