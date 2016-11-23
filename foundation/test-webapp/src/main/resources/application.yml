@@ -43,30 +43,6 @@ security:
 
 ---
 spring:
-  profiles: oracle
-
-  datasource:
-    url: jdbc:oracle:thin:@//192.168.99.100:49161/XE
-    username: spring
-    password: spring
-
-  jpa:
-    database: oracle
-    show-sql: true
-    hibernate:
-      ddl-auto: validate
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.Oracle10gDialect
-
-flyway:
-  enabled: true
-  locations: db/migration/oracle
-
-
----
-spring:
   profiles: h2
 
   datasource:
@@ -78,7 +54,6 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: create
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect

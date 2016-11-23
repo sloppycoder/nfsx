@@ -1,7 +1,5 @@
 package com.fictional.nfsx.sample.security;
 
-import com.ibm.websphere.crypto.KeyException;
-import com.ibm.websphere.crypto.KeySetHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,9 +16,6 @@ public class CryptoKeyManager {
     @Value("${app.db.crypto.key}")
     String crytoKey;
 
-    @Value("${app.db.crypto.webspherekeyset}")
-    String websphereKeySetName;
-
     private Key dbPersistenceKey = null;
 
     public Key getKeyForDBPersistence() {
@@ -31,20 +26,7 @@ public class CryptoKeyManager {
     }
 
     private Key initializeDBPersistenceKey(){
-        if (websphereKeySetName != null && !websphereKeySetName.trim().isEmpty()) {
-            LOG.info("reading key from Websphere KeyHelper");
-            com.ibm.websphere.crypto.KeySetHelper ksh = KeySetHelper.getInstance();
-            try {
-                Key key = (Key) ksh.getLatestKeyForKeySet(websphereKeySetName);
-                // sanity check the key first
-                LOG.info(".got key {} {}", key.getAlgorithm(), key.getFormat());
-                return key;
-            } catch (KeyException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            LOG.info("reading key from application configuration");
-            return new SecretKeySpec(crytoKey.getBytes(), "AES");
-        }
+        LOG.info("reading key from application configuration");
+        return new SecretKeySpec(crytoKey.getBytes(), "AES");
     }
 }
