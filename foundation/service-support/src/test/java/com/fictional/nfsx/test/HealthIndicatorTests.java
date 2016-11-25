@@ -12,6 +12,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
 
 
 @RunWith(SpringRunner.class)
@@ -40,6 +41,7 @@ public class HealthIndicatorTests {
         .then()
             .statusCode(200)
             .body(containsString("git.commit.id"))
+            .body(not(containsString("@git.commit.id@")))
         .log()
             .all();
         // @formatter:on
