@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes =  MainAppApplication.class, webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test,h2")
-public class MainAppApplicationTests extends RedisBasedTest {
+public class MainAppApplicationTests {
 
     @Value("${server.context-path}")
     String contextPath;

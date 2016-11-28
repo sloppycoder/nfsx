@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes =  MainAppApplication.class, webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test,h2")
-public class CustomHealthIndicatorTests extends RedisBasedTest {
+public class CustomHealthIndicatorTests {
 
     @Autowired
     private WebApplicationContext context;
@@ -30,13 +30,15 @@ public class CustomHealthIndicatorTests extends RedisBasedTest {
 
     @Test public void
     health_check_shows_git_info() {
+        // @formatter:off
         given().
         when().
-        get("/health").
+            get("/health").
         then().
-        statusCode(200).
-        body(containsString("git.commit.id")).
+            statusCode(200).
+            body(containsString("git.commit.id")).
         log().
-        all();
+            all();
+        // @formatter:on
     }
 }

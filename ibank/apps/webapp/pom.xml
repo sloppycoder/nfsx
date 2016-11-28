@@ -38,14 +38,6 @@
       <artifactId>spring-session</artifactId>
     </dependency>
 
-    <!-- embedded redis server for test cases -->
-    <dependency>
-      <groupId>com.github.kstyrc</groupId>
-      <artifactId>embedded-redis</artifactId>
-      <version>0.6</version>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
