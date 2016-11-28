@@ -42,7 +42,7 @@
     <guava.version>19.0</guava.version>
 
     <!-- build related -->
-    <docver.maven.plugin.version>0.4.13</docver.maven.plugin.version>
+    <docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
 
     <!--
       JVM argument passed to surefire-plugin when running unit test
@@ -427,7 +427,7 @@
         <plugin>
           <groupId>com.spotify</groupId>
           <artifactId>docker-maven-plugin</artifactId>
-          <version>${docver.maven.plugin.version}</version>
+          <version>${docker.maven.plugin.version}</version>
         </plugin>
 
         <!-- end of common plug configuration -->
